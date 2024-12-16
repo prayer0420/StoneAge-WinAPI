@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrayEngine_Window", "PrayEngine_Window\PrayEngine_Window.vcxproj", "{4BD60A3C-D1CF-4C7D-9DF2-95D97D5DB63B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrayEngine_SOURCE", "PrayEngine_SOURCE\PrayEngine_SOURCE.vcxitems", "{093C09C1-E587-4BCB-8028-87BF52243C34}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor_Window", "Editor_Window\Editor_Window.vcxproj", "{9FF032C8-4CB3-447A-8786-9407BE52AE18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BD60A3C-D1CF-4C7D-9DF2-95D97D5DB63B}.Debug|x64.ActiveCfg = Debug|x64
+		{4BD60A3C-D1CF-4C7D-9DF2-95D97D5DB63B}.Debug|x64.Build.0 = Debug|x64
+		{4BD60A3C-D1CF-4C7D-9DF2-95D97D5DB63B}.Debug|x86.ActiveCfg = Debug|Win32
+		{4BD60A3C-D1CF-4C7D-9DF2-95D97D5DB63B}.Debug|x86.Build.0 = Debug|Win32
+		{4BD60A3C-D1CF-4C7D-9DF2-95D97D5DB63B}.Release|x64.ActiveCfg = Release|x64
+		{4BD60A3C-D1CF-4C7D-9DF2-95D97D5DB63B}.Release|x64.Build.0 = Release|x64
+		{4BD60A3C-D1CF-4C7D-9DF2-95D97D5DB63B}.Release|x86.ActiveCfg = Release|Win32
+		{4BD60A3C-D1CF-4C7D-9DF2-95D97D5DB63B}.Release|x86.Build.0 = Release|Win32
+		{9FF032C8-4CB3-447A-8786-9407BE52AE18}.Debug|x64.ActiveCfg = Debug|x64
+		{9FF032C8-4CB3-447A-8786-9407BE52AE18}.Debug|x64.Build.0 = Debug|x64
+		{9FF032C8-4CB3-447A-8786-9407BE52AE18}.Debug|x86.ActiveCfg = Debug|Win32
+		{9FF032C8-4CB3-447A-8786-9407BE52AE18}.Debug|x86.Build.0 = Debug|Win32
+		{9FF032C8-4CB3-447A-8786-9407BE52AE18}.Release|x64.ActiveCfg = Release|x64
+		{9FF032C8-4CB3-447A-8786-9407BE52AE18}.Release|x64.Build.0 = Release|x64
+		{9FF032C8-4CB3-447A-8786-9407BE52AE18}.Release|x86.ActiveCfg = Release|Win32
+		{9FF032C8-4CB3-447A-8786-9407BE52AE18}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B117643E-C20C-4EBF-B2AE-51C5E18967B5}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		PrayEngine_SOURCE\PrayEngine_SOURCE.vcxitems*{093c09c1-e587-4bcb-8028-87bf52243c34}*SharedItemsImports = 9
+		PrayEngine_SOURCE\PrayEngine_SOURCE.vcxitems*{4bd60a3c-d1cf-4c7d-9df2-95d97d5db63b}*SharedItemsImports = 4
+	EndGlobalSection
+EndGlobal
