@@ -7,7 +7,7 @@
 #include "..\\PrayEngine_SOURCE\\prApplication.h"
 #define MAX_LOADSTRING 100
 
-prApplication app;
+pr::Application application;
 
 
 // 전역 변수:
@@ -30,13 +30,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-    app.test();
-
-    // TODO: 여기에 코드를 입력합니다.
-
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_EDITORWINDOW, szWindowClass, MAX_LOADSTRING);
+
     MyRegisterClass(hInstance);
 
     // 애플리케이션 초기화를 수행합니다:
@@ -57,6 +54,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
     {
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
+            if (msg.message == WM_QUIT)
+                break;
+
             if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
             {
                 TranslateMessage(&msg);
@@ -67,27 +67,17 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
         {
             //메세지가 없을 경우 여기서 처리
             //게임로직이 들어가면 된다
-            int a = 0;
+            application.Run();
         }
-
     }
-    //// 기본 메시지 루프입니다:
-    //while (GetMessage(&msg, nullptr, 0, 0))
-    //{
-    //    if (
-    //    }
-    //}
 
     return (int)msg.wParam;
 }
 
 
 
-//
 //  함수: MyRegisterClass()
-//
 //  용도: 창 클래스를 등록합니다.
-//
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
     WNDCLASSEXW wcex;
@@ -121,6 +111,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+
+    application.Initialize(hWnd);
 
     //2개이상의 윈도우도 생성 가능하다.
     //HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
@@ -167,50 +159,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_PAINT:
     {
         PAINTSTRUCT ps;
-        //HDC hdc = BeginPaint(hWnd, &ps);
-        HDC hdc = GetDC(hWnd);
-
-        //DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체
-        //GDI모듈에 의해서 관리된다
-        //어떤 폰트를 사용할건가? 어떤 선의 굵기를 정해줄건가? 어떤색상으로 그릴건가?
-        //화면 출력에 필요한 모든 경우는 WINAPI에서는 DC를 통해서 작업을 진행할 수 있다.
-
-        //Create하는건 내부적으로 동적할당하고 있기때문에 나중에 delete를 해줘야 메모리에 계속 안쌓임
-        //void*를 반환하고 있기때문에(주소를 넘겨줌) 캐스팅해서 받아야함
-        //파랑 브러쉬 생성
-        HBRUSH blueBrush = (HBRUSH)CreateSolidBrush(RGB(0, 0, 255));
-        //파랑 브러쉬 DC에 선택, 그리고 흰색 브러쉬 반환
-        HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
-
-        Rectangle(hdc, 50, 50, 100, 100);
-
-        //다시 흰색 원본 브러쉬 선택
-        SelectObject(hdc, oldBrush);
-        //파랑 브러쉬 삭제
-        DeleteObject(blueBrush);
-
-        HPEN redPen = (HPEN)CreatePen(PS_SOLID, 5, RGB(255, 0, 0));
-
-        HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-
-        Ellipse(hdc, 50, 50, 100, 100);
-
-        SelectObject(hdc, oldPen);
-
-        DeleteObject(redPen);
-
-
-        HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
-        oldBrush = (HBRUSH)SelectObject(hdc, grayBrush);
-        Rectangle(hdc, 400, 400, 500, 500);
-        SelectObject(hdc, oldBrush);
+        HDC hdc = BeginPaint(hWnd, &ps);
+        //HDC hdc = GetDC(hWnd);
 
         EndPaint(hWnd, &ps);
     }
     break;
+
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
+
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
