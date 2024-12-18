@@ -9,6 +9,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{093C09C1-E587-4BCB-8028-87BF52243C34}|PrayEngine_SOURCE\\PrayEngine_SOURCE.vcxitems|C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\PrayEngine_SOURCE\\prApplication.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{093C09C1-E587-4BCB-8028-87BF52243C34}|PrayEngine_SOURCE\\PrayEngine_SOURCE.vcxitems|solutionrelative:PrayEngine_SOURCE\\prApplication.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093C09C1-E587-4BCB-8028-87BF52243C34}|PrayEngine_SOURCE\\PrayEngine_SOURCE.vcxitems|C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\PrayEngine_SOURCE\\prApplication.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{093C09C1-E587-4BCB-8028-87BF52243C34}|PrayEngine_SOURCE\\PrayEngine_SOURCE.vcxitems|solutionrelative:PrayEngine_SOURCE\\prApplication.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,15 +30,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Editor_Window.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Editor_Window\\Editor_Window.cpp",
-              "RelativeDocumentMoniker": "Editor_Window\\Editor_Window.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Editor_Window\\Editor_Window.cpp",
-              "RelativeToolTip": "Editor_Window\\Editor_Window.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA5AAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "prApplication.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\PrayEngine_SOURCE\\prApplication.cpp",
+              "RelativeDocumentMoniker": "PrayEngine_SOURCE\\prApplication.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\PrayEngine_SOURCE\\prApplication.cpp",
+              "RelativeToolTip": "PrayEngine_SOURCE\\prApplication.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-15T02:33:31.308Z",
+              "WhenOpened": "2024-12-18T14:00:17.46Z",
               "EditorCaption": ""
             },
             {
@@ -45,9 +49,23 @@
               "RelativeDocumentMoniker": "PrayEngine_SOURCE\\prApplication.h",
               "ToolTip": "C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\PrayEngine_SOURCE\\prApplication.h",
               "RelativeToolTip": "PrayEngine_SOURCE\\prApplication.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-15T02:26:01.765Z"
+              "WhenOpened": "2024-12-15T02:26:01.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Editor_Window.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Editor_Window\\Editor_Window.cpp",
+              "RelativeDocumentMoniker": "Editor_Window\\Editor_Window.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Editor_Window\\Editor_Window.cpp",
+              "RelativeToolTip": "Editor_Window\\Editor_Window.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-15T02:33:31.308Z",
+              "EditorCaption": ""
             }
           ]
         }
