@@ -21,10 +21,11 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-                     _In_opt_ HINSTANCE hPrevInstance,
-                     _In_ LPWSTR    lpCmdLine,
-                     _In_ int       nCmdShow)
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 핸들
+    _In_opt_ HINSTANCE hPrevInstance,  //바로 앞에 실행된 현재 프로그램의 인스턴스 핸들, 없을경우에는 NULL
+    //지금은 신경쓰지 않아도 되는 값이다.
+    _In_ LPWSTR    lpCmdLine,          //명령행 으로 입력된 프로그램의 인수라고 하는데
+    _In_ int       nCmdShow)           //프로그램
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
@@ -39,7 +40,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     MyRegisterClass(hInstance);
 
     // 애플리케이션 초기화를 수행합니다:
-    if (!InitInstance (hInstance, nCmdShow))
+    if (!InitInstance(hInstance, nCmdShow))
     {
         return FALSE;
     }
@@ -58,7 +59,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
     }
 
-    return (int) msg.wParam;
+
+    return (int)msg.wParam;
 }
 
 
@@ -74,17 +76,17 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 
     wcex.cbSize = sizeof(WNDCLASSEX);
 
-    wcex.style          = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc    = WndProc;
-    wcex.cbClsExtra     = 0;
-    wcex.cbWndExtra     = 0;
-    wcex.hInstance      = hInstance;
-    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_EDITORWINDOW));
-    wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
-    wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_EDITORWINDOW);
-    wcex.lpszClassName  = szWindowClass;
-    wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+    wcex.style = CS_HREDRAW | CS_VREDRAW;
+    wcex.lpfnWndProc = WndProc;
+    wcex.cbClsExtra = 0;
+    wcex.cbWndExtra = 0;
+    wcex.hInstance = hInstance;
+    wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_EDITORWINDOW));
+    wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
+    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+    wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_EDITORWINDOW);
+    wcex.lpszClassName = szWindowClass;
+    wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
     return RegisterClassExW(&wcex);
 }
@@ -101,61 +103,97 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+        CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
-   if (!hWnd)
-   {
-      return FALSE;
-   }
+    //2개이상의 윈도우도 생성 가능하다.
+    //HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+    //           CW_USEDEFAULT, 0, 1600, 900, nullptr, nullptr, hInstance, nullptr);
 
-   ShowWindow(hWnd, nCmdShow);
-   UpdateWindow(hWnd);
+    if (!hWnd)
+    {
+        return FALSE;
+    }
 
-   return TRUE;
+    ShowWindow(hWnd, nCmdShow);
+    UpdateWindow(hWnd);
+
+    return TRUE;
 }
 
-//
 //  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
-//
 //  용도: 주 창의 메시지를 처리합니다.
-//
 //  WM_COMMAND  - 애플리케이션 메뉴를 처리합니다.
 //  WM_PAINT    - 주 창을 그립니다.
 //  WM_DESTROY  - 종료 메시지를 게시하고 반환합니다.
-//
-//
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
     case WM_COMMAND:
+    {
+        int wmId = LOWORD(wParam);
+        // 메뉴 선택을 구문 분석합니다:
+        switch (wmId)
         {
-            int wmId = LOWORD(wParam);
-            // 메뉴 선택을 구문 분석합니다:
-            switch (wmId)
-            {
-            case IDM_ABOUT:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-                break;
-            case IDM_EXIT:
-                DestroyWindow(hWnd);
-                break;
-            default:
-                return DefWindowProc(hWnd, message, wParam, lParam);
-            }
+        case IDM_ABOUT:
+            DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+            break;
+        case IDM_EXIT:
+            DestroyWindow(hWnd);
+            break;
+        default:
+            return DefWindowProc(hWnd, message, wParam, lParam);
         }
-        break;
+    }
+    break;
+    // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
     case WM_PAINT:
-        {
-            PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-            EndPaint(hWnd, &ps);
-        }
-        break;
+    {
+        PAINTSTRUCT ps;
+        //HDC hdc = BeginPaint(hWnd, &ps);
+        HDC hdc = GetDC(hWnd);
+
+        //DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체
+        //GDI모듈에 의해서 관리된다
+        //어떤 폰트를 사용할건가? 어떤 선의 굵기를 정해줄건가? 어떤색상으로 그릴건가?
+        //화면 출력에 필요한 모든 경우는 WINAPI에서는 DC를 통해서 작업을 진행할 수 있다.
+
+        //Create하는건 내부적으로 동적할당하고 있기때문에 나중에 delete를 해줘야 메모리에 계속 안쌓임
+        //void*를 반환하고 있기때문에(주소를 넘겨줌) 캐스팅해서 받아야함
+        //파랑 브러쉬 생성
+        HBRUSH blueBrush = (HBRUSH)CreateSolidBrush(RGB(0, 0, 255));
+        //파랑 브러쉬 DC에 선택, 그리고 흰색 브러쉬 반환
+        HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
+
+        Rectangle(hdc, 50, 50, 100, 100);
+
+        //다시 흰색 원본 브러쉬 선택
+        SelectObject(hdc, oldBrush);
+        //파랑 브러쉬 삭제
+        DeleteObject(blueBrush);
+
+        HPEN redPen = (HPEN)CreatePen(PS_SOLID, 5, RGB(255, 0, 0));
+
+        HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
+
+        Ellipse(hdc, 50, 50, 100, 100);
+
+        SelectObject(hdc, oldPen);
+
+        DeleteObject(redPen);
+
+
+        HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
+        oldBrush = (HBRUSH)SelectObject(hdc, grayBrush);
+        Rectangle(hdc, 400, 400, 500, 500);
+        SelectObject(hdc, oldBrush);
+
+        EndPaint(hWnd, &ps);
+    }
+    break;
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
