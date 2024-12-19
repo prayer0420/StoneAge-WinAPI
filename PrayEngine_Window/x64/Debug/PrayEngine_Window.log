@@ -1,6 +1,2 @@
 ﻿  prApplication.cpp
-C:\Users\User\Desktop\WinApi\PrayEngine\PrayEngine_SOURCE\prApplication.cpp(73,53): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Desktop\WinApi\PrayEngine\PrayEngine_SOURCE\prApplication.cpp(73,43): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Desktop\WinApi\PrayEngine\PrayEngine_SOURCE\prApplication.cpp(73,33): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Desktop\WinApi\PrayEngine\PrayEngine_SOURCE\prApplication.cpp(73,23): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   PrayEngine_Window.vcxproj -> C:\Users\User\Desktop\WinApi\PrayEngine\x64\Debug\PrayEngine_Window.lib

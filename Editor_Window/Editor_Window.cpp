@@ -23,7 +23,7 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 핸들
     _In_opt_ HINSTANCE hPrevInstance,  //바로 앞에 실행된 현재 프로그램의 인스턴스 핸들, 없을경우에는 NULL
-    //지금은 신경쓰지 않아도 되는 값이다.
+                                        //지금은 신경쓰지 않아도 되는 값이다.
     _In_ LPWSTR    lpCmdLine,          //명령행 으로 입력된 프로그램의 인수라고 하는데
     _In_ int       nCmdShow)           //프로그램
 {
@@ -74,8 +74,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
     return (int)msg.wParam;
 }
 
-
-
 //  함수: MyRegisterClass()
 //  용도: 창 클래스를 등록합니다.
 ATOM MyRegisterClass(HINSTANCE hInstance)
@@ -99,10 +97,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     return RegisterClassExW(&wcex);
 }
 
-//   함수: InitInstance(HINSTANCE, int)
 //   용도: 인스턴스 핸들을 저장하고 주 창을 만듭니다.
-//   주석:
-//
 //        이 함수를 통해 인스턴스 핸들을 전역 변수에 저장하고
 //        주 프로그램 창을 만든 다음 표시합니다.
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
@@ -129,11 +124,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     return TRUE;
 }
 
-//  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
 //  용도: 주 창의 메시지를 처리합니다.
 //  WM_COMMAND  - 애플리케이션 메뉴를 처리합니다.
 //  WM_PAINT    - 주 창을 그립니다.
-//  WM_DESTROY  - 종료 메시지를 게시하고 반환합니다.
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
