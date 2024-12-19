@@ -68,6 +68,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
             //메세지가 없을 경우 여기서 처리
             //게임로직이 들어가면 된다
             application.Run();
+
+
         }
     }
 

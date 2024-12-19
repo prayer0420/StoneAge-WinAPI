@@ -1,5 +1,5 @@
 #pragma once
-#include "GameObject.h"
+#include "prGameObject.h"
 
 namespace pr
 {
