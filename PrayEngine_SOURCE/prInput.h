@@ -16,10 +16,10 @@ namespace pr
 
 	enum class eKeyCode
 	{
-		Q,W,E,R,T,Y,U,I,O,P,
-		A,S,D,F,G,H,J,K,L,
-		Z,X,C,V,B,N,M,
-		Left,Right,Down,Up,
+		Q, W, E, R, T, Y, U, I, O, P,
+		A, S, D, F, G, H, J, K, L,
+		Z, X, C, V, B, N, M,
+		Left, Right, Down, Up,
 		End,
 	};
 
@@ -44,11 +44,18 @@ namespace pr
 		static void Update();	//매프레임마다 키보드 상태 체크
 
 		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; }
-		static bool GetKeyUp(eKeyCode code)	  { return mKeys[(UINT)code].state == eKeyState::Up; }
-		static bool GetKey(eKeyCode code)	  { return mKeys[(UINT)code].state == eKeyState::Pressed; }
+		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
+		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
 
 	private:
+		static void CreateKeys();
+		static void UpdateKeys();
+		static bool IsKeyDown(eKeyCode code);
+		static void UpdateKey(Input::Key& key);
+		static void UpdateKeyDown(Input::Key& key);
+		static void UpdateKeyUp(Input::Key& key);
 
+	private:
 		//숫자로 해버리면 다른사람은 알수 없음
 		//int mState; //0 1 2  
 		static std::vector<Key> mKeys; //키들을 가지고있는 정적 vector
