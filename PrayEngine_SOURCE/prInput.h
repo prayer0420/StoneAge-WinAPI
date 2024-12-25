@@ -23,12 +23,6 @@ namespace pr
 		End,
 	};
 
-	//정적변수 : 클래스 내부에서 전역변수 같이 동작
-	//			클래스를 통해서만 누구나 접근 가능
-	//			인스턴스를 여러개 만들어도 이 정적변수는 Data영역에 
-	//			최초 1번 오직 클래스이름::정적변수이름 으로만 할당됨(재할당 되지 않음)
-	//			프로그램이 종료되어야 사라짐
-
 	class Input
 	{
 	public:
@@ -43,25 +37,20 @@ namespace pr
 		static void Initialize();
 		static void Update();	//매프레임마다 키보드 상태 체크
 
-		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; }
-		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
-		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
+		static bool GetKeyDown(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Down; }
+		static bool GetKeyUp(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Up; }
+		static bool GetKey(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Pressed; }
 
 	private:
-		static void CreateKeys();
-		static void UpdateKeys();
-		static bool IsKeyDown(eKeyCode code);
-		static void UpdateKey(Input::Key& key);
-		static void UpdateKeyDown(Input::Key& key);
-		static void UpdateKeyUp(Input::Key& key);
+		static void createKeys();
+		static void updateKeys();
+		static void updateKey(Input::Key& key);
+		static bool isKeyDown(eKeyCode code);
+		static void updateKeyDown(Input::Key& key);
+		static void updateKeyUp(Input::Key& key);
 
 	private:
-		//숫자로 해버리면 다른사람은 알수 없음
-		//int mState; //0 1 2  
-		static std::vector<Key> mKeys; //키들을 가지고있는 정적 vector
-
-
-
+		static std::vector<Key> Keys;
 	};
 
 }

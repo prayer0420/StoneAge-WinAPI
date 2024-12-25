@@ -11,7 +11,7 @@ namespace pr
 		~Application();
 
 	public:
-		void Initialize(HWND hwnd);
+		void Initialize(HWND hwnd, UINT width, UINT height);
 		void Run();
 		void Update();
 		void LateUpdate();
@@ -20,10 +20,15 @@ namespace pr
 	private:
 		HWND mHwnd;
 		HDC mHdc;
-		float mSpeed;
-		//float mX;
-		//float mY;
+
+		HDC mBackHdc;
+		HBITMAP mBackBitmap;
+
+		UINT mWidth;
+		UINT mHeight;
+
 		GameObject mPlayer;
+
 	};
 
 }

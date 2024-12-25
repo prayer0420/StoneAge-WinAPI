@@ -99,21 +99,18 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     return RegisterClassExW(&wcex);
 }
 
-//   용도: 인스턴스 핸들을 저장하고 주 창을 만듭니다.
-//        이 함수를 통해 인스턴스 핸들을 전역 변수에 저장하고
-//        주 프로그램 창을 만든 다음 표시합니다.
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
     hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
+
+    const UINT width = 1600;
+    const UINT height = 900;
+
     HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-        CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+        CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
-    application.Initialize(hWnd);
-
-    //2개이상의 윈도우도 생성 가능하다.
-    //HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-    //           CW_USEDEFAULT, 0, 1600, 900, nullptr, nullptr, hInstance, nullptr);
+    application.Initialize(hWnd, width, height);
 
     if (!hWnd)
     {

@@ -1,5 +1,7 @@
 #include "prGameObject.h"
 #include "prInput.h"
+#include "prTime.h"
+
 
 namespace pr
 {
@@ -12,25 +14,26 @@ namespace pr
 
 	void GameObject::Update()
 	{
+		const int speed = 100.0f;
 
 		if (Input::GetKey(eKeyCode::A) || Input::GetKey(eKeyCode::Left))
 		{
-			mX -= 0.01f;
+			mX -= speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::D) || Input::GetKey(eKeyCode::Right))
 		{
-			mX += 0.01f;
+			mX += speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::W) || Input::GetKey(eKeyCode::Up))
 		{
-			mY -= 0.01f;
+			mY -= speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::S) || Input::GetKey(eKeyCode::Down))
 		{
-			mY += 0.01f;
+			mY += speed * Time::DeltaTime();
 		}
 	}
 
@@ -51,7 +54,7 @@ namespace pr
 
 		SelectObject(hdc, oldPen);
 
-		Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+		Rectangle(hdc, mX, mY, 100 + mX, 100 + mY);
 
 		SelectObject(hdc, oldBrush);
 

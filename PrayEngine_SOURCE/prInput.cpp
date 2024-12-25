@@ -4,7 +4,7 @@ namespace pr
 {
 	//여기는 Input클래스 바깥 전역 영역이기때문에 풀네임으로 작성
 	//정적변수이기 때문에 전역 영역에서 최초 1번 초기화 시켜줘야 함
-	std::vector<Input::Key> Input::mKeys = {};
+	std::vector<Input::Key> Input::Keys = {};
 
 	//eKeyCode만큼의 배열을 만듦
 	int ASCII[(UINT)eKeyCode::End] =
@@ -18,7 +18,7 @@ namespace pr
 
 	void pr::Input::Initialize()
 	{
-		CreateKeys();
+		createKeys();
 	}
 
 	void pr::Input::Update()
@@ -26,10 +26,10 @@ namespace pr
 		//1. 순회
 		//2. 키 눌렸는지 체크
 		//3. 현재 키 상태와 이전 키 상태를 비교하여 상태 업데이트
-		UpdateKeys();
+		updateKeys();
 
 	}
-	void Input::CreateKeys()
+	void Input::createKeys()
 	{
 		//eKeyCode의 개수만큼 반복(싹 다 초기화)
 		for (size_t i = 0; i < (UINT)eKeyCode::End; i++)
@@ -39,42 +39,38 @@ namespace pr
 			key.state = eKeyState::None;
 			key.keyCode = (eKeyCode)i;
 
-			mKeys.push_back(key);
+			Keys.push_back(key);
 		}
 	}
-	void Input::UpdateKeys()
+	void Input::updateKeys()
 	{
-		//벡터의 처음부터  끝까지 순회
-		//각 요소가 익명함수의 인자로 전달됨
-		//이 익명함수는 인자(요소)를 참조값으로 받고, void를 반환
-		//익명함수 내부에서 UpdateKey를 호출하여 key를 그 함수의 인자로 전달(참조값)
-		//=> 모든 키 값에 대해 원본 값을 바꿔줌
-		std::for_each(mKeys.begin(), mKeys.end(),
+
+		std::for_each(Keys.begin(), Keys.end(),
 			[](Key& key) -> void
 			{
-				UpdateKey(key);
+				updateKey(key);
 			});
 	}
 
-	bool Input::IsKeyDown(eKeyCode code)
+	bool Input::isKeyDown(eKeyCode code)
 	{
 		return GetAsyncKeyState(ASCII[(UINT)code]) & 0x8000;
 	}
 
-	void Input::UpdateKey(Input::Key& key)
+	void Input::updateKey(Input::Key& key)
 	{
 		//key가 현재 눌린 상태인지 검사
-		if (IsKeyDown(key.keyCode))
+		if (isKeyDown(key.keyCode))
 		{
-			UpdateKeyDown(key);
+			updateKeyDown(key);
 		}
 		else //key가 현재 안눌린 상태라면
 		{
-			UpdateKeyUp(key);
+			updateKeyUp(key);
 		}
 	}
 
-	void Input::UpdateKeyDown(Input::Key& key)
+	void Input::updateKeyDown(Input::Key& key)
 	{
 		//이전에도 눌린 상태라면 계속 눌려져있는 상태
 		if (key.bPressed == true)
@@ -86,7 +82,7 @@ namespace pr
 		key.bPressed = true;
 	}
 
-	void Input::UpdateKeyUp(Input::Key& key)
+	void Input::updateKeyUp(Input::Key& key)
 	{
 		//이전엔 눌린 상태라면 현재는 키를 뗀 상태
 		if (key.bPressed == true)
