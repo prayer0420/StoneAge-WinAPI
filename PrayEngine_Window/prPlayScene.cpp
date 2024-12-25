@@ -19,14 +19,9 @@ namespace pr
 		}
 
 	}
-
 	void PlayScene::Update()
 	{
 		Scene::Update();
-		//for (GameObject* gameObj : mGameObjects)
-		//{
-		//	gameObj->Update();
-		//}
 	}
 	void PlayScene::LateUpdate()
 	{
