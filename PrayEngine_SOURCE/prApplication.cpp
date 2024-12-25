@@ -1,6 +1,8 @@
 #include "prApplication.h"
 #include "prInput.h"
 #include "prTime.h"
+#include "prSceneManager.h"
+
 
 namespace pr
 {
@@ -22,6 +24,8 @@ namespace pr
 		adjustWindowRect(hwnd, width, height);
 		createBuffer(width, height);
 		initializeEtc();
+
+		SceneManager::Initialize();
 	}
 
 	void Application::Run()
@@ -31,30 +35,38 @@ namespace pr
 		Render();
  	}
 
-
 	void Application::Update()
 	{
 		Input::Update();
 		Time::Update();
 
-		mPlayer.Update();
+		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
 	{
-		mPlayer.LateUpdate();
 	}
-	 
+
 	void Application::Render()
 	{
-		Rectangle(mBackHdc, 0, 0, 1600, 900);
+		clearRenderTarget();
 
 		Time::Render(mBackHdc);
-		mPlayer.Render(mBackHdc);
+		SceneManager::Render(mBackHdc);
 
-		// BackBuffer에 있는걸 원본 Buffer에 복사(그려준다)
-		BitBlt(mHdc, 0, 0, mWidth, mHeight
-			, mBackHdc, 0, 0, SRCCOPY);
+		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::clearRenderTarget()
+	{
+		//clear
+		Rectangle(mBackHdc, -1, -1, 1601, 901);
+	}
+
+	void Application::copyRenderTarget(HDC source, HDC dest)
+	{
+		BitBlt(dest, 0, 0, mWidth, mHeight
+			, source, 0, 0, SRCCOPY);
 	}
 
 	void Application::adjustWindowRect(HWND hwnd, UINT width, UINT height)

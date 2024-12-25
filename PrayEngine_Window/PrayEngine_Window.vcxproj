@@ -134,6 +134,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="prLoadScene.h" />
+    <ClInclude Include="prPlayScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="prPlayScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

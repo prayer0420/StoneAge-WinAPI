@@ -5,6 +5,8 @@
 #include "Editor_Window.h"
 
 #include "..\\PrayEngine_SOURCE\\prApplication.h"
+#include "..\\PrayEngine_Window\\prLoadScene.h"
+
 #define MAX_LOADSTRING 100
 
 pr::Application application;

@@ -13,7 +13,7 @@ namespace pr
 		void LateUpdate();
 		void Render(HDC hdc);
 
-		void SetPoisition(float x, float y)
+		void SetPosition(float x, float y)
 		{
 			mX = x;
 			mY = y;

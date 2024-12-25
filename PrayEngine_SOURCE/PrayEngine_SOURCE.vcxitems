@@ -15,15 +15,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prTime.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prTime.cpp" />
   </ItemGroup>
 </Project>
