@@ -48,10 +48,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
 
     MSG msg;
 
-
-    //PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)
-    //메세지 큐에 메세지 유무에 상관없이 함수가 리턴된다.
-    //리턴값이 true인 경우 메세지가 있고, false인 경우는 메세지가 없다라고 가르켜준다.
     while (true)
     {
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
@@ -67,19 +63,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
         }
         else
         {
-            //메세지가 없을 경우 여기서 처리
-            //게임로직이 들어가면 된다
             application.Run();
-
-
         }
     }
 
     return (int)msg.wParam;
 }
 
-//  함수: MyRegisterClass()
-//  용도: 창 클래스를 등록합니다.
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
     WNDCLASSEXW wcex;
@@ -105,7 +95,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
     hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-
     const UINT width = 1600;
     const UINT height = 900;
 
@@ -122,6 +111,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
 
+    pr::LoadScenes();
+    
     return TRUE;
 }
 

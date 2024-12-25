@@ -1,5 +1,7 @@
 #pragma once
 #include "prScene.h"
+//#include "..\\PrayEngine_Window\\prLoadScene.h"
+
 
 namespace pr
 {
@@ -26,7 +28,7 @@ namespace pr
 				return nullptr;
 
 			mActiveScene = iter->second;
-
+			mActiveScene->Initialize();
 			return iter->second;
 		}
 
@@ -34,6 +36,8 @@ namespace pr
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);
+	private:
+		static void ChangeScene();
 
 	private:
 		static std::map<std::wstring, Scene*> mScene;

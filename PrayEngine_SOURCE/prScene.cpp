@@ -2,40 +2,111 @@
 
 namespace pr
 {
+	GameObject* Scene::mPlayer = nullptr;
+
 	Scene::Scene()
-		: mGameObjects{}
+		: mNPCs{}
+		, mEnemyPets{}
+		, mMyPets{}
+		, mSceneName(nullptr)
 	{
+		mNPCs.reserve(10);
+		mEnemyPets.reserve(10);
+		mMyPets.reserve(10);
 	}
+
 	Scene::~Scene()
 	{
 	}
+
 	void Scene::Initialize()
 	{
+		
 	}
+
 	void Scene::Update()
 	{
-		for (GameObject* gameObj : mGameObjects)
+		if(mPlayer)
+			mPlayer->Update();
+
+		for (GameObject* npc: mNPCs)
 		{
-			gameObj->Update();
+			npc->Update();
 		}
-	}
-	void Scene::LateUpdate()
-	{
-		for (GameObject* gameObj : mGameObjects)
+
+		for (GameObject* enemyPet : mEnemyPets)
 		{
-			gameObj->LateUpdate();
+			enemyPet->Update();
 		}
-	}
-	void Scene::Render(HDC hdc)
-	{
-		for (GameObject* gameObj : mGameObjects)
+
+		for (GameObject* myPet : mMyPets)
 		{
-			gameObj->Render(hdc);
+			myPet->Update();
 		}
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject)
+	void Scene::LateUpdate()
 	{
-		mGameObjects.push_back(gameObject);
+		if (mPlayer)
+			mPlayer->LateUpdate();
+
+		for (GameObject* npc : mNPCs)
+		{
+			npc->LateUpdate();
+		}
+
+		for (GameObject* enemyPet : mEnemyPets)
+		{
+			enemyPet->LateUpdate();
+		}
+
+		for (GameObject* myPet : mMyPets)
+		{
+			myPet->LateUpdate();
+		}
+	}
+	
+	void Scene::Render(HDC hdc)
+	{
+		RenderName(hdc);
+		
+		if (mPlayer)
+			mPlayer->Render(hdc);
+
+		for (GameObject* npc : mNPCs)
+		{
+			npc->Render(hdc);
+		}
+
+		for (GameObject* enemyPet : mEnemyPets)
+		{
+			enemyPet->Render(hdc);
+		}
+
+		for (GameObject* myPet : mMyPets)
+		{
+			myPet->Render(hdc);
+		}
+	}
+
+	void Scene::RenderName(HDC hdc)
+	{
+		const wchar_t* str2 = GetName().c_str();
+		TextOut(hdc, 0, 20, str2, wcslen(str2));
+	}
+
+	void Scene::AddNPC(GameObject* gameObject)
+	{
+		mNPCs.push_back(gameObject);
+	}
+
+	void Scene::AddEnemyPet(GameObject* gameObject)
+	{
+		mEnemyPets.push_back(gameObject);
+	}
+
+	void Scene::AddMyPet(GameObject* gameObject)
+	{
+		mMyPets.push_back(gameObject);
 	}
 }

@@ -4,7 +4,6 @@
 namespace pr
 {
 
-	//숫자를 문자로 바꿔주는 문법
 	enum class eKeyState
 	{
 		Down,		//0
@@ -20,22 +19,22 @@ namespace pr
 		A, S, D, F, G, H, J, K, L,
 		Z, X, C, V, B, N, M,
 		Left, Right, Down, Up,
+		Num0, Num1, Num2, Num3, Num4, Num5, Num6, Num7, Num8, Num9,
 		End,
 	};
 
 	class Input
 	{
 	public:
-		struct Key				//키 하나당 가지고 있는 정보
+		struct Key				
 		{
-			//char keyCode;		
-			eKeyCode keyCode;	//내가 어떤 키 인지
-			eKeyState state;	//어떤 상태인지
-			bool bPressed;		//눌려있는지
+			eKeyCode keyCode;	
+			eKeyState state;	
+			bool bPressed;		
 		};
 
 		static void Initialize();
-		static void Update();	//매프레임마다 키보드 상태 체크
+		static void Update();	
 
 		static bool GetKeyDown(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Down; }
 		static bool GetKeyUp(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Up; }

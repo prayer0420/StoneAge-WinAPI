@@ -8,16 +8,27 @@ namespace pr
 	{
 	public:
 		Scene();
-		~Scene();
+		virtual ~Scene();
 
 		virtual void Initialize();
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
+		virtual void RenderName(HDC hdc);
 
-		void AddGameObject(GameObject* gameObject);
+		void AddNPC(GameObject* gameObject);
+		void AddEnemyPet(GameObject* gameObject);
+		void AddMyPet(GameObject* gameObject);
+	
+	public:
+		static GameObject* mPlayer;
 
-	private:
-		std::vector<GameObject*> mGameObjects;
+	protected:
+		//std::vector<GameObject*> mGameObjects;
+		std::vector<GameObject*> mNPCs;
+		std::vector<GameObject*> mEnemyPets;
+		std::vector<GameObject*> mMyPets;
+
+		std::wstring* mSceneName;
 	};
 }

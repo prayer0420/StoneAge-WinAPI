@@ -3,11 +3,11 @@
 
 namespace pr
 {
-	class PlayScene : public Scene
+	class ItemShop : public Scene
 	{
 	public:
-		PlayScene();
-		~PlayScene();
+		ItemShop();
+		~ItemShop();
 
 		void Initialize() override;
 		void Update() override;

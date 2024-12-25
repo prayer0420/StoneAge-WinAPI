@@ -7,26 +7,23 @@ namespace pr
 	{
 	public :
 		GameObject();
-		~GameObject();
+		virtual ~GameObject();
 
-		void Update();
-		void LateUpdate();
-		void Render(HDC hdc);
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC hdc);
 
-		void SetPosition(float x, float y)
+		virtual void SetPosition(float x, float y)
 		{
 			mX = x;
 			mY = y;
 		}
 
-		float GetPositionX() {return mX;}
-		float GetPositionY() {return mY;}
+		virtual float GetPositionX() {return mX;}
+		virtual float GetPositionY() {return mY;}
 
-	private:
-		//게임오브젝트의 좌표
+	protected :
 		float mX;
 		float mY;
 	};
-
 }
-

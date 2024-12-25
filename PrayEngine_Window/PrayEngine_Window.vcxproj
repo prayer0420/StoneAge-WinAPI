@@ -134,11 +134,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="prBeginnerDungeonScene.h" />
+    <ClInclude Include="prCharacterCreateScene.h" />
+    <ClInclude Include="prCharacterSelectScene.h" />
+    <ClInclude Include="prFightScene.h" />
+    <ClInclude Include="prHeadManHouseScene.h" />
+    <ClInclude Include="prItemShop.h" />
     <ClInclude Include="prLoadScene.h" />
-    <ClInclude Include="prPlayScene.h" />
+    <ClInclude Include="prPetShopScene.h" />
+    <ClInclude Include="prTitleScene.h" />
+    <ClInclude Include="prvillageScene.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="prPlayScene.cpp" />
+    <ClCompile Include="prBeginnerDungeonScene.cpp" />
+    <ClCompile Include="prCharacterCreateScene.cpp" />
+    <ClCompile Include="prCharacterSelectScene.cpp" />
+    <ClCompile Include="prFightScene.cpp" />
+    <ClCompile Include="prHeadManHouseScene.cpp" />
+    <ClCompile Include="prItemShop.cpp" />
+    <ClCompile Include="prPetShopScene.cpp" />
+    <ClCompile Include="prTitleScene.cpp" />
+    <ClCompile Include="prvillageScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

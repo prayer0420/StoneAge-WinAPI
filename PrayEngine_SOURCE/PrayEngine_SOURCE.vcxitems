@@ -19,6 +19,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)prGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prNPC.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prPET.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prPlayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prTime.h" />
@@ -28,6 +31,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)prGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prNPC.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prPET.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prPlayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prTime.cpp" />
