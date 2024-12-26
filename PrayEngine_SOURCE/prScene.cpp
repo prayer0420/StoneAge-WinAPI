@@ -10,13 +10,14 @@ namespace pr
 		, mMyPets{}
 		, mSceneName(nullptr)
 	{
-		mNPCs.reserve(10);
-		mEnemyPets.reserve(10);
-		mMyPets.reserve(10);
+		mNPCs.reserve(2);
+		mEnemyPets.reserve(5);
+		mMyPets.reserve(5);
 	}
 
 	Scene::~Scene()
 	{
+
 	}
 
 	void Scene::Initialize()

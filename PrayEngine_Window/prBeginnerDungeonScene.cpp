@@ -11,6 +11,9 @@ namespace pr
 	}
 	void BeginnerDungeonScene::Initialize()
 	{
+		//플레이어 위치
+		mPlayer->SetPosition(1100, 200);
+
 		Scene::Initialize();
 	}
 	void BeginnerDungeonScene::Update()

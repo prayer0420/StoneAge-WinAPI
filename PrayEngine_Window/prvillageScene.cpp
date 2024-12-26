@@ -12,6 +12,7 @@ namespace pr
 	void villageScene::Initialize()
 	{
 		Scene::Initialize();
+		mPlayer->SetPosition(800, 200);
 	}
 	void villageScene::Update()
 	{

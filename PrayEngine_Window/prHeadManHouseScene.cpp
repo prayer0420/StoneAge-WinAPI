@@ -18,7 +18,7 @@ namespace pr
 		npc->SetPosition(800, 50);
 		AddNPC(npc);
 
-		mPlayer->SetPosition(600, 200);
+		mPlayer->SetPosition(800, 200);
 
 		Scene::Initialize();
 	}
