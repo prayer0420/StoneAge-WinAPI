@@ -10,45 +10,56 @@ pr::Player::~Player()
 {
 }
 
+void pr::Player::Initialize()
+{
+	GameObject::Initialize();
+
+}
+
 void pr::Player::Update()
 {
+	GameObject::Update();
 }
 
 void pr::Player::LateUpdate()
 {
-	const int speed = 100.0f;
 
-	if (Input::GetKey(eKeyCode::A) || Input::GetKey(eKeyCode::Left))
-	{
-		mX -= speed * Time::DeltaTime();
-	}
+	GameObject::LateUpdate();
+	//const int speed = 100.0f;
 
-	if (Input::GetKey(eKeyCode::D) || Input::GetKey(eKeyCode::Right))
-	{
-		mX += speed * Time::DeltaTime();
-	}
+	//if (Input::GetKey(eKeyCode::A) || Input::GetKey(eKeyCode::Left))
+	//{
+	//	mX -= speed * Time::DeltaTime();
+	//}
 
-	if (Input::GetKey(eKeyCode::W) || Input::GetKey(eKeyCode::Up))
-	{
-		mY -= speed * Time::DeltaTime();
-	}
+	//if (Input::GetKey(eKeyCode::D) || Input::GetKey(eKeyCode::Right))
+	//{
+	//	mX += speed * Time::DeltaTime();
+	//}
 
-	if (Input::GetKey(eKeyCode::S) || Input::GetKey(eKeyCode::Down))
-	{
-		mY += speed * Time::DeltaTime();
-	}
+	//if (Input::GetKey(eKeyCode::W) || Input::GetKey(eKeyCode::Up))
+	//{
+	//	mY -= speed * Time::DeltaTime();
+	//}
+
+	//if (Input::GetKey(eKeyCode::S) || Input::GetKey(eKeyCode::Down))
+	//{
+	//	mY += speed * Time::DeltaTime();
+	//}
 
 }
 
 void pr::Player::Render(HDC hdc)
 {
-	HBRUSH GreenBrush = CreateSolidBrush(RGB(0, 255, 0));
+	GameObject::Render(hdc);
 
-	HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, GreenBrush);
+	//HBRUSH GreenBrush = CreateSolidBrush(RGB(0, 255, 0));
 
-	Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
+	//HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, GreenBrush);
 
-	SelectObject(hdc, oldBrush);
+	//Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
 
-	DeleteObject(GreenBrush);
+	//SelectObject(hdc, oldBrush);
+
+	//DeleteObject(GreenBrush);
 }

@@ -8,23 +8,31 @@ pr::NPC::~NPC()
 {
 }
 
+void pr::NPC::Initialize()
+{
+	GameObject::Initialize();
+}
+
 void pr::NPC::Update()
 {
+	GameObject::Update();
 }
 
 void pr::NPC::LateUpdate()
 {
+	GameObject::LateUpdate();
 }
 
 void pr::NPC::Render(HDC hdc)
 {
-	HBRUSH blueBrush = CreateSolidBrush(RGB(0,0,255));
+	GameObject::Render(hdc);
 
-	HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
+	//HBRUSH blueBrush = CreateSolidBrush(RGB(0,0,255));
 
-	Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
+	//HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
 
-	SelectObject(hdc, oldBrush);
 
-	DeleteObject(blueBrush);
+	//SelectObject(hdc, oldBrush);
+
+	//DeleteObject(blueBrush);
 }

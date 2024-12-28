@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prComponent.cpp">
+      <Filter>Component\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prSpriteRenderer.cpp">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prTransform.cpp">
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prComponent.h">
+      <Filter>Component\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prSpriteRenderer.h">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prTransform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Component">
+      <UniqueIdentifier>{459a02d4-f019-40a6-a749-2a602259069b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{c398d559-388a-4bd4-abf2-b0ef33a1484e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\SpriteRenderer">
+      <UniqueIdentifier>{2d51089f-7b9f-42f9-af2a-a6167d364257}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Component">
+      <UniqueIdentifier>{02b64b72-aa55-4a6a-b67f-aaaf385afa78}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

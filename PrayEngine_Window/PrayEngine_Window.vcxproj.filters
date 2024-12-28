@@ -5,28 +5,75 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{bcb69188-a458-4493-b4c9-323bc5df4641}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="prLoadScene.h" />
-    <ClInclude Include="prTitleScene.h" />
-    <ClInclude Include="prCharacterSelectScene.h" />
-    <ClInclude Include="prCharacterCreateScene.h" />
-    <ClInclude Include="prvillageScene.h" />
-    <ClInclude Include="prBeginnerDungeonScene.h" />
-    <ClInclude Include="prPetShopScene.h" />
-    <ClInclude Include="prItemShop.h" />
-    <ClInclude Include="prFightScene.h" />
-    <ClInclude Include="prHeadManHouseScene.h" />
+    <ClInclude Include="..\PrayEngine_SOURCE\prNPC.h" />
+    <ClInclude Include="..\PrayEngine_SOURCE\prPET.h" />
+    <ClInclude Include="..\PrayEngine_SOURCE\prPlayer.h" />
+    <ClInclude Include="prLoadScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="prBeginnerDungeonScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="prCharacterCreateScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="prCharacterSelectScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="prFightScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="prHeadManHouseScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="prItemShopScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="prPetShopScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="prTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="prvillageScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="prTitleScene.cpp" />
-    <ClCompile Include="prCharacterSelectScene.cpp" />
-    <ClCompile Include="prCharacterCreateScene.cpp" />
-    <ClCompile Include="prvillageScene.cpp" />
-    <ClCompile Include="prBeginnerDungeonScene.cpp" />
-    <ClCompile Include="prPetShopScene.cpp" />
-    <ClCompile Include="prItemShop.cpp" />
-    <ClCompile Include="prFightScene.cpp" />
-    <ClCompile Include="prHeadManHouseScene.cpp" />
+    <ClCompile Include="..\PrayEngine_SOURCE\prNPC.cpp" />
+    <ClCompile Include="..\PrayEngine_SOURCE\prPET.cpp" />
+    <ClCompile Include="..\PrayEngine_SOURCE\prPlayer.cpp" />
+    <ClCompile Include="prBeginnerDungeonScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="prCharacterCreateScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="prCharacterSelectScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="prFightScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="prHeadManHouseScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="prItemShopScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="prPetShopScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="prTitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="prvillageScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

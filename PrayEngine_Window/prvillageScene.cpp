@@ -1,6 +1,7 @@
 #include "prvillageScene.h"
 #include "prGameObject.h"
-
+#include "prTransform.h"
+#include "prSpriteRenderer.h"
 namespace pr
 {
 	villageScene::villageScene()
@@ -12,7 +13,10 @@ namespace pr
 	void villageScene::Initialize()
 	{
 		Scene::Initialize();
-		mPlayer->SetPosition(800, 200);
+		{
+			Transform* tr = mPlayer->GetComponent<Transform>();
+			tr->SetPos(800, 200);
+		}
 	}
 	void villageScene::Update()
 	{

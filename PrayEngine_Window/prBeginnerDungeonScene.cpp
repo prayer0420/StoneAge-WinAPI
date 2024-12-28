@@ -1,5 +1,8 @@
 #include "prBeginnerDungeonScene.h"
 #include "prGameObject.h"
+#include "prPlayer.h"
+#include "prTransform.h"
+#include "prSpriteRenderer.h"
 
 namespace pr
 {
@@ -11,8 +14,15 @@ namespace pr
 	}
 	void BeginnerDungeonScene::Initialize()
 	{
-		//플레이어 위치
-		mPlayer->SetPosition(1100, 200);
+		{
+			Transform* tr = mPlayer->AddComponent<Transform>();
+			tr->SetPos(1100, 200);
+
+			tr->SetName(L"TR");
+
+			SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+		}
 
 		Scene::Initialize();
 	}

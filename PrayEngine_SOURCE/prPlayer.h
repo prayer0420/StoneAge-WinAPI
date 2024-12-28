@@ -1,5 +1,5 @@
 #pragma once
-#include "prGameObject.h"
+#include "..\\PrayEngine_SOURCE\\prGameObject.h"
 
 namespace pr
 {
@@ -9,17 +9,9 @@ namespace pr
 		Player();
 		~Player() override;
 
+		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
-
-		void SetPosition(float x, float y) override
-		{
-			mX = x;
-			mY = y;
-		}
-
-		float GetPositionX() override { return mX; }
-		float GetPositionY() override { return mY; }
 	};
 }

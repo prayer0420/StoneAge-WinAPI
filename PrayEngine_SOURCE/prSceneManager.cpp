@@ -55,7 +55,7 @@ namespace pr
 
 		else if (Input::GetKeyDown(eKeyCode::Num5))
 		{
-			LoadScene(L"ItemShop");
+			LoadScene(L"ItemShopScene");
 		}
 
 		else if (Input::GetKeyDown(eKeyCode::Num6))

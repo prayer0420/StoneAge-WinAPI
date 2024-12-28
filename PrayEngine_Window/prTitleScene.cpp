@@ -1,7 +1,8 @@
 #include "prTitleScene.h"
 #include "prGameObject.h"
 #include "prPlayer.h"
-
+#include "prTransform.h"
+#include "prSpriteRenderer.h"
 namespace pr
 {
 	TitleScene::TitleScene()
@@ -15,7 +16,14 @@ namespace pr
 		GameObject* player = new Player();
 		mPlayer = player;
 
-		mPlayer->SetPosition(-100, -100);
+		{
+			Transform* tr = mPlayer->AddComponent<Transform>();
+			tr->SetPos(-100, -100);
+			tr->SetName(L"TR");
+
+			SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+		}
 
 		Scene::Initialize();
 	}

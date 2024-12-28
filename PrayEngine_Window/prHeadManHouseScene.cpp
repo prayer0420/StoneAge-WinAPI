@@ -2,7 +2,8 @@
 #include "prGameObject.h"
 #include "prNPC.h"
 #include "prPlayer.h"
-
+#include "prTransform.h"
+#include "prSpriteRenderer.h"
 namespace pr
 {
 	HeadManHouseScene::HeadManHouseScene()
@@ -14,11 +15,25 @@ namespace pr
 
 	void HeadManHouseScene::Initialize()
 	{
-		GameObject* npc = new NPC();
-		npc->SetPosition(800, 50);
-		AddNPC(npc);
+		{
+			GameObject* npc = new NPC();
+			Transform* tr
+				= npc->AddComponent<Transform>();
+			tr->SetPos(800, 50);
 
-		mPlayer->SetPosition(800, 200);
+			tr->SetName(L"TR");
+
+			SpriteRenderer* sr
+				= npc->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+
+			AddNPC(npc);
+		}
+
+		{
+			Transform* tr = mPlayer->GetComponent<Transform>();
+			tr->SetPos(800, 200);
+		}
 
 		Scene::Initialize();
 	}

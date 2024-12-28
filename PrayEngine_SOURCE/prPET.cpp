@@ -8,23 +8,35 @@ pr::PET::~PET()
 {
 }
 
+void pr::PET::Initialize()
+{
+	GameObject::Initialize();
+
+}
+
 void pr::PET::Update()
 {
+	GameObject::Update();
+
 }
 
 void pr::PET::LateUpdate()
 {
+	GameObject::LateUpdate();
+
 }
 
 void pr::PET::Render(HDC hdc)
 {
-	HBRUSH redBrush = CreateSolidBrush(RGB(255, 0, 0));
+	GameObject::Render(hdc);
 
-	HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, redBrush);
+	//HBRUSH redBrush = CreateSolidBrush(RGB(255, 0, 0));
 
-	Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
+	//HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, redBrush);
 
-	SelectObject(hdc, oldBrush);
+	//Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
 
-	DeleteObject(redBrush);
+	//SelectObject(hdc, oldBrush);
+
+	//DeleteObject(redBrush);
 }

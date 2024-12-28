@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
+#include "prComponent.h"
 
 namespace pr
 {
@@ -9,21 +10,36 @@ namespace pr
 		GameObject();
 		virtual ~GameObject();
 
+		virtual void Initialize();
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-		virtual void SetPosition(float x, float y)
+		template <typename T>
+		T* AddComponent()
 		{
-			mX = x;
-			mY = y;
+			T* comp = new T();
+			comp->SetOwner(this);
+			mComponents.push_back(comp);
+
+			return comp;
 		}
 
-		virtual float GetPositionX() {return mX;}
-		virtual float GetPositionY() {return mY;}
+		template <typename T>
+		T* GetComponent()
+		{
+			T* component = nullptr;
+			for (Component* comp : mComponents)
+			{
+				component = dynamic_cast<T*>(comp);
+				if (component)
+					break;
+			}
 
-	protected :
-		float mX;
-		float mY;
+			return component;
+		}
+
+	private:
+		std::vector<Component*> mComponents;
 	};
 }
