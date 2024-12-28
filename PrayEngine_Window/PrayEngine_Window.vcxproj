@@ -146,6 +146,7 @@
     <ClInclude Include="prLoadScene.h" />
     <ClInclude Include="prPetShopScene.h" />
     <ClInclude Include="prTitleScene.h" />
+    <ClInclude Include="prUI.h" />
     <ClInclude Include="prvillageScene.h" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,7 @@
     <ClCompile Include="prItemShopScene.cpp" />
     <ClCompile Include="prPetShopScene.cpp" />
     <ClCompile Include="prTitleScene.cpp" />
+    <ClCompile Include="prUI.cpp" />
     <ClCompile Include="prvillageScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

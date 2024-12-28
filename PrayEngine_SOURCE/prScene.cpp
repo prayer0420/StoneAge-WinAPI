@@ -8,6 +8,7 @@ namespace pr
 		: mNPCs{}
 		, mEnemyPets{}
 		, mMyPets{}
+		, mUIs{}
 		, mSceneName(nullptr)
 	{
 		mNPCs.reserve(2);
@@ -44,6 +45,11 @@ namespace pr
 		{
 			myPet->Update();
 		}
+
+		for (GameObject* UI : mUIs)
+		{
+			UI->Update();
+		}
 	}
 
 	void Scene::LateUpdate()
@@ -65,15 +71,21 @@ namespace pr
 		{
 			myPet->LateUpdate();
 		}
+
+		for (GameObject* UI : mUIs)
+		{
+			UI->LateUpdate();
+		}
 	}
 	
 	void Scene::Render(HDC hdc)
 	{
-		RenderName(hdc);
-		
-		if (mPlayer)
-			mPlayer->Render(hdc);
 
+		for (GameObject* UI : mUIs)
+		{
+			UI->Render(hdc);
+		}
+		
 		for (GameObject* npc : mNPCs)
 		{
 			npc->Render(hdc);
@@ -88,6 +100,11 @@ namespace pr
 		{
 			myPet->Render(hdc);
 		}
+
+		/*if (mPlayer)*/
+		mPlayer->Render(hdc);
+
+		RenderName(hdc);
 	}
 
 	void Scene::RenderName(HDC hdc)
@@ -109,5 +126,9 @@ namespace pr
 	void Scene::AddMyPet(GameObject* gameObject)
 	{
 		mMyPets.push_back(gameObject);
+	}
+	void Scene::AddUI(GameObject* gameObject)
+	{
+		mUIs.push_back(gameObject);
 	}
 }

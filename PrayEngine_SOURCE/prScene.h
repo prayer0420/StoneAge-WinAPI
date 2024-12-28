@@ -19,6 +19,7 @@ namespace pr
 		void AddNPC(GameObject* gameObject);
 		void AddEnemyPet(GameObject* gameObject);
 		void AddMyPet(GameObject* gameObject);
+		void AddUI(GameObject* gameObject);
 	
 	public:
 		static GameObject* mPlayer;
@@ -28,6 +29,7 @@ namespace pr
 		std::vector<GameObject*> mNPCs;
 		std::vector<GameObject*> mEnemyPets;
 		std::vector<GameObject*> mMyPets;
+		std::vector<GameObject*> mUIs;
 
 		std::wstring* mSceneName;
 	};

@@ -18,7 +18,6 @@ namespace pr
 
 	void SceneManager::LateUpdate()
 	{
-
 		mActiveScene->LateUpdate();
 	}
 

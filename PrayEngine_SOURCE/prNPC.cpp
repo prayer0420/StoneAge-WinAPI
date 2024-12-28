@@ -26,13 +26,4 @@ void pr::NPC::LateUpdate()
 void pr::NPC::Render(HDC hdc)
 {
 	GameObject::Render(hdc);
-
-	//HBRUSH blueBrush = CreateSolidBrush(RGB(0,0,255));
-
-	//HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
-
-
-	//SelectObject(hdc, oldBrush);
-
-	//DeleteObject(blueBrush);
 }

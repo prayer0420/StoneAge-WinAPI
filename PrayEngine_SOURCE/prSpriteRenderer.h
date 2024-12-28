@@ -14,8 +14,12 @@ namespace pr
 		void Update()  override;
 		void LateUpdate()  override;
 		void Render(HDC hdc)  override;
+		void ImageLoad(const std::wstring& path); //ImageLoad먼저하고 Render에 그림
 
 	private:
+		Gdiplus::Image* mImgae;
+		UINT mWidth;
+		UINT mHeight;
 
 	};
 }

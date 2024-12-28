@@ -46,20 +46,10 @@ void pr::Player::LateUpdate()
 	//{
 	//	mY += speed * Time::DeltaTime();
 	//}
-
 }
 
 void pr::Player::Render(HDC hdc)
 {
 	GameObject::Render(hdc);
 
-	//HBRUSH GreenBrush = CreateSolidBrush(RGB(0, 255, 0));
-
-	//HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, GreenBrush);
-
-	//Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
-
-	//SelectObject(hdc, oldBrush);
-
-	//DeleteObject(GreenBrush);
 }
