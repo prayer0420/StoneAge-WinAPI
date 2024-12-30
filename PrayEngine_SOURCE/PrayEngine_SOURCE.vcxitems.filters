@@ -1,12 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)prEntity.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)prApplication.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)prInput.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)prScene.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)prSceneManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)prTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prComponent.cpp">
       <Filter>Component\Component</Filter>
     </ClCompile>
@@ -16,18 +10,39 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)prTransform.cpp">
       <Filter>Component\Transform</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)prMath.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)prResource.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)prResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prResource.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prResources.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prEntity.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prMath.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prApplication.cpp">
+      <Filter>High Level Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prSceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prInput.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prTime.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prGameObject.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)prEntity.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)prApplication.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)prInput.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)prScene.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)prSceneManager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)prTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prComponent.h">
       <Filter>Component\Component</Filter>
     </ClInclude>
@@ -37,9 +52,43 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)prTransform.h">
       <Filter>Component\Transform</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)prMath.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)prResource.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)prResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prResource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prResources.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prEntity.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prMath.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prApplication.h">
+      <Filter>High Level Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prSceneManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prInput.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prTime.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prGameObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prEnum.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -53,6 +102,27 @@
     </Filter>
     <Filter Include="Component\Component">
       <UniqueIdentifier>{02b64b72-aa55-4a6a-b67f-aaaf385afa78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{7d677d89-b6e4-42d1-a17d-022870a74ee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{28633487-ae98-4002-b0fd-7d803a9924ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="High Level Interface">
+      <UniqueIdentifier>{5ab00075-2faf-4de1-ba4d-c445ce94caf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{6cb43bc3-4da4-481f-982e-f2405efcf8c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{d0bc7dc2-39cd-428b-a5fd-6664de600d98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{bdb91de9-442d-4809-9c5e-f5ad7c07c318}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{b9cef6c0-e6ef-4f3a-ad36-e52d3e791bf4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

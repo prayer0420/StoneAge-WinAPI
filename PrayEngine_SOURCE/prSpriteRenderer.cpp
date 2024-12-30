@@ -60,7 +60,6 @@ namespace pr
 			SelectObject(hdc, oldBrush);
 			DeleteObject(blueBrush);
 		}
-
 	
 	//if (dynamic_cast<UI*>(this->GetOwner()))
 	//{

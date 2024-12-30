@@ -1,6 +1,7 @@
 #pragma once
 #include "prEntity.h"
 #include "prGameObject.h"
+#include "prLayer.h"
 
 namespace pr
 {
@@ -14,23 +15,22 @@ namespace pr
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
+
 		virtual void RenderName(HDC hdc);
+		
+		virtual void OnEnter();
+		virtual void OnExit();
 
-		void AddNPC(GameObject* gameObject);
-		void AddEnemyPet(GameObject* gameObject);
-		void AddMyPet(GameObject* gameObject);
-		void AddUI(GameObject* gameObject);
-	
-	public:
-		static GameObject* mPlayer;
+		void AddNPC(GameObject* gameObject, eLayerType type);
+		void AddEnemyPet(GameObject* gameObject, eLayerType type);
+		void AddMyPet(GameObject* gameObject, eLayerType type);
+		void AddUI(GameObject* gameObject, eLayerType type);
+		void AddPlayer(GameObject* gameObject, eLayerType type);
 
-	protected:
-		//std::vector<GameObject*> mGameObjects;
-		std::vector<GameObject*> mNPCs;
-		std::vector<GameObject*> mEnemyPets;
-		std::vector<GameObject*> mMyPets;
-		std::vector<GameObject*> mUIs;
+	private:
+		void CreateLayers();
 
-		std::wstring* mSceneName;
+	private:
+		std::vector<Layer*> mLayers;
 	};
 }

@@ -15,36 +15,37 @@ namespace pr
 	}
 	void TitleScene::Initialize()
 	{
-		GameObject* player = new Player();
-		mPlayer = player;
+		
 		{
-			Transform* tr = mPlayer->AddComponent<Transform>();
+			player = new Player();
+
+			Transform* tr = player->AddComponent<Transform>();
 			tr->SetPos({ -100, -100});
 			tr->SetName(L"TR");
 
-			SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
+
+			AddPlayer(player, eLayerType::Player);
 		}
 
 		{
 			UI* bg = new UI();
 			Transform* tr = bg->AddComponent<Transform>();
 			tr->SetPos(Vector2(0, 0));
-
 			tr->SetName(L"TR");
 
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 			sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\main.bmp");
 
-			AddUI(bg);
+			AddUI(bg,eLayerType::BackGround);
 		}
 
 		Scene::Initialize();
 	}
 	void TitleScene::Update()
 	{
-
 		Scene::Update();
 	}
 	void TitleScene::LateUpdate()

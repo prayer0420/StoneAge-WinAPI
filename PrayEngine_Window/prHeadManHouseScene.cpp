@@ -29,12 +29,19 @@ namespace pr
 				= npc->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 
-			AddNPC(npc);
+			AddNPC(npc,eLayerType::Npc);
 		}
 
 		{
-			Transform* tr = mPlayer->GetComponent<Transform>();
+			Player* player = new Player();
+			Transform* tr = player->AddComponent<Transform>();
 			tr->SetPos({ 800, 200 });
+			tr->SetName(L"TR");
+
+			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+
+			AddPlayer(player, eLayerType::Player);
 		}
 
 		//¹è°æ
@@ -49,7 +56,7 @@ namespace pr
 			sr->SetName(L"SR");
 			sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\tile.bmp");
 
-			AddUI(bg);
+			AddUI(bg,eLayerType::BackGround);
 		}
 
 		Scene::Initialize();

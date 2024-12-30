@@ -4,6 +4,7 @@
 #include "prTransform.h"
 #include "prSpriteRenderer.h"
 #include "prUI.h"
+#include "prPlayer.h"
 
 namespace pr
 {
@@ -18,20 +19,26 @@ namespace pr
 		for (int i = 0; i < 2; i++)
 		{
 			GameObject* npc = new NPC();
+			
 			Transform* tr = npc->AddComponent<Transform>();
-
 			tr->SetPos({ 300 + (i * 200) , 350 + (i * -200) });
-
 			tr->SetName(L"TR");
 
 			SpriteRenderer* sr = npc->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
-			AddNPC(npc);
+			AddNPC(npc,eLayerType::Npc);
 		}
 
 		{
-			Transform* tr = mPlayer->GetComponent<Transform>();
+			Player* player = new Player();
+			Transform* tr =player->AddComponent<Transform>();
 			tr->SetPos({ 1300, 600 });
+			tr->SetName(L"TR");
+
+			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+
+			AddPlayer(player, eLayerType::Player);
 		}
 
 
@@ -47,7 +54,7 @@ namespace pr
 			sr->SetName(L"SR");
 			sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\tile.bmp");
 
-			AddUI(bg);
+			AddUI(bg,eLayerType::BackGround);
 		}
 
 

@@ -2,108 +2,55 @@
 
 namespace pr
 {
-	GameObject* Scene::mPlayer = nullptr;
 
 	Scene::Scene()
-		: mNPCs{}
-		, mEnemyPets{}
-		, mMyPets{}
-		, mUIs{}
-		, mSceneName(nullptr)
+		:mLayers{}
 	{
-		mNPCs.reserve(2);
-		mEnemyPets.reserve(5);
-		mMyPets.reserve(5);
+		CreateLayers();
 	}
 
 	Scene::~Scene()
 	{
-
 	}
 
 	void Scene::Initialize()
 	{
-		
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+			layer->Initialize();
+		}
 	}
 
 	void Scene::Update()
 	{
-		if(mPlayer)
-			mPlayer->Update();
-
-		for (GameObject* npc: mNPCs)
+		for (Layer* layer : mLayers)
 		{
-			npc->Update();
-		}
-
-		for (GameObject* enemyPet : mEnemyPets)
-		{
-			enemyPet->Update();
-		}
-
-		for (GameObject* myPet : mMyPets)
-		{
-			myPet->Update();
-		}
-
-		for (GameObject* UI : mUIs)
-		{
-			UI->Update();
+			if (layer == nullptr)
+				continue;
+			layer->Update();
 		}
 	}
 
 	void Scene::LateUpdate()
 	{
-		if (mPlayer)
-			mPlayer->LateUpdate();
-
-		for (GameObject* npc : mNPCs)
+		for (Layer* layer : mLayers)
 		{
-			npc->LateUpdate();
-		}
-
-		for (GameObject* enemyPet : mEnemyPets)
-		{
-			enemyPet->LateUpdate();
-		}
-
-		for (GameObject* myPet : mMyPets)
-		{
-			myPet->LateUpdate();
-		}
-
-		for (GameObject* UI : mUIs)
-		{
-			UI->LateUpdate();
+			if (layer == nullptr)
+				continue;
+			layer->LateUpdate();
 		}
 	}
-	
+
 	void Scene::Render(HDC hdc)
 	{
-
-		for (GameObject* UI : mUIs)
+		for (Layer* layer : mLayers)
 		{
-			UI->Render(hdc);
+			if (layer == nullptr)
+				continue;
+			layer->Render(hdc);
 		}
-		
-		for (GameObject* npc : mNPCs)
-		{
-			npc->Render(hdc);
-		}
-
-		for (GameObject* enemyPet : mEnemyPets)
-		{
-			enemyPet->Render(hdc);
-		}
-
-		for (GameObject* myPet : mMyPets)
-		{
-			myPet->Render(hdc);
-		}
-
-		/*if (mPlayer)*/
-		mPlayer->Render(hdc);
-
 		RenderName(hdc);
 	}
 
@@ -113,22 +60,49 @@ namespace pr
 		TextOut(hdc, 0, 20, str2, wcslen(str2));
 	}
 
-	void Scene::AddNPC(GameObject* gameObject)
+	void Scene::OnEnter()
 	{
-		mNPCs.push_back(gameObject);
+
 	}
 
-	void Scene::AddEnemyPet(GameObject* gameObject)
+	void Scene::OnExit()
 	{
-		mEnemyPets.push_back(gameObject);
+
 	}
 
-	void Scene::AddMyPet(GameObject* gameObject)
+	void Scene::AddNPC(GameObject* gameObject, eLayerType type)
 	{
-		mMyPets.push_back(gameObject);
+		mLayers[(UINT)type]->AddNPC(gameObject);
 	}
-	void Scene::AddUI(GameObject* gameObject)
+
+	void Scene::AddEnemyPet(GameObject* gameObject, eLayerType type)
 	{
-		mUIs.push_back(gameObject);
+		mLayers[(UINT)type]->AddEnemyPet(gameObject);
+	}
+
+	void Scene::AddMyPet(GameObject* gameObject, eLayerType type)
+	{
+		mLayers[(UINT)type]->AddMyPet(gameObject);
+	}
+
+	void Scene::AddUI(GameObject* gameObject, eLayerType type)
+	{
+		mLayers[(UINT)type]->AddUI(gameObject);
+	}
+
+	void Scene::AddPlayer(GameObject* gameObject, eLayerType type)
+	{
+		mLayers[(UINT)type]->AddPlayer(gameObject);
+	}
+
+	void Scene::CreateLayers()
+	{
+		mLayers.resize((UINT)eLayerType::Max);
+
+	std:for_each(mLayers.begin(), mLayers.end(),
+		[](Layer*& layer)
+		{
+			layer = new Layer();
+		});
 	}
 }

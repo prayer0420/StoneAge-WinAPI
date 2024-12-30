@@ -18,8 +18,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)prComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prEnum.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prResources.h" />
@@ -35,6 +37,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)prApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prResources.cpp" />

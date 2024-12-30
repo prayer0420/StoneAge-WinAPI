@@ -21,6 +21,9 @@ namespace pr
 		}
 		static Scene* LoadScene(const std::wstring& name)
 		{
+			if (mActiveScene)
+				mActiveScene->OnExit();
+
 			std::map<std::wstring, Scene*>::iterator iter
 				= mScene.find(name);
 
@@ -28,7 +31,8 @@ namespace pr
 				return nullptr;
 
 			mActiveScene = iter->second;
-			mActiveScene->Initialize();
+			mActiveScene->OnEnter();
+
 			return iter->second;
 		}
 

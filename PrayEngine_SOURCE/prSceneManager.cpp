@@ -13,17 +13,20 @@ namespace pr
 	void SceneManager::Update()
 	{
 		ChangeScene();
-		mActiveScene->Update();
+		if(mActiveScene)
+			mActiveScene->Update();
 	}
 
 	void SceneManager::LateUpdate()
 	{
-		mActiveScene->LateUpdate();
+		if (mActiveScene)
+			mActiveScene->LateUpdate();
 	}
 
 	void SceneManager::Render(HDC hdc)
 	{
-		mActiveScene->Render(hdc);
+		if (mActiveScene)
+			mActiveScene->Render(hdc);
 	}
 
 	void SceneManager::ChangeScene()

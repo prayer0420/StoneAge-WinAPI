@@ -16,13 +16,15 @@ namespace pr
 	void BeginnerDungeonScene::Initialize()
 	{
 		{
-			Transform* tr = mPlayer->AddComponent<Transform>();
+			player = new Player();
+			Transform* tr = player->AddComponent<Transform>();
 			tr->SetPos({ 1100, 200 });
-
 			tr->SetName(L"TR");
 
-			SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
+
+			AddPlayer(player, eLayerType::Player);
 		}
 
 		//¹è°æ
@@ -37,7 +39,7 @@ namespace pr
 			sr->SetName(L"SR");
 			sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\tile.bmp");
 
-			AddUI(bg);
+			AddUI(bg,eLayerType::BackGround);
 		}
 
 		Scene::Initialize();
@@ -53,6 +55,14 @@ namespace pr
 	void BeginnerDungeonScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+	}
+	void BeginnerDungeonScene::OnEnter()
+	{
+	}
+	void BeginnerDungeonScene::OnExit()
+	{
+		Transform* tr = player->GetComponent<Transform>();
+		tr->SetPos({ 1100, 200 });
 	}
 }
 

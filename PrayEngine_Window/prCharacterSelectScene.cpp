@@ -4,6 +4,7 @@
 #include "prTransform.h"
 #include "prSpriteRenderer.h"
 #include "prUI.h"
+#include "prPlayer.h"
 
 namespace pr
 {
@@ -17,8 +18,16 @@ namespace pr
 	void CharacterSelectScene::Initialize()
 	{
 		{
-			Transform* tr = mPlayer->GetComponent<Transform>();
-			tr->SetPos({ -100, -100 });			//tr->SetPos(400, 400);
+			Player* player = new Player();
+
+			Transform* tr = player->AddComponent<Transform>();
+			tr->SetPos({ -100, -100 });	
+			tr->SetName(L"TR");
+
+			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+
+			AddPlayer(player, eLayerType::BackGround);
 		}
 
 		//¹è°æ
@@ -33,9 +42,10 @@ namespace pr
 			sr->SetName(L"SR");
 			sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\character_select.bmp");
 
-			AddUI(bg);
+			AddUI(bg,eLayerType::BackGround);
 		}
 
+		Scene::Initialize();
 	}
 
 	void CharacterSelectScene::Update()

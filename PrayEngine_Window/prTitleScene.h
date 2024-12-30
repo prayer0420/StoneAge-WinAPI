@@ -15,6 +15,7 @@ namespace pr
 		void Render(HDC hdc) override;
 
 	private:
+		class Player* player;
 
 	};
 }
