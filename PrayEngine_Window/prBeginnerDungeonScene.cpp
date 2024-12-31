@@ -4,42 +4,37 @@
 #include "prTransform.h"
 #include "prSpriteRenderer.h"
 #include "prUI.h"
+#include "prObject.h"
 
 namespace pr
 {
 	BeginnerDungeonScene::BeginnerDungeonScene()
 	{
 	}
+
 	BeginnerDungeonScene::~BeginnerDungeonScene()
 	{
 	}
 	void BeginnerDungeonScene::Initialize()
 	{
 		{
-			player = new Player();
-			Transform* tr = player->AddComponent<Transform>();
-			tr->SetPos({ 1100, 200 });
-			tr->SetName(L"TR");
+			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(1100,200));
 
 			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 
-			AddPlayer(player, eLayerType::Player);
+			AddPlayer(player, enums::eLayerType::Player);
 		}
 
 		//¹è°æ
 		{
-			UI* bg = new UI();
-			Transform* tr = bg->AddComponent<Transform>();
-			tr->SetPos(Vector2(0, 0));
-
-			tr->SetName(L"TR");
+			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
 
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 			sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\tile.bmp");
 
-			AddUI(bg,eLayerType::BackGround);
+			AddUI(bg, enums::eLayerType::BackGround);
 		}
 
 		Scene::Initialize();
@@ -61,8 +56,8 @@ namespace pr
 	}
 	void BeginnerDungeonScene::OnExit()
 	{
-		Transform* tr = player->GetComponent<Transform>();
-		tr->SetPos({ 1100, 200 });
+		//Transform* tr = player->GetComponent<Transform>();
+		//tr->SetPosition({ 1100, 200 });
 	}
 }
 

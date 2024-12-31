@@ -15,6 +15,7 @@ namespace pr
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
+
 		template <typename T>
 		T* AddComponent()
 		{
@@ -39,6 +40,8 @@ namespace pr
 
 			return component;
 		}
+	private:
+		void initializeTransform();
 
 	private:
 		std::vector<Component*> mComponents;

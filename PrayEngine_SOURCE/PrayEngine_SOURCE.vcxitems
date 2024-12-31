@@ -23,6 +23,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)prInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prScene.h" />

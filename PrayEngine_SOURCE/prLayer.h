@@ -17,6 +17,7 @@ namespace pr
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
+		void AddGameObject(GameObject* gameObject, enums::eLayerType type);
 
 		void AddNPC(GameObject* gameObject);
 		void AddEnemyPet(GameObject* gameObject);
@@ -24,12 +25,8 @@ namespace pr
 		void AddUI(GameObject* gameObject);
 		void AddPlayer(GameObject* gameObject);
 
-
-	public:
-
-
 	private:
-		eLayerType mType;
+		enums::eLayerType mType;
 
 		std::vector<GameObject*> mNPCs;
 		std::vector<GameObject*> mEnemyPets;

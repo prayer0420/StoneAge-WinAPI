@@ -1,11 +1,13 @@
 #include "prGameObject.h"
 #include "prInput.h"
 #include "prTime.h"
+#include "prTransform.h"
 
 namespace pr
 {
 	GameObject::GameObject()
 	{
+		initializeTransform();
 	}
 
 	GameObject::~GameObject()
@@ -56,5 +58,10 @@ namespace pr
 				continue;
 			comp->Render(hdc);
 		}
+	}	
+	
+	void GameObject::initializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 }

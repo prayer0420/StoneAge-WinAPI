@@ -35,25 +35,25 @@ void pr::Player::LateUpdate()
 	if (Input::GetKey(eKeyCode::A) || Input::GetKey(eKeyCode::Left))
 	{
 		pos.x -= speed * Time::DeltaTime();
-		tr->SetPos({ pos });
+		tr->SetPosition({ pos });
 	}
 
 	if (Input::GetKey(eKeyCode::D) || Input::GetKey(eKeyCode::Right))
 	{
 		pos.x += speed * Time::DeltaTime();
-		tr->SetPos({ pos });
+		tr->SetPosition({ pos });
 	}
 
 	if (Input::GetKey(eKeyCode::W) || Input::GetKey(eKeyCode::Up))
 	{
 		pos.y -= speed * Time::DeltaTime();
-		tr->SetPos({ pos });
+		tr->SetPosition({ pos });
 	}
 
 	if (Input::GetKey(eKeyCode::S) || Input::GetKey(eKeyCode::Down))
 	{
 		pos.y += speed * Time::DeltaTime();
-		tr->SetPos({ pos });
+		tr->SetPosition({ pos });
 	}
 }
 

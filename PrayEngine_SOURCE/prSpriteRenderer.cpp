@@ -2,10 +2,10 @@
 #include "prGameObject.h"
 #include "prTransform.h"
 #include "prPlayer.h"
-#include "prPET.h"
+#include "prMyPET.h"
 #include "prNPC.h"
-//#include "prUI.h"
-
+#include "..\\PrayEngine_Window\\prUI.h"
+#include "..\\PrayEngine_Window\\prEnemyPet.h"
 
 namespace pr
 {
@@ -41,7 +41,17 @@ namespace pr
 			DeleteObject(GreenBrush);
 		}
 
-		else if (dynamic_cast<PET*>(this->GetOwner()))
+		else if (dynamic_cast<MyPet*>(this->GetOwner()))
+		{
+			HBRUSH redBrush = CreateSolidBrush(RGB(255, 255, 0));
+			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, redBrush);
+			Transform* tr = GetOwner()->GetComponent<Transform>();
+			Ellipse(hdc, tr->GetPosition().x, tr->GetPosition().y, tr->GetPosition().x + 100, tr->GetPosition().y + 100);
+			SelectObject(hdc, oldBrush);
+			DeleteObject(redBrush);
+		}
+
+		else if (dynamic_cast<EnemyPet*>(this->GetOwner()))
 		{
 			HBRUSH redBrush = CreateSolidBrush(RGB(255, 0, 0));
 			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, redBrush);
@@ -50,6 +60,7 @@ namespace pr
 			SelectObject(hdc, oldBrush);
 			DeleteObject(redBrush);
 		}
+
 
 		else if (dynamic_cast<NPC*>(this->GetOwner()))
 		{

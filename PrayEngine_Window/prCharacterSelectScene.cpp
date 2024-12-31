@@ -4,7 +4,7 @@
 #include "prTransform.h"
 #include "prSpriteRenderer.h"
 #include "prUI.h"
-#include "prPlayer.h"
+#include "prObject.h"
 
 namespace pr
 {
@@ -18,31 +18,23 @@ namespace pr
 	void CharacterSelectScene::Initialize()
 	{
 		{
-			Player* player = new Player();
-
-			Transform* tr = player->AddComponent<Transform>();
-			tr->SetPos({ -100, -100 });	
-			tr->SetName(L"TR");
+			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(-100, -100));
 
 			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 
-			AddPlayer(player, eLayerType::BackGround);
+			AddPlayer(player, enums::eLayerType::Player);
 		}
 
 		//¹è°æ
 		{
-			UI* bg = new UI();
-			Transform* tr = bg->AddComponent<Transform>();
-			tr->SetPos(Vector2(0, 0));
-
-			tr->SetName(L"TR");
+			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
 
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 			sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\character_select.bmp");
 
-			AddUI(bg,eLayerType::BackGround);
+			AddUI(bg,enums::eLayerType::BackGround);
 		}
 
 		Scene::Initialize();
@@ -59,6 +51,14 @@ namespace pr
 	void CharacterSelectScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+	}
+
+	void CharacterSelectScene::OnEnter()
+	{
+	}
+	void CharacterSelectScene::OnExit()
+	{
+
 	}
 }
 

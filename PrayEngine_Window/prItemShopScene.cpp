@@ -5,6 +5,7 @@
 #include "prSpriteRenderer.h"
 #include "prUI.h"
 #include "prPlayer.h"
+#include "prObject.h"
 
 namespace pr
 {
@@ -18,44 +19,32 @@ namespace pr
 	{
 		for (int i = 0; i < 2; i++)
 		{
-			GameObject* npc = new NPC();
-			Transform* tr = npc->AddComponent<Transform>();
-			tr->SetPos({ 800 + (i * 200), 50 + (i * 200) });
-
-			tr->SetName(L"TR");
-
-			SpriteRenderer* sr
-				= npc->AddComponent<SpriteRenderer>();
+			GameObject* npc = object::Instantiate<NPC>(enums::eLayerType::Npc, 
+								Vector2({ 800 + (i * 200), 50 + (i * 200) }));
+			SpriteRenderer* sr = npc->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 
-			AddNPC(npc,eLayerType::Npc);
+			AddNPC(npc, enums::eLayerType::Npc);
 		}
 
 		{
-			Player* player = new Player();
-			Transform* tr = player->AddComponent<Transform>();
-			tr->SetPos({200, 500});
-			tr->SetName(L"TR");
-
+			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(200, 500));
+			
 			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 
-			AddPlayer(player, eLayerType::Player);
+			AddPlayer(player, enums::eLayerType::Player);
 		}
 
 		//¹è°æ
 		{
-			UI* bg = new UI();
-			Transform* tr = bg->AddComponent<Transform>();
-			tr->SetPos(Vector2(0, 0));
-
-			tr->SetName(L"TR");
+			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
 
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 			sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\tile.bmp");
 
-			AddUI(bg,eLayerType::BackGround);
+			AddUI(bg, enums::eLayerType::BackGround);
 		}
 
 		Scene::Initialize();
@@ -71,5 +60,13 @@ namespace pr
 	void ItemShopScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+	}
+
+	void ItemShopScene::OnEnter()
+	{
+	}
+	void ItemShopScene::OnExit()
+	{
+
 	}
 }

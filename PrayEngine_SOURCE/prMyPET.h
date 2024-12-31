@@ -4,11 +4,11 @@
 
 namespace pr
 {
-	class PET : public GameObject
+	class MyPet : public GameObject
 	{
 	public:
-		PET();
-		~PET() override;
+		MyPet();
+		~MyPet() override;
 
 		void Initialize() override;
 		void Update() override;

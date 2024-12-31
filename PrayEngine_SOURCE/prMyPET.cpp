@@ -1,32 +1,32 @@
 #include "prPET.h"
 
-pr::PET::PET()
+pr::MyPet::MyPet()
 {
 }
 
-pr::PET::~PET()
+pr::MyPet::~MyPet()
 {
 }
 
-void pr::PET::Initialize()
+void pr::MyPet::Initialize()
 {
 	GameObject::Initialize();
 
 }
 
-void pr::PET::Update()
+void pr::MyPet::Update()
 {
 	GameObject::Update();
 
 }
 
-void pr::PET::LateUpdate()
+void pr::MyPet::LateUpdate()
 {
 	GameObject::LateUpdate();
 
 }
 
-void pr::PET::Render(HDC hdc)
+void pr::MyPet::Render(HDC hdc)
 {
 	GameObject::Render(hdc);
 }

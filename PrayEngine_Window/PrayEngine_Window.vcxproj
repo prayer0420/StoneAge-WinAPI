@@ -135,11 +135,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\PrayEngine_SOURCE\prNPC.h" />
-    <ClInclude Include="..\PrayEngine_SOURCE\prPET.h" />
+    <ClInclude Include="..\PrayEngine_SOURCE\prMyPET.h" />
     <ClInclude Include="..\PrayEngine_SOURCE\prPlayer.h" />
     <ClInclude Include="prBeginnerDungeonScene.h" />
     <ClInclude Include="prCharacterCreateScene.h" />
     <ClInclude Include="prCharacterSelectScene.h" />
+    <ClInclude Include="prEnemyPet.h" />
     <ClInclude Include="prFightScene.h" />
     <ClInclude Include="prHeadManHouseScene.h" />
     <ClInclude Include="prItemShopScene.h" />
@@ -151,11 +152,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\PrayEngine_SOURCE\prNPC.cpp" />
-    <ClCompile Include="..\PrayEngine_SOURCE\prPET.cpp" />
+    <ClCompile Include="..\PrayEngine_SOURCE\prMyPET.cpp" />
     <ClCompile Include="..\PrayEngine_SOURCE\prPlayer.cpp" />
     <ClCompile Include="prBeginnerDungeonScene.cpp" />
     <ClCompile Include="prCharacterCreateScene.cpp" />
     <ClCompile Include="prCharacterSelectScene.cpp" />
+    <ClCompile Include="prEnemyPet.cpp" />
     <ClCompile Include="prFightScene.cpp" />
     <ClCompile Include="prHeadManHouseScene.cpp" />
     <ClCompile Include="prItemShopScene.cpp" />
@@ -163,6 +165,9 @@
     <ClCompile Include="prTitleScene.cpp" />
     <ClCompile Include="prUI.cpp" />
     <ClCompile Include="prvillageScene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

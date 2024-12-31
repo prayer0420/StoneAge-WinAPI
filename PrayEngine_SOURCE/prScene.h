@@ -21,16 +21,21 @@ namespace pr
 		virtual void OnEnter();
 		virtual void OnExit();
 
-		void AddNPC(GameObject* gameObject, eLayerType type);
-		void AddEnemyPet(GameObject* gameObject, eLayerType type);
-		void AddMyPet(GameObject* gameObject, eLayerType type);
-		void AddUI(GameObject* gameObject, eLayerType type);
-		void AddPlayer(GameObject* gameObject, eLayerType type);
+		//void AddGameObject(GameObject* gameObject, enums::eLayerType type);
+
+		void AddNPC(GameObject* gameObject, enums::eLayerType type);
+		void AddEnemyPet(GameObject* gameObject, enums::eLayerType type);
+		void AddMyPet(GameObject* gameObject, enums::eLayerType type);
+		void AddUI(GameObject* gameObject, enums::eLayerType type);
+		void AddPlayer(GameObject* gameObject, enums::eLayerType type);
+
+		Layer* GetLayer(enums::eLayerType type) { return mLayers[(UINT)type]; }
 
 	private:
 		void CreateLayers();
 
 	private:
+		//std::map<enums::eLayerType, std::vector<GameObject*>> mLayerGameObjects; ??
 		std::vector<Layer*> mLayers;
 	};
 }

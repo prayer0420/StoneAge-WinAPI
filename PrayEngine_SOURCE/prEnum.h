@@ -1,5 +1,5 @@
 #pragma once
-namespace pr
+namespace pr::enums
 {
 	enum class eLayerType
 	{
@@ -10,6 +10,17 @@ namespace pr
 		Player,
 		EnemyPet,
 		MyPet,
+		Max = 16,
+	};
+
+
+	enum class GameObjectType
+	{
+		None,
+		Player,
+		NPC,
+		MyPet,
+		EnemyPet,
 		Max = 16,
 	};
 

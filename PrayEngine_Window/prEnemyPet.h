@@ -3,11 +3,11 @@
 
 namespace pr
 {
-	class NPC : public GameObject
+	class EnemyPet : public GameObject
 	{
 	public:
-		NPC();
-		~NPC() override;
+		EnemyPet();
+		~EnemyPet() override;
 
 		void Initialize() override;
 		void Update() override;
