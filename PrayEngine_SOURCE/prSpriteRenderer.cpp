@@ -40,7 +40,7 @@ namespace pr
 			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, GreenBrush);
 			Transform* tr = GetOwner()->GetComponent<Transform>();
 			Vector2 pos = tr->GetPosition();
-			pos = renderer::mainCamera->CaluatePosition(pos); //카메라 위치 기준 계산
+			pos = renderer::mainCamera->CaluatePosition(pos);
 
 			Ellipse(hdc, pos.x, pos.y, pos.x+100, pos.y +100);
 			SelectObject(hdc, oldBrush);
@@ -52,7 +52,10 @@ namespace pr
 			HBRUSH redBrush = CreateSolidBrush(RGB(255, 255, 0));
 			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, redBrush);
 			Transform* tr = GetOwner()->GetComponent<Transform>();
-			Ellipse(hdc, tr->GetPosition().x, tr->GetPosition().y, tr->GetPosition().x + 100, tr->GetPosition().y + 100);
+			Vector2 pos = tr->GetPosition();
+			pos = renderer::mainCamera->CaluatePosition(pos);
+
+			Ellipse(hdc, pos.x, pos.y, pos.x + 100, pos.y + 100);
 			SelectObject(hdc, oldBrush);
 			DeleteObject(redBrush);
 		}
@@ -62,7 +65,10 @@ namespace pr
 			HBRUSH redBrush = CreateSolidBrush(RGB(255, 0, 0));
 			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, redBrush);
 			Transform* tr = GetOwner()->GetComponent<Transform>();
-			Ellipse(hdc, tr->GetPosition().x, tr->GetPosition().y, tr->GetPosition().x + 100, tr->GetPosition().y + 100);
+			Vector2 pos = tr->GetPosition();
+			pos = renderer::mainCamera->CaluatePosition(pos);
+
+			Ellipse(hdc, pos.x, pos.y, pos.x + 100, pos.y + 100);
 			SelectObject(hdc, oldBrush);
 			DeleteObject(redBrush);
 		}
@@ -73,8 +79,10 @@ namespace pr
 			HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
 			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
 			Transform* tr = GetOwner()->GetComponent<Transform>();
+			Vector2 pos = tr->GetPosition();
+			pos = renderer::mainCamera->CaluatePosition(pos);
 
-			Ellipse(hdc, tr->GetPosition().x, tr->GetPosition().y, tr->GetPosition().x + 100, tr->GetPosition().y + 100);
+			Ellipse(hdc, pos.x, pos.y, pos.x + 100, pos.y + 100);
 			SelectObject(hdc, oldBrush);
 			DeleteObject(blueBrush);
 		}
