@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)prComponent.cpp">
-      <Filter>Component\Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)prSpriteRenderer.cpp">
       <Filter>Component\SpriteRenderer</Filter>
     </ClCompile>
@@ -44,11 +41,18 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)prTexture.cpp">
       <Filter>Resources\Texture</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prComponent.cpp">
+      <Filter>Component\Component\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prCamera.cpp">
+      <Filter>Component\Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prScript.cpp">
+      <Filter>Component\Script</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)prComponent.h">
-      <Filter>Component\Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)prSpriteRenderer.h">
       <Filter>Component\SpriteRenderer</Filter>
     </ClInclude>
@@ -98,6 +102,16 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)prTexture.h">
       <Filter>Resources\Texture</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prComponent.h">
+      <Filter>Component\Component\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prCamera.h">
+      <Filter>Component\Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prScript.h">
+      <Filter>Component\Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -135,6 +149,15 @@
     </Filter>
     <Filter Include="Resources\Texture">
       <UniqueIdentifier>{667e11db-e4d8-4996-b2f1-4b21599f1c70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Component\Camera">
+      <UniqueIdentifier>{a4e158e6-1aeb-4a02-8e8d-b78c83d58fde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Component\Component">
+      <UniqueIdentifier>{576f0b8a-9d13-4ff1-aaa5-e0eb6ff006bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Script">
+      <UniqueIdentifier>{c3844732-83e7-493b-9db3-f2179f359ee1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

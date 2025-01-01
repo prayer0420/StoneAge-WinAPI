@@ -7,6 +7,8 @@
 #include "prObject.h"
 #include "prTexture.h"
 #include "prResources.h"
+#include "prCamera.h"
+#include "prRenderer.h"
 
 namespace pr
 {
@@ -19,13 +21,20 @@ namespace pr
 	
 	void CharacterSelectScene::Initialize()
 	{
+
 		{
 			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(-100, -100));
 
 			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 
-			//AddPlayer(player, enums::eLayerType::Player);
+		}
+
+		//카메라
+		{
+			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
+			Camera* cameraComp = camera->AddComponent<Camera>();
+			renderer::mainCamera = cameraComp;
 		}
 
 		//배경
@@ -37,8 +46,6 @@ namespace pr
 
 			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"CharacterSelect");
 			sr->SetTexture(bgTex);
-
-			//AddUI(bg,enums::eLayerType::BackGround);
 		}
 
 		Scene::Initialize();

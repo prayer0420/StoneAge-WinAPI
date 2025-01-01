@@ -46,6 +46,7 @@
     <ClInclude Include="prUI.h" />
     <ClInclude Include="prEnemyPet.h" />
     <ClInclude Include="prLoadResources.h" />
+    <ClInclude Include="prPlayerScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\PrayEngine_SOURCE\prNPC.cpp" />
@@ -80,6 +81,7 @@
     </ClCompile>
     <ClCompile Include="prUI.cpp" />
     <ClCompile Include="prEnemyPet.cpp" />
+    <ClCompile Include="prPlayerScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

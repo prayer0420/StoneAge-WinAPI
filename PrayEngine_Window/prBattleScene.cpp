@@ -9,6 +9,8 @@
 #include "prEnemyPet.h"
 #include "prTexture.h"
 #include "prResources.h"
+#include "prCamera.h"
+#include "prRenderer.h"
 
 namespace pr
 {
@@ -23,36 +25,40 @@ namespace pr
 		float delY = -150.0f;
 		float delX = 120.0f;
 
-		//적 펫 위치
+		//적 펫
 		for (int i = 0; i < 5; i++)
 		{
 			GameObject* enemyPet = object::Instantiate<EnemyPet>(enums::eLayerType::EnemyPet, 
 									Vector2({ 120 + (delX * i), 650 + (delY * i) }));
-
 			SpriteRenderer* sr = enemyPet->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
-
-			//AddEnemyPet(enemyPet, enums::eLayerType::EnemyPet);
+			sr->SetSize(Vector2::One);
 		}
+
+		//카메라
+		{
+			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
+			Camera* cameraComp = camera->AddComponent<Camera>();
+			renderer::mainCamera = cameraComp;
+		}
+
 		
-		//플레이어 위치
+		//플레이어
 		{
 			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player,Vector2(1200, 700));
-
 			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
+			sr->SetSize(Vector2::One);
 
-			//AddPlayer(player, enums::eLayerType::Player);
 		}
 
-		//아군 펫 위치
+		//아군 펫
 		{
 			GameObject* myPet = object::Instantiate<MyPet>(enums::eLayerType::MyPet, Vector2(1000, 550));
 
 			SpriteRenderer* sr = myPet->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 
-			//AddMyPet(myPet, enums::eLayerType::MyPet);
 		}
 
 		//배경

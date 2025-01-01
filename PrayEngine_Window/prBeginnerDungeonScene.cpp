@@ -7,6 +7,9 @@
 #include "prObject.h"
 #include "prTexture.h"
 #include "prResources.h"
+#include "prPlayerScript.h"
+#include "prCamera.h"
+#include "prRenderer.h"
 
 namespace pr
 {
@@ -19,27 +22,30 @@ namespace pr
 	}
 	void BeginnerDungeonScene::Initialize()
 	{
-		{
+		//플레이어
 			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(1100,200));
-
 			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
+			sr->SetSize(Vector2::One);
+
+			player->AddComponent<PlayerScript>();
+
 			sr->SetName(L"SR");
 
-			//AddPlayer(player, enums::eLayerType::Player);
-		}
+		//카메라
+			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
+			Camera* cameraComp = camera->AddComponent<Camera>();
+			renderer::mainCamera = cameraComp;
+			cameraComp->SetTarget(player);			//카메라 타겟지정
 
 		//배경
-		{
-			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
+			UI* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
 
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
+			SpriteRenderer* BGsr = bg->AddComponent<SpriteRenderer>();
+			BGsr->SetSize(Vector2::One);
+			BGsr->SetName(L"SR");
 
 			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"Tile");
-			sr->SetTexture(bgTex);
-
-			//AddUI(bg, enums::eLayerType::BackGround);
-		}
+			BGsr->SetTexture(bgTex);
 
 		Scene::Initialize();
 	}

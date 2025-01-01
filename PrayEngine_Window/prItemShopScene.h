@@ -15,6 +15,8 @@ namespace pr
 		void Render(HDC hdc) override;
 		void OnEnter() override;
 		void OnExit() override;
-	private:
+	private:		
+		class Player* mplayer;
+
 	};
 }

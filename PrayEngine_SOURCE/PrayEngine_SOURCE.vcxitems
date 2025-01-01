@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prApplication.h" />
@@ -24,16 +25,19 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)prLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prTransform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prApplication.cpp" />
@@ -41,10 +45,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)prInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prTime.cpp" />

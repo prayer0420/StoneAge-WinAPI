@@ -7,6 +7,7 @@ namespace pr
 {
 	GameObject::GameObject()
 	{
+		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();
 	}
 
@@ -14,6 +15,7 @@ namespace pr
 	{
 		for (Component* comp : mComponents)
 		{
+
 			delete comp;
 			comp = nullptr;
 		}

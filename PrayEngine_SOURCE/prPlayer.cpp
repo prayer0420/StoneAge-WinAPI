@@ -26,35 +26,6 @@ void pr::Player::Update()
 void pr::Player::LateUpdate()
 {
 	GameObject::LateUpdate();
-
-	const int speed = 100.0f;
-
-	Transform* tr = GetComponent<Transform>();
-	Vector2 pos = tr->GetPosition();
-
-	if (Input::GetKey(eKeyCode::A) || Input::GetKey(eKeyCode::Left))
-	{
-		pos.x -= speed * Time::DeltaTime();
-		tr->SetPosition({ pos });
-	}
-
-	if (Input::GetKey(eKeyCode::D) || Input::GetKey(eKeyCode::Right))
-	{
-		pos.x += speed * Time::DeltaTime();
-		tr->SetPosition({ pos });
-	}
-
-	if (Input::GetKey(eKeyCode::W) || Input::GetKey(eKeyCode::Up))
-	{
-		pos.y -= speed * Time::DeltaTime();
-		tr->SetPosition({ pos });
-	}
-
-	if (Input::GetKey(eKeyCode::S) || Input::GetKey(eKeyCode::Down))
-	{
-		pos.y += speed * Time::DeltaTime();
-		tr->SetPosition({ pos });
-	}
 }
 
 void pr::Player::Render(HDC hdc)

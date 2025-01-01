@@ -8,6 +8,10 @@
 #include "prObject.h"
 #include "prTexture.h"
 #include "prResources.h"
+#include "prPlayerScript.h"
+#include "prCamera.h"
+#include "prRenderer.h"
+
 
 namespace pr
 {
@@ -19,6 +23,7 @@ namespace pr
 	}
 	void ItemShopScene::Initialize()
 	{
+		//NPC
 		for (int i = 0; i < 2; i++)
 		{
 			GameObject* npc = object::Instantiate<NPC>(enums::eLayerType::Npc, 
@@ -26,16 +31,25 @@ namespace pr
 			SpriteRenderer* sr = npc->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 
-			//AddNPC(npc, enums::eLayerType::Npc);
+			
 		}
-
+		//플레이어
 		{
 			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(200, 500));
-			
+			mplayer = dynamic_cast<Player*>(player);
 			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
+			player->AddComponent<PlayerScript>();
 
-			//AddPlayer(player, enums::eLayerType::Player);
+			
+		}
+
+		//카메라
+		{
+			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(0, 0));
+			Camera* cameraComp = camera->AddComponent<Camera>();
+			renderer::mainCamera = cameraComp;
+			cameraComp->SetTarget(mplayer);			//카메라 타겟지정
 		}
 
 		//배경

@@ -7,6 +7,7 @@
 #include "..\\PrayEngine_Window\\prUI.h"
 #include "..\\PrayEngine_Window\\prEnemyPet.h"
 
+
 namespace pr
 {
 
@@ -17,12 +18,14 @@ namespace pr
 		, mUIs{}
 		, mType()
 		, mPlayers{}
+		, mGameObjects{}
 	{
 		mNPCs.reserve(2);
 		mEnemyPets.reserve(5);
 		mMyPets.reserve(5);
 		mUIs.reserve(10);
 		mPlayers.reserve(5);
+		mGameObjects.reserve(5);
 	}
 	Layer:: ~Layer()
 	{
@@ -70,6 +73,13 @@ namespace pr
 				continue;
 			UI->Update();
 		}
+
+		for (GameObject* go : mGameObjects)
+		{
+			if (go == nullptr)
+				continue;
+			go->Update();
+		}
 	}
 	void Layer::LateUpdate()
 	{
@@ -106,6 +116,13 @@ namespace pr
 			if (player == nullptr)
 				continue;
 			player->LateUpdate();
+		}
+
+		for (GameObject* go : mGameObjects)
+		{
+			if (go == nullptr)
+				continue;
+			go->LateUpdate();
 		}
 	}
 
@@ -145,6 +162,13 @@ namespace pr
 				continue;
 			player->Render(hdc);
 		}
+
+		for (GameObject* go : mGameObjects)
+		{
+			if (go == nullptr)
+				continue;
+			go->Render(hdc);
+		}
 	}
 
 	void Layer::AddGameObject(GameObject* gameObject, enums::eLayerType type)
@@ -178,6 +202,16 @@ namespace pr
 			UI* ui = (dynamic_cast<UI*>(gameObject));
 			layer->AddUI(gameObject);
 		}
+		else if (dynamic_cast<GameObject*>(gameObject))
+		{
+			GameObject* gameobject = (dynamic_cast<GameObject*>(gameObject));
+			layer->AddGameObject(gameobject);
+		}
+	}
+
+	void Layer::AddGameObject(GameObject* gameObject)
+	{
+		mGameObjects.push_back(gameObject);
 	}
 
 	void Layer::AddNPC(GameObject* gameObject)

@@ -7,6 +7,8 @@
 #include "prObject.h"
 #include "prTexture.h"
 #include "prResources.h"
+#include "prCamera.h"
+#include "prRenderer.h"
 
 namespace pr
 {
@@ -18,6 +20,13 @@ namespace pr
 	}
 	void CharacterCreateScene::Initialize()
 	{
+		//카메라
+		{
+			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
+			Camera* cameraComp = camera->AddComponent<Camera>();
+			renderer::mainCamera = cameraComp;
+		}
+
 		//배경
 		{
 			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));

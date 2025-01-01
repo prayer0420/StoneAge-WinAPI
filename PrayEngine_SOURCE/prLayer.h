@@ -19,6 +19,7 @@ namespace pr
 
 		void AddGameObject(GameObject* gameObject, enums::eLayerType type);
 
+		void AddGameObject(GameObject* gameObject);
 		void AddNPC(GameObject* gameObject);
 		void AddEnemyPet(GameObject* gameObject);
 		void AddMyPet(GameObject* gameObject);
@@ -28,6 +29,8 @@ namespace pr
 	private:
 		enums::eLayerType mType;
 
+
+		std::vector<GameObject*> mGameObjects;
 		std::vector<GameObject*> mNPCs;
 		std::vector<GameObject*> mEnemyPets;
 		std::vector<GameObject*> mMyPets;

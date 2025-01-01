@@ -7,11 +7,13 @@
 #include "..\\PrayEngine_Window\\prUI.h"
 #include "..\\PrayEngine_Window\\prEnemyPet.h"
 #include "prTexture.h"
+#include "prRenderer.h"
+
 
 namespace pr
 {
 	SpriteRenderer::SpriteRenderer()
-		:Component()
+		: Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
 		,mSize(Vector2::One)
 	{
@@ -68,6 +70,7 @@ namespace pr
 			HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
 			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
 			Transform* tr = GetOwner()->GetComponent<Transform>();
+
 			Ellipse(hdc, tr->GetPosition().x, tr->GetPosition().y, tr->GetPosition().x + 100, tr->GetPosition().y + 100);
 			SelectObject(hdc, oldBrush);
 			DeleteObject(blueBrush);
@@ -80,6 +83,7 @@ namespace pr
 
 			Transform* tr = GetOwner()->GetComponent<Transform>();
 			Vector2 pos = tr->GetPosition();
+			pos = renderer::mainCamera->CaluatePosition(pos); //카메라 위치 기준 계산
 
 			if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 			{
@@ -95,11 +99,6 @@ namespace pr
 					, Gdiplus::Rect(pos.x, pos.y
 						, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y));
 			}
-
-			//Transform* tr = GetOwner()->GetComponent<Transform>();
-			//Vector2 pos = tr->GetPosition();
-			//Gdiplus::Graphics graphcis(hdc);
-			//graphcis.DrawImage(mImgae, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
 		}
 	}
 }
