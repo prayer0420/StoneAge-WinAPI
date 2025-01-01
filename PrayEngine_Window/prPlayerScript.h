@@ -15,8 +15,7 @@ namespace pr
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-
 	private:
-
+		GameObject* mCamera;
 	};
 }

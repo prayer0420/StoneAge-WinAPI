@@ -15,6 +15,7 @@
 namespace pr
 {
 	BattleScene::BattleScene()
+		:mCamera(nullptr)
 	{
 	}
 	BattleScene::~BattleScene()
@@ -28,52 +29,38 @@ namespace pr
 		//적 펫
 		for (int i = 0; i < 5; i++)
 		{
-			GameObject* enemyPet = object::Instantiate<EnemyPet>(enums::eLayerType::EnemyPet, 
-									Vector2({ 120 + (delX * i), 650 + (delY * i) }));
+			GameObject* enemyPet = object::Instantiate<EnemyPet>(enums::eLayerType::EnemyPet,
+				Vector2({ 120 + (delX * i), 650 + (delY * i) }));
 			SpriteRenderer* sr = enemyPet->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 			sr->SetSize(Vector2::One);
 		}
 
 		//카메라
-		{
-			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
-			Camera* cameraComp = camera->AddComponent<Camera>();
-			renderer::mainCamera = cameraComp;
-		}
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		mCamera = cameraComp;
 
-		
 		//플레이어
-		{
-			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player,Vector2(1200, 700));
-			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-			sr->SetSize(Vector2::One);
-
-		}
+		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(1200, 700));
+		SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
+		playerSr->SetName(L"SR");
+		playerSr->SetSize(Vector2::One);
 
 		//아군 펫
-		{
-			GameObject* myPet = object::Instantiate<MyPet>(enums::eLayerType::MyPet, Vector2(1000, 550));
+		GameObject* myPet = object::Instantiate<MyPet>(enums::eLayerType::MyPet, Vector2(1000, 550));
 
-			SpriteRenderer* sr = myPet->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-
-		}
+		SpriteRenderer* petSr = myPet->AddComponent<SpriteRenderer>();
+		petSr->SetName(L"SR");
 
 		//배경
-		{
-			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
+		GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
 
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"BattleMap1");
-			sr->SetTexture(bgTex);
-			
-			//sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\battleMap1.bmp");
-
-			//AddUI(bg, enums::eLayerType::BackGround);
-		}
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+		bgSr->SetName(L"SR");
+		graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"BattleMap1");
+		bgSr->SetTexture(bgTex);
 
 		Scene::Initialize();
 	}
@@ -92,9 +79,10 @@ namespace pr
 
 	void BattleScene::OnEnter()
 	{
+		renderer::mainCamera = mCamera;
 	}
 	void BattleScene::OnExit()
 	{
-
+		renderer::mainCamera = nullptr;
 	}
 }

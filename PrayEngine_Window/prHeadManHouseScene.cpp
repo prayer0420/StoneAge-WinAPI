@@ -16,6 +16,7 @@
 namespace pr
 {
 	HeadManHouseScene::HeadManHouseScene()
+		:mCamera(nullptr)
 	{
 	}
 	HeadManHouseScene::~HeadManHouseScene()
@@ -24,44 +25,29 @@ namespace pr
 
 	void HeadManHouseScene::Initialize()
 	{
-		{
-			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(800, 200));
-			mplayer = dynamic_cast<Player*>(player);
-			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
-			player->AddComponent<PlayerScript>();
-			sr->SetName(L"SR");
-
-		}
+		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(800, 200));
+		SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
+		playerSr->SetName(L"SR");
+		player->AddComponent<PlayerScript>();
 
 		//카메라
-		{
-			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(0, 0));
-			Camera* cameraComp = camera->AddComponent<Camera>();
-			renderer::mainCamera = cameraComp;
-			cameraComp->SetTarget(mplayer);			//카메라 타겟지정
-		}
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(0, 0));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		mCamera = cameraComp;
 
-		{
-			GameObject* npc = object::Instantiate<NPC>(enums::eLayerType::Npc, Vector2(800, 50));
+		cameraComp->SetTarget(player);			
 
-			SpriteRenderer* sr = npc->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-
-		}
-
-
+		GameObject* npc = object::Instantiate<NPC>(enums::eLayerType::Npc, Vector2(800, 50));
+		SpriteRenderer* npcSr = npc->AddComponent<SpriteRenderer>();
+		npcSr->SetName(L"SR");
 
 		//배경
-		{
-			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
-
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-
-			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"Tile");
-			sr->SetTexture(bgTex);
-
-		}
+		GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+		bgSr->SetName(L"SR");
+		graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"Tile");
+		bgSr->SetTexture(bgTex);
 
 		Scene::Initialize();
 	}
@@ -81,9 +67,11 @@ namespace pr
 
 	void HeadManHouseScene::OnEnter()
 	{
+		renderer::mainCamera = mCamera;
 	}
+
 	void HeadManHouseScene::OnExit()
 	{
-
+		renderer::mainCamera = nullptr;
 	}
 }

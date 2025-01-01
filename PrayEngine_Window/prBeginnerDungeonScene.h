@@ -16,7 +16,8 @@ namespace pr
 
 		void OnEnter() override;
 		void OnExit() override;
-	private:
 
+	private:
+		class Camera* mCamera;
 	};
 }

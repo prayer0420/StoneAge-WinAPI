@@ -14,6 +14,7 @@
 namespace pr
 {
 	BeginnerDungeonScene::BeginnerDungeonScene()
+		:mCamera(nullptr)
 	{
 	}
 
@@ -23,29 +24,29 @@ namespace pr
 	void BeginnerDungeonScene::Initialize()
 	{
 		//플레이어
-			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(1100,200));
-			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
-			sr->SetSize(Vector2::One);
-
-			player->AddComponent<PlayerScript>();
-
-			sr->SetName(L"SR");
+		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(1100, 200));
+		player->AddComponent<PlayerScript>();
+		SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
+		playerSr->SetSize(Vector2::One);
+		playerSr->SetName(L"SR");
 
 		//카메라
-			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
-			Camera* cameraComp = camera->AddComponent<Camera>();
-			renderer::mainCamera = cameraComp;
-			cameraComp->SetTarget(player);			//카메라 타겟지정
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		mCamera = cameraComp;
+
+		cameraComp->SetTarget(player);			
 
 		//배경
-			UI* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
+		UI* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
 
-			SpriteRenderer* BGsr = bg->AddComponent<SpriteRenderer>();
-			BGsr->SetSize(Vector2::One);
-			BGsr->SetName(L"SR");
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+		bgSr->SetSize(Vector2::One);
+		bgSr->SetName(L"SR");
 
-			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"Tile");
-			BGsr->SetTexture(bgTex);
+		graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"Tile");
+		bgSr->SetTexture(bgTex);
 
 		Scene::Initialize();
 	}
@@ -63,11 +64,12 @@ namespace pr
 	}
 	void BeginnerDungeonScene::OnEnter()
 	{
+		renderer::mainCamera = mCamera;
+
 	}
 	void BeginnerDungeonScene::OnExit()
 	{
-		//Transform* tr = player->GetComponent<Transform>();
-		//tr->SetPosition({ 1100, 200 });
+		renderer::mainCamera = nullptr;
 	}
 }
 

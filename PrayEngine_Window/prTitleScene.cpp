@@ -9,46 +9,48 @@
 #include "prResources.h"
 #include "prCamera.h"
 #include "prRenderer.h"
+#include "prPlayerScript.h"
 
 namespace pr
 {
 	TitleScene::TitleScene()
+		:mCamera(nullptr)
 	{
 	}
+
 	TitleScene::~TitleScene()
 	{
 	}
+
 	void TitleScene::Initialize()
 	{
-		
-		//플레이어
-		{
-			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(-100.0f, -100.0f));
 
-			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-		}
+		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(-100.0f, -100.0f));
+		//플레이어
+		SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
+		playerSr->SetName(L"SR");
+		player->AddComponent<PlayerScript>();
 
 		//카메라
-		{
-			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
-			Camera* cameraComp = camera->AddComponent<Camera>();
-			renderer::mainCamera = cameraComp;
-		}
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(0, 0));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		mCamera = cameraComp;
+
+		cameraComp->SetTarget(player);
 
 		//배경
-		{
-			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
-			
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-			
-			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"Main");
-			sr->SetTexture(bgTex);
-		}
+		GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
+
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+		bgSr->SetName(L"SR");
+
+		graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"Main");
+		bgSr->SetTexture(bgTex);
 
 		Scene::Initialize();
 	}
+
 	void TitleScene::Update()
 	{
 		Scene::Update();
@@ -64,9 +66,11 @@ namespace pr
 
 	void TitleScene::OnEnter()
 	{
+		renderer::mainCamera = mCamera;
 	}
+
 	void TitleScene::OnExit()
 	{
-
+		renderer::mainCamera = nullptr;
 	}
 }

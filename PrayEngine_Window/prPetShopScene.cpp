@@ -16,8 +16,10 @@
 namespace pr
 {
 	PetShopScene::PetShopScene()
+		:mCamera(nullptr)
 	{
 	}
+
 	PetShopScene::~PetShopScene()
 	{
 	}
@@ -27,50 +29,44 @@ namespace pr
 		for (int i = 0; i < 2; i++)
 		{
 			GameObject* npc = object::Instantiate<NPC>(enums::eLayerType::Npc, Vector2({ 300 + (i * 200) , 350 + (i * -200) }));
-			
+
 			SpriteRenderer* sr = npc->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
-		//AddNPC(npc, enums::eLayerType::Npc);
 		}
-		//플레이어
-		{
-			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(1300, 600));
-			mplayer = dynamic_cast<Player*>(player);
-			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-			player->AddComponent<PlayerScript>();
 
-		}
+		//플레이어
+		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(1300, 600));
+		SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
+		player->AddComponent<PlayerScript>();
+		playerSr->SetName(L"SR");
 
 		//카메라
-		{
-			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(0, 0));
-			Camera* cameraComp = camera->AddComponent<Camera>();
-			renderer::mainCamera = cameraComp;
-			cameraComp->SetTarget(mplayer);			//카메라 타겟지정
-		}
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(0, 0));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		mCamera = cameraComp;
+
+		cameraComp->SetTarget(player);			
 
 		//배경
-		{
-			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
-
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-
-			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"Tile");
-			sr->SetTexture(bgTex);
-
-		}
+		GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+		bgSr->SetName(L"SR");
+		graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"Tile");
+		bgSr->SetTexture(bgTex);
 		Scene::Initialize();
 	}
+
 	void PetShopScene::Update()
 	{
 		Scene::Update();
 	}
+
 	void PetShopScene::LateUpdate()
 	{
 		Scene::LateUpdate();
 	}
+
 	void PetShopScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
@@ -78,9 +74,11 @@ namespace pr
 
 	void PetShopScene::OnEnter()
 	{
+		renderer::mainCamera = mCamera;
 	}
+
 	void PetShopScene::OnExit()
 	{
-
+		renderer::mainCamera = nullptr;
 	}
 }

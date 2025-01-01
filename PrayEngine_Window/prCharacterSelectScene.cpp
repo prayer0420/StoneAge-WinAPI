@@ -13,40 +13,35 @@
 namespace pr
 {
 	CharacterSelectScene::CharacterSelectScene()
+		:mCamera(nullptr)
 	{
 	}
 	CharacterSelectScene::~CharacterSelectScene()
 	{
 	}
-	
+
 	void CharacterSelectScene::Initialize()
 	{
 
-		{
-			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(-100, -100));
+		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(-100, -100));
 
-			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-
-		}
+		SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
+		playerSr->SetName(L"SR");
 
 		//카메라
-		{
-			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
-			Camera* cameraComp = camera->AddComponent<Camera>();
-			renderer::mainCamera = cameraComp;
-		}
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		mCamera = cameraComp;
 
 		//배경
-		{
-			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
+		GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
 
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+		bgSr->SetName(L"SR");
 
-			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"CharacterSelect");
-			sr->SetTexture(bgTex);
-		}
+		graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"CharacterSelect");
+		bgSr->SetTexture(bgTex);
 
 		Scene::Initialize();
 	}
@@ -66,10 +61,12 @@ namespace pr
 
 	void CharacterSelectScene::OnEnter()
 	{
+		renderer::mainCamera = mCamera;
 	}
+
 	void CharacterSelectScene::OnExit()
 	{
-
+		renderer::mainCamera = nullptr;
 	}
 }
 
