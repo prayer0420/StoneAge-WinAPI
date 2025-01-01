@@ -34,7 +34,7 @@ namespace pr
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 			
-			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"TitleBG");
+			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"Main");
 			sr->SetTexture(bgTex);
 
 			//AddUI(bg,enums::eLayerType::BackGround);

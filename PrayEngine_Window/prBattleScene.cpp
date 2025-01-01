@@ -61,7 +61,7 @@ namespace pr
 
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
-			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"BattleBG");
+			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"BattleMap1");
 			sr->SetTexture(bgTex);
 			
 			//sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\battleMap1.bmp");

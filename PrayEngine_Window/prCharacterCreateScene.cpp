@@ -20,11 +20,11 @@ namespace pr
 	{
 		//¹è°æ
 		{
-			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(-100, -100));
+			GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
 
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
-			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"CharacterCreateBG");
+			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"CharacterCreate");
 			sr->SetTexture(bgTex);
 
 			//AddUI(bg, enums::eLayerType::BackGround);
