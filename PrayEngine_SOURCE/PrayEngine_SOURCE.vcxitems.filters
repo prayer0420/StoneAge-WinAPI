@@ -41,6 +41,9 @@
       <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)prLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prTexture.cpp">
+      <Filter>Resources\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)prComponent.h">
@@ -92,6 +95,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)prObject.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prTexture.h">
+      <Filter>Resources\Texture</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -126,6 +132,9 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{b9cef6c0-e6ef-4f3a-ad36-e52d3e791bf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Texture">
+      <UniqueIdentifier>{667e11db-e4d8-4996-b2f1-4b21599f1c70}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

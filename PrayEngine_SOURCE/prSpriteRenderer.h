@@ -1,6 +1,7 @@
 #pragma once
 #include "prEntity.h"
 #include "prComponent.h"
+#include "prTexture.h"
 
 namespace pr
 {
@@ -14,12 +15,12 @@ namespace pr
 		void Update()  override;
 		void LateUpdate()  override;
 		void Render(HDC hdc)  override;
-		void ImageLoad(const std::wstring& path); //ImageLoad먼저하고 Render에 그림
+
+		void SetTexture(graphics::Texture* texture) { mTexture = texture; }
+		void SetSize(math::Vector2 size) { mSize = size; }
 
 	private:
-		Gdiplus::Image* mImgae;
-		UINT mWidth;
-		UINT mHeight;
-
+		graphics::Texture* mTexture;
+		math::Vector2 mSize;
 	};
 }

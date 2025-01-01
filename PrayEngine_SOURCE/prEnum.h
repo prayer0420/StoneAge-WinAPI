@@ -14,14 +14,12 @@ namespace pr::enums
 	};
 
 
-	enum class GameObjectType
+	enum class eResourceType
 	{
-		None,
-		Player,
-		NPC,
-		MyPet,
-		EnemyPet,
-		Max = 16,
+		Texture,
+		AudioClip,
+		Prefab,
+		End,
 	};
 
 

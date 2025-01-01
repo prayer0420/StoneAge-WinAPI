@@ -141,9 +141,10 @@
     <ClInclude Include="prCharacterCreateScene.h" />
     <ClInclude Include="prCharacterSelectScene.h" />
     <ClInclude Include="prEnemyPet.h" />
-    <ClInclude Include="prFightScene.h" />
+    <ClInclude Include="prBattleScene.h" />
     <ClInclude Include="prHeadManHouseScene.h" />
     <ClInclude Include="prItemShopScene.h" />
+    <ClInclude Include="prLoadResources.h" />
     <ClInclude Include="prLoadScene.h" />
     <ClInclude Include="prPetShopScene.h" />
     <ClInclude Include="prTitleScene.h" />
@@ -158,7 +159,7 @@
     <ClCompile Include="prCharacterCreateScene.cpp" />
     <ClCompile Include="prCharacterSelectScene.cpp" />
     <ClCompile Include="prEnemyPet.cpp" />
-    <ClCompile Include="prFightScene.cpp" />
+    <ClCompile Include="prBattleScene.cpp" />
     <ClCompile Include="prHeadManHouseScene.cpp" />
     <ClCompile Include="prItemShopScene.cpp" />
     <ClCompile Include="prPetShopScene.cpp" />

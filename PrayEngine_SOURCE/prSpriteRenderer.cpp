@@ -6,13 +6,14 @@
 #include "prNPC.h"
 #include "..\\PrayEngine_Window\\prUI.h"
 #include "..\\PrayEngine_Window\\prEnemyPet.h"
+#include "prTexture.h"
 
 namespace pr
 {
 	SpriteRenderer::SpriteRenderer()
-		: mImgae(nullptr)
-		, mWidth(0)
-		, mHeight(0)
+		:Component()
+		, mTexture(nullptr)
+		,mSize(Vector2::One)
 	{
 	}
 	SpriteRenderer::~SpriteRenderer()
@@ -71,22 +72,34 @@ namespace pr
 			SelectObject(hdc, oldBrush);
 			DeleteObject(blueBrush);
 		}
-	
-	//if (dynamic_cast<UI*>(this->GetOwner()))
-	//{
-		Transform* tr = GetOwner()->GetComponent<Transform>();
-		Vector2 pos = tr->GetPosition();
-		Gdiplus::Graphics graphcis(hdc);
-		graphcis.DrawImage(mImgae, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
-	//}
 
+		else if (dynamic_cast<UI*>(this->GetOwner()))
+		{
+			if (mTexture == nullptr)
+				assert(false);
+
+			Transform* tr = GetOwner()->GetComponent<Transform>();
+			Vector2 pos = tr->GetPosition();
+
+			if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
+			{
+				TransparentBlt(hdc, pos.x, pos.y
+					, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y
+					, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
+					, RGB(255, 0, 255));
+			}
+			else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
+			{
+				Gdiplus::Graphics graphcis(hdc);
+				graphcis.DrawImage(mTexture->GetImage()
+					, Gdiplus::Rect(pos.x, pos.y
+						, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y));
+			}
+
+			//Transform* tr = GetOwner()->GetComponent<Transform>();
+			//Vector2 pos = tr->GetPosition();
+			//Gdiplus::Graphics graphcis(hdc);
+			//graphcis.DrawImage(mImgae, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
+		}
 	}
-
-	void SpriteRenderer::ImageLoad(const std::wstring& path)
-	{
-		mImgae = Gdiplus::Image::FromFile(path.c_str());
-		mWidth = mImgae->GetWidth();
-		mHeight = mImgae->GetHeight();
-	}
-
 }

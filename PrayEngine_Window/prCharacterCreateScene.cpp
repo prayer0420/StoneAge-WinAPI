@@ -5,6 +5,8 @@
 #include "prSpriteRenderer.h"
 #include "prUI.h"
 #include "prObject.h"
+#include "prTexture.h"
+#include "prResources.h"
 
 namespace pr
 {
@@ -22,9 +24,10 @@ namespace pr
 
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
-			sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\character_create.bmp");
+			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"CharacterCreateBG");
+			sr->SetTexture(bgTex);
 
-			AddUI(bg, enums::eLayerType::BackGround);
+			//AddUI(bg, enums::eLayerType::BackGround);
 		}
 
 		Scene::Initialize();

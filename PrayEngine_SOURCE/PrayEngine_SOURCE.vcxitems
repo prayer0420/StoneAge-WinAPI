@@ -29,6 +29,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)prScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prTransform.h" />
   </ItemGroup>
@@ -45,6 +46,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)prScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prTransform.cpp" />
   </ItemGroup>

@@ -90,7 +90,7 @@ namespace pr
 
 		else if (Input::GetKeyDown(eKeyCode::Num8))
 		{
-			LoadScene(L"FightScene");
+			LoadScene(L"BattleScene");
 		}
 	}
 }

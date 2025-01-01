@@ -5,6 +5,8 @@
 #include "prSpriteRenderer.h"
 #include "prUI.h"
 #include "prObject.h"
+#include "prTexture.h"
+#include "prResources.h"
 
 namespace pr
 {
@@ -23,7 +25,7 @@ namespace pr
 			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 
-			AddPlayer(player, enums::eLayerType::Player);
+			//AddPlayer(player, enums::eLayerType::Player);
 		}
 
 		//¹è°æ
@@ -32,9 +34,11 @@ namespace pr
 
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
-			sr->ImageLoad(L"C:\\Users\\User\\Desktop\\WinApi\\PrayEngine\\Resources\\character_select.bmp");
 
-			AddUI(bg,enums::eLayerType::BackGround);
+			graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"CharacterSelectBG");
+			sr->SetTexture(bgTex);
+
+			//AddUI(bg,enums::eLayerType::BackGround);
 		}
 
 		Scene::Initialize();

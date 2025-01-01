@@ -6,6 +6,8 @@
 
 #include "..\\PrayEngine_SOURCE\\prApplication.h"
 #include "..\\PrayEngine_Window\\prLoadScene.h"
+#include "..\\PrayEngine_Window\\prLoadResources.h"
+
 
 
 #define MAX_LOADSTRING 100
@@ -113,6 +115,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
+    pr::LoadResources();
     pr::LoadScenes();
     
     return TRUE;
