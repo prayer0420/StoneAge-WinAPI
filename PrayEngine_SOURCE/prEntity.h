@@ -1,6 +1,8 @@
 #pragma once
 #include "CommonInclude.h"
 
+using namespace  pr::math;
+
 namespace pr
 {
 	class Entity

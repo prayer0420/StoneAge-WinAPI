@@ -8,11 +8,14 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{bcb69188-a458-4493-b4c9-323bc5df4641}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{0261e170-ddb7-4e0f-85b0-4c793ba4c409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{d4e3d1d1-5cb0-4c3f-98c9-751e1337a3b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\PrayEngine_SOURCE\prNPC.h" />
-    <ClInclude Include="..\PrayEngine_SOURCE\prMyPET.h" />
-    <ClInclude Include="..\PrayEngine_SOURCE\prPlayer.h" />
     <ClInclude Include="prLoadScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
@@ -43,15 +46,27 @@
     <ClInclude Include="prvillageScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="prUI.h" />
-    <ClInclude Include="prEnemyPet.h" />
     <ClInclude Include="prLoadResources.h" />
-    <ClInclude Include="prPlayerScript.h" />
+    <ClInclude Include="prEnemyPet.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PrayEngine_SOURCE\prMyPET.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PrayEngine_SOURCE\prNPC.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PrayEngine_SOURCE\prPlayer.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="prUI.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="prPlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\PrayEngine_SOURCE\prNPC.cpp" />
-    <ClCompile Include="..\PrayEngine_SOURCE\prMyPET.cpp" />
-    <ClCompile Include="..\PrayEngine_SOURCE\prPlayer.cpp" />
     <ClCompile Include="prBeginnerDungeonScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
@@ -79,11 +94,26 @@
     <ClCompile Include="prvillageScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="prUI.cpp" />
-    <ClCompile Include="prEnemyPet.cpp" />
-    <ClCompile Include="prPlayerScript.cpp" />
+    <ClCompile Include="prEnemyPet.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PrayEngine_SOURCE\prMyPET.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PrayEngine_SOURCE\prNPC.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PrayEngine_SOURCE\prPlayer.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="prUI.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="prPlayerScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

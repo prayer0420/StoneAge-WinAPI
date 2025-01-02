@@ -6,6 +6,7 @@ namespace pr::enums
 		Transform,
 		Script,
 		SpriteRenderer,
+		Animator,
 		Camera,
 		End,
 	};
@@ -27,6 +28,7 @@ namespace pr::enums
 	{
 		Texture,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 	};

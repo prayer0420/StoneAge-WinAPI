@@ -9,7 +9,7 @@ namespace pr
 	{
 	public:
 		Component(enums::eComponentType type);
-		~Component();
+		virtual ~Component();
 
 		virtual void Initialize();
 		virtual void Update();

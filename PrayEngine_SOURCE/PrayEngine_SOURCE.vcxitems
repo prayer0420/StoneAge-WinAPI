@@ -15,6 +15,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)prAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prEntity.h" />
@@ -37,6 +39,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)prTransform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)prAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prEntity.cpp" />

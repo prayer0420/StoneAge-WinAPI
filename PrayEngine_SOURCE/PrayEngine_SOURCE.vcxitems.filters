@@ -37,7 +37,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)prGameObject.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)prLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prTexture.cpp">
       <Filter>Resources\Texture</Filter>
     </ClCompile>
@@ -47,9 +46,20 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)prCamera.cpp">
       <Filter>Component\Component\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)prRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)prScript.cpp">
       <Filter>Component\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prRenderer.cpp">
+      <Filter>Component\Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prAnimation.cpp">
+      <Filter>Resources\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)prAnimator.cpp">
+      <Filter>Animator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,7 +102,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)prGameObject.h">
       <Filter>GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)prLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prEnum.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -108,9 +117,20 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)prCamera.h">
       <Filter>Component\Component\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)prRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)prScript.h">
       <Filter>Component\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prRenderer.h">
+      <Filter>Component\Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prAnimation.h">
+      <Filter>Resources\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)prAnimator.h">
+      <Filter>Animator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +178,12 @@
     </Filter>
     <Filter Include="Component\Script">
       <UniqueIdentifier>{c3844732-83e7-493b-9db3-f2179f359ee1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Animation">
+      <UniqueIdentifier>{2a8347b9-5e03-4569-83b3-6c2b4314a812}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animator">
+      <UniqueIdentifier>{73e3e544-a13d-44e5-8a85-beee3755bf27}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

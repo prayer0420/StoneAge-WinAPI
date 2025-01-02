@@ -10,6 +10,7 @@
 #include "prCamera.h"
 #include "prRenderer.h"
 #include "prPlayerScript.h"
+#include "prAnimator.h"
 
 namespace pr
 {
@@ -25,11 +26,21 @@ namespace pr
 	void TitleScene::Initialize()
 	{
 
-		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(-100.0f, -100.0f));
 		//플레이어
-		SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
-		playerSr->SetName(L"SR");
-		//player->AddComponent<PlayerScript>();
+		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(0.0f, 0.0f));
+		//SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
+		//playerSr->SetName(L"SR");
+		player->AddComponent<PlayerScript>();
+		graphics::Texture* characterTex = Resources::Find<graphics::Texture>(L"BlueRunBasic");
+		Animator* animator =  player->AddComponent<Animator>();
+
+		//애니메이션 만들기
+		animator->CreateAnimation(L"BlueRunBasic", characterTex
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+
+		//재생
+		animator->PlayAnimation(L"BlueRunBasic", true);
+
 
 		//카메라
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2::Zero);
@@ -37,7 +48,8 @@ namespace pr
 		renderer::mainCamera = cameraComp;
 		mCamera = cameraComp;
 
-		//cameraComp->SetTarget(player);
+		cameraComp->SetTarget(player);
+
 
 		//배경
 		GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
