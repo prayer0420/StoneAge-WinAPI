@@ -56,6 +56,3 @@ namespace pr::graphics
 		return S_OK;
 	}
 }
-
-
-

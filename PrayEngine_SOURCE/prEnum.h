@@ -4,8 +4,8 @@ namespace pr::enums
 	enum class eComponentType
 	{
 		Transform,
-		SpriteRenderer,
 		Script,
+		SpriteRenderer,
 		Camera,
 		End,
 	};

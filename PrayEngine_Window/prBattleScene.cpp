@@ -37,7 +37,7 @@ namespace pr
 		}
 
 		//Ä«¸Þ¶ó
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800, 450));
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 		mCamera = cameraComp;

@@ -18,7 +18,4 @@ namespace pr
 		const enums::eResourceType mType;
 		std::wstring mPath;
 	};
-
-	//class Texture : public Resource;
-	//class AudioClip : public Resource;
 }

@@ -40,7 +40,7 @@ namespace pr
 		playerSr->SetName(L"SR");
 
 		//Ä«¸Þ¶ó
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(0, 0));
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 		mCamera = cameraComp;

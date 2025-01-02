@@ -29,15 +29,15 @@ namespace pr
 		//플레이어
 		SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
 		playerSr->SetName(L"SR");
-		player->AddComponent<PlayerScript>();
+		//player->AddComponent<PlayerScript>();
 
 		//카메라
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(0, 0));
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2::Zero);
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 		mCamera = cameraComp;
 
-		cameraComp->SetTarget(player);
+		//cameraComp->SetTarget(player);
 
 		//배경
 		GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));

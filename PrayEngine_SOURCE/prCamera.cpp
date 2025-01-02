@@ -9,9 +9,9 @@ namespace pr
 {
 	Camera::Camera()
 		: Component(enums::eComponentType::Camera)
-		, mDistance(Vector2::One)
-		, mResolution(Vector2::One)
-		, mLookPosition(Vector2::One)
+		, mDistance(Vector2::Zero)
+		, mResolution(Vector2::Zero)
+		, mLookPosition(Vector2::Zero)
 		, mTarget(nullptr)
 	{
 
@@ -23,6 +23,9 @@ namespace pr
 	{
 		mResolution.x = application.GetWidth();
 		mResolution.y = application.GetHeight();
+
+		Transform* cameraTr = GetOwner()->GetComponent<Transform>();
+		cameraTr->SetPosition(mResolution / 2.0f);
 	}
 	void Camera::Update()
 	{
