@@ -106,9 +106,22 @@ namespace pr
 			else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
 			{
 				Gdiplus::Graphics graphcis(hdc);
+				
+				Gdiplus::ImageAttributes imgAtt = {};
+				imgAtt.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 2555, 255));
+
 				graphcis.DrawImage(mTexture->GetImage()
-					, Gdiplus::Rect(pos.x, pos.y
-						, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y));
+					, Gdiplus::Rect
+					(
+						pos.x, pos.y
+						, mTexture->GetWidth()  * mSize.x
+						, mTexture->GetHeight() * mSize.y
+					)
+					, 0,0 //0,0부터 texture의 넓이, 높이까지
+					, mTexture->GetWidth()
+					, mTexture->GetHeight()
+					, Gdiplus::UnitPixel
+					, nullptr);
 			}
 		}
 	}

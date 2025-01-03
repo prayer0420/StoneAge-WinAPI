@@ -20,6 +20,7 @@ namespace pr::enums
 		Player,
 		EnemyPet,
 		MyPet,
+		Particle,
 		Max = 16,
 	};
 

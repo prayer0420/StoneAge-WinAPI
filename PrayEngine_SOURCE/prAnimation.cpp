@@ -9,12 +9,12 @@ namespace pr
 {
 	Animation::Animation()
 		:Resource(enums::eResourceType::Animation)
-		,mAnimator(nullptr)
-		,mTexture(nullptr)
+		, mAnimator(nullptr)
+		, mTexture(nullptr)
 		, mAnimationSheet{}
-		,mIndex(-1)
-		,mTime(0.0f)
-		,mbComplete(false)
+		, mIndex(-1)
+		, mTime(0.0f)
+		, mbComplete(false)
 	{
 
 	}
@@ -32,7 +32,7 @@ namespace pr
 	{
 		if (mbComplete)
 			return;
-		
+
 		//시간 카운트
 		mTime += Time::DeltaTime();
 
@@ -52,50 +52,77 @@ namespace pr
 	{
 		if (mTexture == nullptr)
 			return;
-		
+
 		GameObject* gameObj = mAnimator->GetOwner();
 		Transform* tr = gameObj->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		Sprite sprite = mAnimationSheet[mIndex];
 
 		//카메라가 있다면 카메라 기준으로 바꿔줘야함
 		if (renderer::mainCamera)
-			pos =  renderer::mainCamera->CaluatePosition(pos);
+			pos = renderer::mainCamera->CaluatePosition(pos);
 
-		Sprite sprite = mAnimationSheet[mIndex];
+		graphics::Texture::eTextureType type = mTexture->GetTextureType();
+		if (type == graphics::Texture::eTextureType::Bmp)
+		{
 
-		HDC imgHdc = mTexture->GetHdc();
-		
-		TransparentBlt(hdc
-			, pos.x
-			, pos.y
-			, sprite.size.x * 1.5
-			, sprite.size.y * 1.5
-			, imgHdc
-			, sprite.leftTop.x
-			, sprite.leftTop.y
-			, sprite.size.x
-			, sprite.size.y
-			, RGB(255, 0, 255));
+			HDC imgHdc = mTexture->GetHdc();
 
-		//Alpha값 필요 할 때
+			TransparentBlt(hdc
+				, pos.x
+				, pos.y
+				, sprite.size.x * 1.5
+				, sprite.size.y * 1.5
+				, imgHdc
+				, sprite.leftTop.x
+				, sprite.leftTop.y
+				, sprite.size.x
+				, sprite.size.y
+				, RGB(255, 0, 255));
 
-		//BLENDFUNCTION func = {};
-		//func.BlendOp = AC_SRC_OVER;
-		//func.BlendFlags = 0;
-		//func.AlphaFormat = AC_SRC_ALPHA;
-		//func.SourceConstantAlpha = 255; //0(transparent)~255(Opaque)
+			//Alpha값 필요 할 때
 
-		/*AlphaBlend(hdc
-			, pos.x
-			, pos.y
-			, sprite.size.x
-			, sprite.size.y
-			, imgHdc
-			, sprite.leftTop.x
-			, sprite.leftTop.y
-			, sprite.size.x
-			, sprite.size.y
-			, func);*/
+			//BLENDFUNCTION func = {};
+			//func.BlendOp = AC_SRC_OVER;
+			//func.BlendFlags = 0;
+			//func.AlphaFormat = AC_SRC_ALPHA;
+			//func.SourceConstantAlpha = 255; //0(transparent)~255(Opaque)
+
+			/*AlphaBlend(hdc
+				, pos.x
+				, pos.y
+				, sprite.size.x
+				, sprite.size.y
+				, imgHdc
+				, sprite.leftTop.x
+				, sprite.leftTop.y
+				, sprite.size.x
+				, sprite.size.y
+				, func);*/
+		}
+
+		else if (type == graphics::Texture::eTextureType::Png)
+		{
+			//내가 원하는 픽셀을 투명화 시킬 때 (필요할때만!)
+			Gdiplus::ImageAttributes imgAtt = {};
+			//투명화 시킬 픽셀의 색 범위(100,100,100~255,255,255까지 투명화 시키겠다)
+			imgAtt.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 2555, 255));
+
+			Gdiplus::Graphics graphics(hdc);
+			graphics.DrawImage(mTexture->GetImage()
+				, Gdiplus::Rect
+				(
+					pos.x, pos.y
+					, sprite.size.x, sprite.size.y
+				)
+				, sprite.leftTop.x
+				, sprite.leftTop.y
+				, sprite.size.x
+				, sprite.size.y
+				, Gdiplus::UnitPixel //투명화 시키겠다는 옵션
+				, nullptr/*&imgAtt*/
+			);
+		}
 	}
 
 	void Animation::CreateAnimation(const std::wstring& name
@@ -111,7 +138,7 @@ namespace pr
 		{
 			Sprite sprite = {};
 			sprite.leftTop.x = leftTop.x + (size.x * i); //0,0 -> 100,0 -> 200,0 -> ...
-			sprite.leftTop.y = leftTop.y; 
+			sprite.leftTop.y = leftTop.y;
 			sprite.size = size;
 			sprite.offset = offset;
 			sprite.duration = duration;

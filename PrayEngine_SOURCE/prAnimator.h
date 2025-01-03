@@ -31,9 +31,5 @@ namespace pr
 		std::map<std::wstring, Animation*> mAnimations;
 		Animation* mActiveAnimation;
 		bool mbLoop;
-
 	};
-
 }
-
-

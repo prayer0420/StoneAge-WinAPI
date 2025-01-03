@@ -32,12 +32,11 @@ namespace pr
 		//playerSr->SetName(L"SR");
 		player->AddComponent<PlayerScript>();
 		graphics::Texture* characterTex = Resources::Find<graphics::Texture>(L"BlueRunBasic");
-		Animator* animator =  player->AddComponent<Animator>();
 
+		Animator* animator =  player->AddComponent<Animator>();
 		//애니메이션 만들기
 		animator->CreateAnimation(L"BlueRunBasic", characterTex
 			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-
 		//재생
 		animator->PlayAnimation(L"BlueRunBasic", true);
 
