@@ -10,6 +10,7 @@
 #include "prPlayerScript.h"
 #include "prCamera.h"
 #include "prRenderer.h"
+#include "prAnimator.h"
 
 
 namespace pr
@@ -27,9 +28,31 @@ namespace pr
 	{
 		//플레이어
 		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(800, 200));
-		SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
-		playerSr->SetName(L"SR");
 		player->AddComponent<PlayerScript>();
+		Animator* playerAnimator = player->AddComponent<Animator>();
+
+		graphics::Texture* BlueAttackHatchatTex = Resources::Find<graphics::Texture>(L"BlueAttackHatchat");
+		graphics::Texture* BlueDeadHatchatTex = Resources::Find<graphics::Texture>(L"BlueDeadHatchat");
+		graphics::Texture* BlueDefenseHatchatTex = Resources::Find<graphics::Texture>(L"BlueDefenseHatchat");
+		graphics::Texture* BlueHurtHatchatTex = Resources::Find<graphics::Texture>(L"BlueHurtHatchat");
+		graphics::Texture* BlueRunHatchatTex = Resources::Find<graphics::Texture>(L"BlueRunHatchat");
+		graphics::Texture* BlueStandHatchatTex = Resources::Find<graphics::Texture>(L"BlueStandHatchat");
+
+		playerAnimator->CreateAnimation(L"BlueAttackHatchat", BlueAttackHatchatTex
+			, Vector2(0.0f, 0.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueDeadHatchat", BlueDeadHatchatTex
+			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueDefenseHatchat", BlueDefenseHatchatTex
+			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHurtHatchat", BlueHurtHatchatTex
+			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueRunHatchat", BlueRunHatchatTex
+			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueStandHatchat", BlueStandHatchatTex
+			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		
+		playerAnimator->PlayAnimation(L"BlueRunHatchat");
+		
 
 		//카메라
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);

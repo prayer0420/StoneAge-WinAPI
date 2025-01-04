@@ -1,6 +1,6 @@
-#include "prCharacterSelectScene.h"
+#include "prCharacterInputScene.h"
 #include "prGameObject.h"
-#include "prPlayer.h"
+#include "prScene.h"
 #include "prTransform.h"
 #include "prSpriteRenderer.h"
 #include "prUI.h"
@@ -12,17 +12,15 @@
 
 namespace pr
 {
-	CharacterSelectScene::CharacterSelectScene()
+	CharacterInputScene::CharacterInputScene()
 		:mCamera(nullptr)
 	{
 	}
-	CharacterSelectScene::~CharacterSelectScene()
+	CharacterInputScene::~CharacterInputScene()
 	{
 	}
-
-	void CharacterSelectScene::Initialize()
+	void CharacterInputScene::Initialize()
 	{
-
 		//Ä«¸Þ¶ó
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
 		Camera* cameraComp = camera->AddComponent<Camera>();
@@ -33,31 +31,30 @@ namespace pr
 		GameObject* bg = object::Instantiate<UI>(enums::eLayerType::BackGround, Vector2(0, 0));
 		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
 		bgSr->SetName(L"SR");
-		graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"CharacterSelect");
+		graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"CharacterInput");
 		bgSr->SetTexture(bgTex);
 
 		Scene::Initialize();
 	}
-
-	void CharacterSelectScene::Update()
+	void CharacterInputScene::Update()
 	{
 		Scene::Update();
 	}
-	void CharacterSelectScene::LateUpdate()
+	void CharacterInputScene::LateUpdate()
 	{
 		Scene::LateUpdate();
 	}
-	void CharacterSelectScene::Render(HDC hdc)
+	void CharacterInputScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
 	}
 
-	void CharacterSelectScene::OnEnter()
+	void CharacterInputScene::OnEnter()
 	{
 		renderer::mainCamera = mCamera;
 	}
 
-	void CharacterSelectScene::OnExit()
+	void CharacterInputScene::OnExit()
 	{
 		renderer::mainCamera = nullptr;
 	}

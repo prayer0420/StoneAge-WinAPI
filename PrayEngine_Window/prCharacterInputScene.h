@@ -1,16 +1,14 @@
 #pragma once
+#pragma once
 #include "..\\PrayEngine_SOURCE\\prScene.h"
 
 namespace pr
 {
-	class Animator;
-
-	class BattleScene : public Scene
+	class CharacterInputScene : public Scene
 	{
 	public:
-
-		BattleScene();
-		~BattleScene();
+		CharacterInputScene();
+		~CharacterInputScene();
 
 		void Initialize() override;
 		void Update() override;
@@ -22,11 +20,5 @@ namespace pr
 
 	private:
 		class Camera* mCamera;
-		std::vector<GameObject*> enemyPets;
-
-		Animator* mPlayerAnimator;
-		std::vector<Animator> mEnemyPetAnimators;
-		Animator* mMyPetAnimator;
-
 	};
 }

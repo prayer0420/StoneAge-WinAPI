@@ -4,6 +4,7 @@
 #include "prBeginnerDungeonScene.h"
 #include "prCharacterCreateScene.h"
 #include "prCharacterSelectScene.h"
+#include "prCharacterInputScene.h"
 #include "prBattleScene.h"
 #include "prItemShopScene.h"
 #include "prPetShopScene.h"
@@ -18,6 +19,7 @@ namespace pr
 		SceneManager::CreateScene<TitleScene>(L"TitleScene");
 		SceneManager::CreateScene<CharacterSelectScene>(L"CharacterSelectScene");
 		SceneManager::CreateScene<CharacterCreateScene>(L"CharacterCreateScene");
+		SceneManager::CreateScene<CharacterCreateScene>(L"CharacterInputScene");
 		SceneManager::CreateScene<HeadManHouseScene>(L"HeadManHouseScene");
 		SceneManager::CreateScene<villageScene>(L"villageScene");
 		SceneManager::CreateScene<ItemShopScene>(L"ItemShopScene");

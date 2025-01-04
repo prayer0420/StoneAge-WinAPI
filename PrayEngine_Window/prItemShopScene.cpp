@@ -11,6 +11,7 @@
 #include "prPlayerScript.h"
 #include "prCamera.h"
 #include "prRenderer.h"
+#include "prAnimator.h"
 
 
 namespace pr
@@ -35,9 +36,36 @@ namespace pr
 
 		//플레이어
 		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(200, 500));
-		SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
 		player->AddComponent<PlayerScript>();
-		playerSr->SetName(L"SR");
+		Animator* playerAnimator = player->AddComponent<Animator>();
+
+		graphics::Texture* RedAttackBasicTex = Resources::Find<graphics::Texture>(L"RedAttackBasic");
+		graphics::Texture* RedDeadBasicTex = Resources::Find<graphics::Texture>(L"RedDeadBasic");
+		graphics::Texture* RedDefenseBasicTex = Resources::Find<graphics::Texture>(L"RedDefenseBasic");
+		graphics::Texture* RedHurtBasicTex = Resources::Find<graphics::Texture>(L"RedHurtBasic");
+		graphics::Texture* RedRunBasicTex = Resources::Find<graphics::Texture>(L"RedRunBasic");
+		graphics::Texture* RedStandBasicTex = Resources::Find<graphics::Texture>(L"RedStandBasic");
+
+		//애니메이션 만들기
+		playerAnimator->CreateAnimation(L"RedAttackBasic", RedAttackBasicTex
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedDeadBasic", RedDeadBasicTex
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedDefenseBasic", RedDefenseBasicTex
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedHurtBasic", RedHurtBasicTex
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedRunBasic", RedRunBasicTex
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedStandBasic", RedStandBasicTex
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->PlayAnimation(L"RedRunBasic");
 
 		//카메라
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);

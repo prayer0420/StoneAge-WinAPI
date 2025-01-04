@@ -11,6 +11,7 @@
 #include "prPlayerScript.h"
 #include "prCamera.h"
 #include "prRenderer.h"
+#include "prAnimator.h"
 
 
 namespace pr
@@ -36,9 +37,30 @@ namespace pr
 
 		//플레이어
 		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(1300, 600));
-		SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
 		player->AddComponent<PlayerScript>();
-		playerSr->SetName(L"SR");
+		Animator* playerAnimator = player->AddComponent<Animator>();
+
+		graphics::Texture* BlueAttackClubTex = Resources::Find<graphics::Texture>(L"BlueAttackClub");
+		graphics::Texture* BlueDeadClubTex = Resources::Find<graphics::Texture>(L"BlueDeadClub");
+		graphics::Texture* BlueDefenseClubTex = Resources::Find<graphics::Texture>(L"BlueDefenseClub");
+		graphics::Texture* BlueHurtClubTex = Resources::Find<graphics::Texture>(L"BlueHurtClub");
+		graphics::Texture* BlueRunClubTex = Resources::Find<graphics::Texture>(L"BlueRunClub");
+		graphics::Texture* BlueStandClubTex = Resources::Find<graphics::Texture>(L"BlueStandClub");
+
+		playerAnimator->CreateAnimation(L"BlueAttackClub", BlueAttackClubTex
+			, Vector2(0.0f, 0.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueDeadClub", BlueDeadClubTex
+			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueDefenseClub", BlueDefenseClubTex
+			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHurtClub", BlueHurtClubTex
+			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueRunClub", BlueRunClubTex
+			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueStandClub", BlueStandClubTex
+			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->PlayAnimation(L"BlueRunClub");
 
 		//카메라
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);

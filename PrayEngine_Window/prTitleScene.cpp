@@ -31,14 +31,58 @@ namespace pr
 		//SpriteRenderer* playerSr = player->AddComponent<SpriteRenderer>();
 		//playerSr->SetName(L"SR");
 		player->AddComponent<PlayerScript>();
-		graphics::Texture* characterTex = Resources::Find<graphics::Texture>(L"BlueRunBasic");
+		
+		
+		graphics::Texture* characterTex1 = Resources::Find<graphics::Texture>(L"BlueAngryBasic");
+		graphics::Texture* characterTex2 = Resources::Find<graphics::Texture>(L"BlueAttackBasic");
+		graphics::Texture* characterTex3 = Resources::Find<graphics::Texture>(L"BlueCryBasic");
+		graphics::Texture* characterTex4 = Resources::Find<graphics::Texture>(L"BlueDeadBasic");
+		graphics::Texture* characterTex5 = Resources::Find<graphics::Texture>(L"BlueDefenseBasic");
+		graphics::Texture* characterTex6 = Resources::Find<graphics::Texture>(L"BlueHappyBasic");
+		graphics::Texture* characterTex7 = Resources::Find<graphics::Texture>(L"BlueHelloBasic");
+		graphics::Texture* characterTex8 = Resources::Find<graphics::Texture>(L"BlueHurtBasic");
+		graphics::Texture* characterTex9 = Resources::Find<graphics::Texture>(L"BlueRunBasic");
+		graphics::Texture* characterTex10 = Resources::Find<graphics::Texture>(L"BlueSeatBasic");
+		graphics::Texture* characterTex11 = Resources::Find<graphics::Texture>(L"BlueStandBasic");
 
 		Animator* animator =  player->AddComponent<Animator>();
+
 		//애니메이션 만들기
-		animator->CreateAnimation(L"BlueRunBasic", characterTex
+		animator->CreateAnimation(L"BlueAngryBasic", characterTex1
 			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+
+		animator->CreateAnimation(L"BlueAttackBasic", characterTex2
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+
+		animator->CreateAnimation(L"BlueCryBasic", characterTex3
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+
+		animator->CreateAnimation(L"BlueDeadBasic", characterTex4
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+
+		animator->CreateAnimation(L"BlueDefenseBasic", characterTex5
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+
+		animator->CreateAnimation(L"BlueHappyBasic", characterTex6
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+
+		animator->CreateAnimation(L"BlueHelloBasic", characterTex7
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+
+		animator->CreateAnimation(L"BlueHurtBasic", characterTex8
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+
+		animator->CreateAnimation(L"BlueRunBasic", characterTex9
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+
+		animator->CreateAnimation(L"BlueSeatBasic", characterTex10
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+
+		animator->CreateAnimation(L"BlueStandBasic", characterTex11
+			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		
 		//재생
-		animator->PlayAnimation(L"BlueRunBasic", true);
+		animator->PlayAnimation(L"BlueHelloBasic", true);
 
 
 		//카메라

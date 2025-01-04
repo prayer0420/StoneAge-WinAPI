@@ -4,7 +4,7 @@
 
 namespace pr
 {
-	class GameObject
+	class GameObject 
 	{
 	public :
 		GameObject();

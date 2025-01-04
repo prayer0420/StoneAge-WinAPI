@@ -17,7 +17,6 @@ namespace pr
 			,offset(Vector2::Zero)
 			,duration(0.0f)
 		{
-
 		}
 	};
 
@@ -43,6 +42,7 @@ namespace pr
 		void Reset();
 		bool isComplete() { return mbComplete; }
 		void SetAnimator(class Animator* animator) { mAnimator = animator; }
+
 
 	private:
 		class Animator* mAnimator;

@@ -34,47 +34,7 @@ namespace pr
 	//추후 리팩토링
 	void SpriteRenderer::Render(HDC hdc)
 	{
-		if (dynamic_cast<Player*>(this->GetOwner()))
-		{
-			HBRUSH GreenBrush = CreateSolidBrush(RGB(0, 255, 0));
-			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, GreenBrush);
-			Transform* tr = GetOwner()->GetComponent<Transform>();
-			Vector2 pos = tr->GetPosition();
-			pos = renderer::mainCamera->CaluatePosition(pos);
-
-			Ellipse(hdc, pos.x, pos.y, pos.x+100, pos.y +100);
-			SelectObject(hdc, oldBrush);
-			DeleteObject(GreenBrush);
-		}
-
-		else if (dynamic_cast<MyPet*>(this->GetOwner()))
-		{
-			HBRUSH redBrush = CreateSolidBrush(RGB(255, 255, 0));
-			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, redBrush);
-			Transform* tr = GetOwner()->GetComponent<Transform>();
-			Vector2 pos = tr->GetPosition();
-			pos = renderer::mainCamera->CaluatePosition(pos);
-
-			Ellipse(hdc, pos.x, pos.y, pos.x + 100, pos.y + 100);
-			SelectObject(hdc, oldBrush);
-			DeleteObject(redBrush);
-		}
-
-		else if (dynamic_cast<EnemyPet*>(this->GetOwner()))
-		{
-			HBRUSH redBrush = CreateSolidBrush(RGB(255, 0, 0));
-			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, redBrush);
-			Transform* tr = GetOwner()->GetComponent<Transform>();
-			Vector2 pos = tr->GetPosition();
-			pos = renderer::mainCamera->CaluatePosition(pos);
-
-			Ellipse(hdc, pos.x, pos.y, pos.x + 100, pos.y + 100);
-			SelectObject(hdc, oldBrush);
-			DeleteObject(redBrush);
-		}
-
-
-		else if (dynamic_cast<NPC*>(this->GetOwner()))
+		if (dynamic_cast<NPC*>(this->GetOwner()))
 		{
 			HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
 			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
