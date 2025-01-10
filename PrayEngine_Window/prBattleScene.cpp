@@ -104,7 +104,7 @@ namespace pr
 		Animator* BlueplayerAnimator = playerIter->second;
 		mPlayerAnimator = player->AddComponent(BlueplayerAnimator);
 		//Àç»ý
-		mPlayerAnimator->PlayAnimation(L"RedStandClub", true);
+		mPlayerAnimator->PlayAnimation(L"RedClub_Idle_LF", true);
 
 		
 		//¾Æ±º Æê

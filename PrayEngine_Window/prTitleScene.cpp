@@ -28,15 +28,30 @@ namespace pr
 
 	void TitleScene::Initialize()
 	{
-		//pet test
-		GameObject* pet = object::Instantiate<EnemyPet>(enums::eLayerType::EnemyPet,Vector2(100.0f,100.0f));
 		pr::LoadAnimation loadAnimation;
-		auto iter = loadAnimation.mPetAnimators.find(L"Duri");
-		if (iter == loadAnimation.mPetAnimators.end())
+
+
+		////pet test
+		//GameObject* pet = object::Instantiate<EnemyPet>(enums::eLayerType::EnemyPet,Vector2(100.0f,100.0f));
+		//auto iter = loadAnimation->mPetAnimators.find(L"Duri");
+		//if (iter == loadAnimation->mPetAnimators.end())
+		//	assert(false);
+		//Animator* DuriAnimator = iter->second;
+		//Animator* enemyPetAnimator2 = pet->AddComponent(DuriAnimator);
+		//enemyPetAnimator2->PlayAnimation(L"DuriAttackLF");
+
+		//플레이어 test
+		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(500, 500));
+		player->AddComponent<PlayerScript>();
+		auto playerIter = loadAnimation.mPlayerAnimators.find(L"RedHatchat");
+		if (playerIter == loadAnimation.mPlayerAnimators.end())
 			assert(false);
-		Animator* DuriAnimator = iter->second;
-		Animator* enemyPetAnimator2 = pet->AddComponent<Animator>(DuriAnimator);
-		enemyPetAnimator2->PlayAnimation(L"DuriAttackLF");
+
+		Animator* BlueplayerAnimator = playerIter->second;
+		Animator* mPlayerAnimator = player->AddComponent(BlueplayerAnimator);
+		//재생
+		mPlayerAnimator->PlayAnimation(L"RedHatchat_Idle_F", true);
+
 
 		//카메라
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2::Zero);
@@ -44,7 +59,7 @@ namespace pr
 		renderer::mainCamera = cameraComp;
 		mCamera = cameraComp;
 
-		//cameraComp->SetTarget(player);
+		cameraComp->SetTarget(player);
 
 
 		//배경

@@ -11,7 +11,7 @@ namespace pr
 		enum class eState
 		{
 			Idle,
-			Walk,
+			Run,
 			Attack,
 			Dead,
 			Hurt,
@@ -43,11 +43,14 @@ namespace pr
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void PlayWalkAnimationBydirection();
+		void PlayAnimationBydirectionAndstate();
+		std::wstring StateToWstring(eState state);
+		std::wstring DirToWstring(eDirection dir);
+
 	private:
 
 		void idle();
-		void walk();
+		void Run();
 		void attack();
 		void dead();
 		void hurt();
