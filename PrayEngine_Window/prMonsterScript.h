@@ -1,10 +1,11 @@
 #pragma once
 #include "..\\PrayEngine_SOURCE\\prScript.h"
+#include "..\\PrayEngine_SOURCE\\prTransform.h"
 
 
 namespace pr
 {
-	class PlayerScript : public Script
+	class MonsterScript : public Script
 	{
 	public:
 
@@ -16,13 +17,23 @@ namespace pr
 			Dead,
 			Hurt,
 			Guard,
-			UsingItem,
-			ChangingPet,
 			Escape
 		};
 
-		PlayerScript();
-		~PlayerScript();
+		enum class eDirection
+		{
+			F,
+			LF,
+			L,
+			LB,
+			B,
+			RB,
+			R,
+			RF,
+		};
+
+		MonsterScript();
+		~MonsterScript();
 
 		void Initialize() override;
 		void Update() override;
@@ -38,15 +49,18 @@ namespace pr
 		void dead();
 		void hurt();
 		void guard();
-		void usingItem();
-		void changingPet();
 		void escape();
 
-		void keyboardMove();
+		void RandomBehaviour();
+		void PlayWalkAnimationBydirection(eDirection dir);
+		void translate(Transform* tr);
 
 	private:
-		bool battling;
 		eState mState;
 		class Animator* mAnimator;
+		eDirection mDirection;
+		float mTime;
+		int nonBattleState = 5;
+		int BattleState = 6;
 	};
 }

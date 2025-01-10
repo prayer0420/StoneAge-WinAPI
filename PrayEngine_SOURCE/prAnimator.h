@@ -26,10 +26,12 @@ namespace pr
 
 		Animation* FindAnimation(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name, bool loop = true);
+		std::wstring& GetActiveAnimationName() { return mActiveAnimationName; }
 
 	private:
 		std::map<std::wstring, Animation*> mAnimations;
 		Animation* mActiveAnimation;
+		std::wstring mActiveAnimationName;
 		bool mbLoop;
 	};
 }

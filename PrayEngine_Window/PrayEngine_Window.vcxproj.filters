@@ -68,9 +68,9 @@
     <ClInclude Include="prCharacterInputScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="LoadAnimation.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
+    <ClInclude Include="prMonsterScript.h" />
+    <ClInclude Include="prFakePlayerScript.h" />
+    <ClInclude Include="prLoadAnimation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="prBeginnerDungeonScene.cpp">
@@ -121,6 +121,9 @@
     <ClCompile Include="prCharacterInputScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="prMonsterScript.cpp" />
+    <ClCompile Include="prFakePlayerScript.cpp" />
+    <ClCompile Include="prLoadAnimation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

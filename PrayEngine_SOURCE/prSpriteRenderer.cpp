@@ -54,28 +54,36 @@ namespace pr
 
 			Transform* tr = GetOwner()->GetComponent<Transform>();
 			Vector2 pos = tr->GetPosition();
+			float rot = tr->GetRotation();
+			Vector2 scale = tr->GetScale();
+
 			pos = renderer::mainCamera->CaluatePosition(pos); //카메라 위치 기준 계산
 
 			if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 			{
 				TransparentBlt(hdc, pos.x, pos.y
-					, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y
+					, mTexture->GetWidth() * mSize.x * scale.x
+					, mTexture->GetHeight() * mSize.y * scale.y
 					, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
 					, RGB(255, 0, 255));
 			}
 			else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
 			{
-				Gdiplus::Graphics graphcis(hdc);
+				Gdiplus::Graphics graphics(hdc);
 				
+				graphics.TranslateTransform(pos.x, pos.y);
+				graphics.RotateTransform(rot);
+				graphics.TranslateTransform(-pos.x, -pos.y);
+
 				Gdiplus::ImageAttributes imgAtt = {};
 				imgAtt.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 2555, 255));
 
-				graphcis.DrawImage(mTexture->GetImage()
+				graphics.DrawImage(mTexture->GetImage()
 					, Gdiplus::Rect
 					(
 						pos.x, pos.y
-						, mTexture->GetWidth()  * mSize.x
-						, mTexture->GetHeight() * mSize.y
+						, mTexture->GetWidth()  * mSize.x * scale.x
+						, mTexture->GetHeight() * mSize.y * scale.y
 					)
 					, 0,0 //0,0부터 texture의 넓이, 높이까지
 					, mTexture->GetWidth()

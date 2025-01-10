@@ -8,6 +8,7 @@ namespace pr
 		,mAnimations{}
 		,mActiveAnimation(nullptr)
 		,mbLoop(false)
+		,mActiveAnimationName {}
 	{
 	}
 
@@ -67,6 +68,7 @@ namespace pr
 
 		//map에 추가
 		mAnimations.insert(std::make_pair(name, animation));
+		
 	}
 
 	Animation* Animator::FindAnimation(const std::wstring& name)
@@ -81,14 +83,18 @@ namespace pr
 	void Animator::PlayAnimation(const std::wstring& name, bool loop)
 	{
 		Animation* animation = FindAnimation(name);
+
 		if (animation == nullptr)
 			return;
 
 		mActiveAnimation = animation;
 
+		//현재 실행 중인 이름 저장
+		mActiveAnimationName = name;
 		//만약 중간에 끊겼을 수도 있으니 재생전에 리셋 해주기
 		mActiveAnimation->Reset();
 		
+
 		mbLoop = loop; 
 	}
 }

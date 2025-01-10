@@ -19,5 +19,6 @@ namespace pr
 
 	private:
 		class Camera* mCamera;
+		class std::vector<GameObject*> mPlayers;
 	};
 }

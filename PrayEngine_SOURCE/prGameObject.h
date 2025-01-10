@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 #include "prComponent.h"
+#include "prAnimator.h"
 
 namespace pr
 {
@@ -20,6 +21,16 @@ namespace pr
 		T* AddComponent()
 		{
 			T* comp = new T();
+			comp->SetOwner(this);
+			comp->Initialize();
+			mComponents[(UINT)comp->GetType()] = comp;
+			return comp;
+		}
+		
+		template<typename T>
+		T* AddComponent(T* animator)
+		{
+			T* comp = animator;
 			comp->SetOwner(this);
 			comp->Initialize();
 			mComponents[(UINT)comp->GetType()] = comp;

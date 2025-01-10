@@ -56,6 +56,9 @@ namespace pr
 		GameObject* gameObj = mAnimator->GetOwner();
 		Transform* tr = gameObj->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		float rot = tr->GetRotation();
+		Vector2 scale = tr->GetScale();
+
 		Sprite sprite = mAnimationSheet[mIndex];
 
 		//카메라가 있다면 카메라 기준으로 바꿔줘야함
@@ -69,10 +72,10 @@ namespace pr
 			HDC imgHdc = mTexture->GetHdc();
 
 			TransparentBlt(hdc
-				, pos.x
-				, pos.y
-				, sprite.size.x * 1.5
-				, sprite.size.y * 1.5
+				, pos.x - (sprite.size.x / 2.0f)
+				, pos.y - (sprite.size.y / 2.0f)
+				, sprite.size.x  * scale.x
+				, sprite.size.y  * scale.y
 				, imgHdc
 				, sprite.leftTop.x
 				, sprite.leftTop.y
@@ -89,8 +92,8 @@ namespace pr
 			//func.SourceConstantAlpha = 255; //0(transparent)~255(Opaque)
 
 			/*AlphaBlend(hdc
-				, pos.x
-				, pos.y
+				, pos.x - (sprite.size.x / 2.0f)
+				, pos.y - (sprite.size.y / 2.0f)
 				, sprite.size.x
 				, sprite.size.y
 				, imgHdc
@@ -109,11 +112,18 @@ namespace pr
 			imgAtt.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 2555, 255));
 
 			Gdiplus::Graphics graphics(hdc);
+
+			graphics.TranslateTransform(pos.x, pos.y);
+			graphics.RotateTransform(rot);
+			graphics.TranslateTransform(-pos.x, -pos.y);
+
 			graphics.DrawImage(mTexture->GetImage()
 				, Gdiplus::Rect
 				(
-					pos.x, pos.y
-					, sprite.size.x, sprite.size.y
+					  pos.x - (sprite.size.x / 2.0f)
+					, pos.y - (sprite.size.y / 2.0f)
+					, sprite.size.x
+					, sprite.size.y
 				)
 				, sprite.leftTop.x
 				, sprite.leftTop.y

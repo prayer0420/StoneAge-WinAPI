@@ -1,18 +1,17 @@
-﻿// Editor_Window.cpp : 애플리케이션에 대한 진입점을 정의합니다.
-//
-
-#include "framework.h"
+﻿#include "framework.h"
 #include "Editor_Window.h"
 
 #include "..\\PrayEngine_SOURCE\\prApplication.h"
 #include "..\\PrayEngine_Window\\prLoadScene.h"
 #include "..\\PrayEngine_Window\\prLoadResources.h"
-
+#include "..\\PrayEngine_Window\\prLoadAnimation.h"
+#include <time.h>
 
 
 #define MAX_LOADSTRING 100
 
 pr::Application application;
+
 
 ULONG_PTR gpToken;
 Gdiplus::GdiplusStartupInput gpsi;
@@ -103,7 +102,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
-    application.Initialize(hWnd, width, height);
+    pr::LoadResources();            //리소스 로드
+    pr::LoadAnimation loadAnimation;
+    loadAnimation.LoadAnimations(); //애니메이션 로드
+    application.Initialize(hWnd, width, height); //씬 초기화
 
     if (!hWnd)
     {
@@ -115,8 +117,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
-    pr::LoadResources();
-    pr::LoadScenes();
+    pr::LoadScenes();               //씬 로드
+    srand(time(NULL));              //랜덤 시드값
     
     return TRUE;
 }
