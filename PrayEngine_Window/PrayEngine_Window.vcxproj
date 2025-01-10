@@ -139,6 +139,7 @@
     <ClInclude Include="..\PrayEngine_SOURCE\prNPC.h" />
     <ClInclude Include="..\PrayEngine_SOURCE\prMyPET.h" />
     <ClInclude Include="..\PrayEngine_SOURCE\prPlayer.h" />
+    <ClInclude Include="prBattleManager.h" />
     <ClInclude Include="prLoadAnimation.h" />
     <ClInclude Include="prBeginnerDungeonScene.h" />
     <ClInclude Include="prCharacterCreateScene.h" />
@@ -162,6 +163,7 @@
     <ClCompile Include="..\PrayEngine_SOURCE\prNPC.cpp" />
     <ClCompile Include="..\PrayEngine_SOURCE\prMyPET.cpp" />
     <ClCompile Include="..\PrayEngine_SOURCE\prPlayer.cpp" />
+    <ClCompile Include="prBattleManager.cpp" />
     <ClCompile Include="prBeginnerDungeonScene.cpp" />
     <ClCompile Include="prCharacterCreateScene.cpp" />
     <ClCompile Include="prCharacterInputScene.cpp" />

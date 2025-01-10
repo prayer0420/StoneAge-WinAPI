@@ -20,7 +20,7 @@ namespace pr
 		graphics::Texture* DuriHurtTex = Resources::Find<graphics::Texture>(L"DuriHurt");
 		graphics::Texture* DuriRunTex = Resources::Find<graphics::Texture>(L"DuriRun");
 		graphics::Texture* DuriStandTex = Resources::Find<graphics::Texture>(L"DuriIdle");
-		
+
 		//앞
 		petAnimator->CreateAnimation(L"DuriAttack_F", DuriAttackTex
 			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 9, 0.2f);
@@ -890,7 +890,6 @@ namespace pr
 		graphics::Texture* NornorStandTex = Resources::Find<graphics::Texture>(L"NornorStand");
 
 		//앞
-//앞
 		petAnimator->CreateAnimation(L"NornorAttack_F", NornorAttackTex
 			, Vector2(0.0f, 0.0f), Vector2(180.0f, 180.0f), Vector2::Zero, 9, 0.2f);
 		petAnimator->CreateAnimation(L"NornorDead_F", NornorDeadTex
@@ -2145,8 +2144,6 @@ namespace pr
 		petAnimator->CreateAnimation(L"MammonStand_RF", MammonStandTex,
 			Vector2(0.0f, 1540.0f), Vector2(220.0f, 220.0f), Vector2::Zero, 47, 0.2f);
 
-
-
 		//플레이어
 		Animator* playerAnimator = new Animator();
 		mPlayerAnimators.insert(std::make_pair(L"BlueBasic", playerAnimator));
@@ -2159,109 +2156,110 @@ namespace pr
 		graphics::Texture* BlueRunBasicTex = Resources::Find<graphics::Texture>(L"BlueRunBasic");
 		graphics::Texture* BlueStandBasicTex = Resources::Find<graphics::Texture>(L"BlueStandBasic");
 
-		playerAnimator->CreateAnimation(L"BlueAttackBasic_F", BlueAttackBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadBasic_F", BlueDeadBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseBasic_F", BlueDefenseBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtBasic_F", BlueHurtBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunBasic_F", BlueRunBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandBasic_F", BlueStandBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Attack_F", BlueAttackBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Dead_F", BlueDeadBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Defense_F", BlueDefenseBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Hurt_F", BlueHurtBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Run_F", BlueRunBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Idle_F", BlueStandBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackBasic_LF", BlueAttackBasicTex
-			, Vector2(0.0f, 100.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadBasic_LF", BlueDeadBasicTex
-			, Vector2(0.0f, 100.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseBasic_LF", BlueDefenseBasicTex
-			, Vector2(0.0f, 100.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtBasic_LF", BlueHurtBasicTex
-			, Vector2(0.0f, 100.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunBasic_LF", BlueRunBasicTex
-			, Vector2(0.0f, 100.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandBasic_LF", BlueStandBasicTex
-			, Vector2(0.0f, 100.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Attack_LF", BlueAttackBasicTex,
+			Vector2(0.0f, 100.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Dead_LF", BlueDeadBasicTex,
+			Vector2(0.0f, 100.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Defense_LF", BlueDefenseBasicTex,
+			Vector2(0.0f, 100.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Hurt_LF", BlueHurtBasicTex,
+			Vector2(0.0f, 100.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Run_LF", BlueRunBasicTex,
+			Vector2(0.0f, 100.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Idle_LF", BlueStandBasicTex,
+			Vector2(0.0f, 100.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackBasic_L", BlueAttackBasicTex
-			, Vector2(0.0f, 200.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadBasic_L", BlueDeadBasicTex
-			, Vector2(0.0f, 200.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseBasic_L", BlueDefenseBasicTex
-			, Vector2(0.0f, 200.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtBasic_L", BlueHurtBasicTex
-			, Vector2(0.0f, 200.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunBasic_L", BlueRunBasicTex
-			, Vector2(0.0f, 200.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandBasic_L", BlueStandBasicTex
-			, Vector2(0.0f, 200.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Attack_L", BlueAttackBasicTex,
+			Vector2(0.0f, 200.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Dead_L", BlueDeadBasicTex,
+			Vector2(0.0f, 200.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Defense_L", BlueDefenseBasicTex,
+			Vector2(0.0f, 200.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Hurt_L", BlueHurtBasicTex,
+			Vector2(0.0f, 200.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Run_L", BlueRunBasicTex,
+			Vector2(0.0f, 200.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Idle_L", BlueStandBasicTex,
+			Vector2(0.0f, 200.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackBasic_LB", BlueAttackBasicTex
-			, Vector2(0.0f, 300.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadBasic_LB", BlueDeadBasicTex
-			, Vector2(0.0f, 300.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseBasic_LB", BlueDefenseBasicTex
-			, Vector2(0.0f, 300.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtBasic_LB", BlueHurtBasicTex
-			, Vector2(0.0f, 300.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunBasic_LB", BlueRunBasicTex
-			, Vector2(0.0f, 300.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandBasic_LB", BlueStandBasicTex
-			, Vector2(0.0f, 300.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Attack_LB", BlueAttackBasicTex,
+			Vector2(0.0f, 300.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Dead_LB", BlueDeadBasicTex,
+			Vector2(0.0f, 300.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Defense_LB", BlueDefenseBasicTex,
+			Vector2(0.0f, 300.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Hurt_LB", BlueHurtBasicTex,
+			Vector2(0.0f, 300.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Run_LB", BlueRunBasicTex,
+			Vector2(0.0f, 300.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Idle_LB", BlueStandBasicTex,
+			Vector2(0.0f, 300.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackBasic_B", BlueAttackBasicTex
-			, Vector2(0.0f, 400.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadBasic_B", BlueDeadBasicTex
-			, Vector2(0.0f, 400.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseBasic_B", BlueDefenseBasicTex
-			, Vector2(0.0f, 400.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtBasic_B", BlueHurtBasicTex
-			, Vector2(0.0f, 400.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunBasic_B", BlueRunBasicTex
-			, Vector2(0.0f, 400.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandBasic_B", BlueStandBasicTex
-			, Vector2(0.0f, 400.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Attack_B", BlueAttackBasicTex,
+			Vector2(0.0f, 400.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Dead_B", BlueDeadBasicTex,
+			Vector2(0.0f, 400.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Defense_B", BlueDefenseBasicTex,
+			Vector2(0.0f, 400.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Hurt_B", BlueHurtBasicTex,
+			Vector2(0.0f, 400.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Run_B", BlueRunBasicTex,
+			Vector2(0.0f, 400.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Idle_B", BlueStandBasicTex,
+			Vector2(0.0f, 400.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackBasic_RB", BlueAttackBasicTex
-			, Vector2(0.0f, 500.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadBasic_RB", BlueDeadBasicTex
-			, Vector2(0.0f, 500.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseBasic_RB", BlueDefenseBasicTex
-			, Vector2(0.0f, 500.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtBasic_RB", BlueHurtBasicTex
-			, Vector2(0.0f, 500.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunBasic_RB", BlueRunBasicTex
-			, Vector2(0.0f, 500.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandBasic_RB", BlueStandBasicTex
-			, Vector2(0.0f, 500.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Attack_RB", BlueAttackBasicTex,
+			Vector2(0.0f, 500.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Dead_RB", BlueDeadBasicTex,
+			Vector2(0.0f, 500.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Defense_RB", BlueDefenseBasicTex,
+			Vector2(0.0f, 500.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Hurt_RB", BlueHurtBasicTex,
+			Vector2(0.0f, 500.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Run_RB", BlueRunBasicTex,
+			Vector2(0.0f, 500.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Idle_RB", BlueStandBasicTex,
+			Vector2(0.0f, 500.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackBasic_R", BlueAttackBasicTex
-			, Vector2(0.0f, 600.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadBasic_R", BlueDeadBasicTex
-			, Vector2(0.0f, 600.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseBasic_R", BlueDefenseBasicTex
-			, Vector2(0.0f, 600.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtBasic_R", BlueHurtBasicTex
-			, Vector2(0.0f, 600.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunBasic_R", BlueRunBasicTex
-			, Vector2(0.0f, 600.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandBasic_R", BlueStandBasicTex
-			, Vector2(0.0f, 600.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Attack_R", BlueAttackBasicTex,
+			Vector2(0.0f, 600.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Dead_R", BlueDeadBasicTex,
+			Vector2(0.0f, 600.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Defense_R", BlueDefenseBasicTex,
+			Vector2(0.0f, 600.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Hurt_R", BlueHurtBasicTex,
+			Vector2(0.0f, 600.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Run_R", BlueRunBasicTex,
+			Vector2(0.0f, 600.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Idle_R", BlueStandBasicTex,
+			Vector2(0.0f, 600.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackBasic_RF", BlueAttackBasicTex
-			, Vector2(0.0f, 700.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadBasic_RF", BlueDeadBasicTex
-			, Vector2(0.0f, 700.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseBasic_RF", BlueDefenseBasicTex
-			, Vector2(0.0f, 700.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtBasic_RF", BlueHurtBasicTex
-			, Vector2(0.0f, 700.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunBasic_RF", BlueRunBasicTex
-			, Vector2(0.0f, 700.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandBasic_RF", BlueStandBasicTex
-			, Vector2(0.0f, 700.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Attack_RF", BlueAttackBasicTex,
+			Vector2(0.0f, 700.0f), Vector2(203.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Dead_RF", BlueDeadBasicTex,
+			Vector2(0.0f, 700.0f), Vector2(174.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Defense_RF", BlueDefenseBasicTex,
+			Vector2(0.0f, 700.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Hurt_RF", BlueHurtBasicTex,
+			Vector2(0.0f, 700.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Run_RF", BlueRunBasicTex,
+			Vector2(0.0f, 700.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueBasic_Idle_RF", BlueStandBasicTex,
+			Vector2(0.0f, 700.0f), Vector2(87.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+
 
 		//BlueClub
 		playerAnimator = new Animator();
@@ -2273,109 +2271,110 @@ namespace pr
 		graphics::Texture* BlueRunClubTex = Resources::Find<graphics::Texture>(L"BlueRunClub");
 		graphics::Texture* BlueStandClubTex = Resources::Find<graphics::Texture>(L"BlueStandClub");
 
-		playerAnimator->CreateAnimation(L"BlueAttackClub_F", BlueAttackClubTex
-			, Vector2(0.0f, 0.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadClub_F", BlueDeadClubTex
-			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseClub_F", BlueDefenseClubTex
-			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtClub_F", BlueHurtClubTex
-			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunClub_F", BlueRunClubTex
-			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandClub_F", BlueStandClubTex
-			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Attack_F", BlueAttackClubTex,
+			Vector2(0.0f, 0.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Dead_F", BlueDeadClubTex,
+			Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Defense_F", BlueDefenseClubTex,
+			Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Hurt_F", BlueHurtClubTex,
+			Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Run_F", BlueRunClubTex,
+			Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Idle_F", BlueStandClubTex,
+			Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackClub_LF", BlueAttackClubTex
-			, Vector2(0.0f, 130.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadClub_LF", BlueDeadClubTex
-			, Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseClub_LF", BlueDefenseClubTex
-			, Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtClub_LF", BlueHurtClubTex
-			, Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunClub_LF", BlueRunClubTex
-			, Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandClub_LF", BlueStandClubTex
-			, Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Attack_LF", BlueAttackClubTex,
+			Vector2(0.0f, 130.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Dead_LF", BlueDeadClubTex,
+			Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Defense_LF", BlueDefenseClubTex,
+			Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Hurt_LF", BlueHurtClubTex,
+			Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Run_LF", BlueRunClubTex,
+			Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Idle_LF", BlueStandClubTex,
+			Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackClub_L", BlueAttackClubTex
-			, Vector2(0.0f, 260.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadClub_L", BlueDeadClubTex
-			, Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseClub_L", BlueDefenseClubTex
-			, Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtClub_L", BlueHurtClubTex
-			, Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunClub_L", BlueRunClubTex
-			, Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandClub_L", BlueStandClubTex
-			, Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Attack_L", BlueAttackClubTex,
+			Vector2(0.0f, 260.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Dead_L", BlueDeadClubTex,
+			Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Defense_L", BlueDefenseClubTex,
+			Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Hurt_L", BlueHurtClubTex,
+			Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Run_L", BlueRunClubTex,
+			Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Idle_L", BlueStandClubTex,
+			Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackClub_LB", BlueAttackClubTex
-			, Vector2(0.0f, 390.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadClub_LB", BlueDeadClubTex
-			, Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseClub_LB", BlueDefenseClubTex
-			, Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtClub_LB", BlueHurtClubTex
-			, Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunClub_LB", BlueRunClubTex
-			, Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandClub_LB", BlueStandClubTex
-			, Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Attack_LB", BlueAttackClubTex,
+			Vector2(0.0f, 390.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Dead_LB", BlueDeadClubTex,
+			Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Defense_LB", BlueDefenseClubTex,
+			Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Hurt_LB", BlueHurtClubTex,
+			Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Run_LB", BlueRunClubTex,
+			Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Idle_LB", BlueStandClubTex,
+			Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackClub_B", BlueAttackClubTex
-			, Vector2(0.0f, 520.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadClub_B", BlueDeadClubTex
-			, Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseClub_B", BlueDefenseClubTex
-			, Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtClub_B", BlueHurtClubTex
-			, Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunClub_B", BlueRunClubTex
-			, Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandClub_B", BlueStandClubTex
-			, Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Attack_B", BlueAttackClubTex,
+			Vector2(0.0f, 520.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Dead_B", BlueDeadClubTex,
+			Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Defense_B", BlueDefenseClubTex,
+			Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Hurt_B", BlueHurtClubTex,
+			Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Run_B", BlueRunClubTex,
+			Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Idle_B", BlueStandClubTex,
+			Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackClub_RB", BlueAttackClubTex
-			, Vector2(0.0f, 650.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadClub_RB", BlueDeadClubTex
-			, Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseClub_RB", BlueDefenseClubTex
-			, Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtClub_RB", BlueHurtClubTex
-			, Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunClub_RB", BlueRunClubTex
-			, Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandClub_RB", BlueStandClubTex
-			, Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Attack_RB", BlueAttackClubTex,
+			Vector2(0.0f, 650.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Dead_RB", BlueDeadClubTex,
+			Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Defense_RB", BlueDefenseClubTex,
+			Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Hurt_RB", BlueHurtClubTex,
+			Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Run_RB", BlueRunClubTex,
+			Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Idle_RB", BlueStandClubTex,
+			Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackClub_R", BlueAttackClubTex
-			, Vector2(0.0f, 780.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadClub_R", BlueDeadClubTex
-			, Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseClub_R", BlueDefenseClubTex
-			, Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtClub_R", BlueHurtClubTex
-			, Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunClub_R", BlueRunClubTex
-			, Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandClub_R", BlueStandClubTex
-			, Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Attack_R", BlueAttackClubTex,
+			Vector2(0.0f, 780.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Dead_R", BlueDeadClubTex,
+			Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Defense_R", BlueDefenseClubTex,
+			Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Hurt_R", BlueHurtClubTex,
+			Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Run_R", BlueRunClubTex,
+			Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Idle_R", BlueStandClubTex,
+			Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackClub_RF", BlueAttackClubTex
-			, Vector2(0.0f, 910.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadClub_RF", BlueDeadClubTex
-			, Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseClub_RF", BlueDefenseClubTex
-			, Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtClub_RF", BlueHurtClubTex
-			, Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunClub_RF", BlueRunClubTex
-			, Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandClub_RF", BlueStandClubTex
-			, Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Attack_RF", BlueAttackClubTex,
+			Vector2(0.0f, 910.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Dead_RF", BlueDeadClubTex,
+			Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Defense_RF", BlueDefenseClubTex,
+			Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Hurt_RF", BlueHurtClubTex,
+			Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Run_RF", BlueRunClubTex,
+			Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueClub_Idle_RF", BlueStandClubTex,
+			Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+
 
 		//BlueHatchat
 		playerAnimator = new Animator();
@@ -2387,109 +2386,110 @@ namespace pr
 		graphics::Texture* BlueRunHatchatTex = Resources::Find<graphics::Texture>(L"BlueRunHatchat");
 		graphics::Texture* BlueStandHatchatTex = Resources::Find<graphics::Texture>(L"BlueStandHatchat");
 
-		playerAnimator->CreateAnimation(L"BlueAttackHatchat_F", BlueAttackHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadHatchat_F", BlueDeadHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseHatchat_F", BlueDefenseHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtHatchat_F", BlueHurtHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunHatchat_F", BlueRunHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandHatchat_F", BlueStandHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Attack_F", BlueAttackHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Dead_F", BlueDeadHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Defense_F", BlueDefenseHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Hurt_F", BlueHurtHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Run_F", BlueRunHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Idle_F", BlueStandHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackHatchat_LF", BlueAttackHatchatTex
-			, Vector2(0.0f, 130.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadHatchat_LF", BlueDeadHatchatTex
-			, Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseHatchat_LF", BlueDefenseHatchatTex
-			, Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtHatchat_LF", BlueHurtHatchatTex
-			, Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunHatchat_LF", BlueRunHatchatTex
-			, Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandHatchat_LF", BlueStandHatchatTex
-			, Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Attack_LF", BlueAttackHatchatTex,
+			Vector2(0.0f, 130.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Dead_LF", BlueDeadHatchatTex,
+			Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Defense_LF", BlueDefenseHatchatTex,
+			Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Hurt_LF", BlueHurtHatchatTex,
+			Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Run_LF", BlueRunHatchatTex,
+			Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Idle_LF", BlueStandHatchatTex,
+			Vector2(0.0f, 130.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackHatchat_L", BlueAttackHatchatTex
-			, Vector2(0.0f, 260.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadHatchat_L", BlueDeadHatchatTex
-			, Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseHatchat_L", BlueDefenseHatchatTex
-			, Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtHatchat_L", BlueHurtHatchatTex
-			, Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunHatchat_L", BlueRunHatchatTex
-			, Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandHatchat_L", BlueStandHatchatTex
-			, Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Attack_L", BlueAttackHatchatTex,
+			Vector2(0.0f, 260.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Dead_L", BlueDeadHatchatTex,
+			Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Defense_L", BlueDefenseHatchatTex,
+			Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Hurt_L", BlueHurtHatchatTex,
+			Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Run_L", BlueRunHatchatTex,
+			Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Idle_L", BlueStandHatchatTex,
+			Vector2(0.0f, 260.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackHatchat_LB", BlueAttackHatchatTex
-			, Vector2(0.0f, 390.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadHatchat_LB", BlueDeadHatchatTex
-			, Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseHatchat_LB", BlueDefenseHatchatTex
-			, Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtHatchat_LB", BlueHurtHatchatTex
-			, Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunHatchat_LB", BlueRunHatchatTex
-			, Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandHatchat_LB", BlueStandHatchatTex
-			, Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Attack_LB", BlueAttackHatchatTex,
+			Vector2(0.0f, 390.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Dead_LB", BlueDeadHatchatTex,
+			Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Defense_LB", BlueDefenseHatchatTex,
+			Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Hurt_LB", BlueHurtHatchatTex,
+			Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Run_LB", BlueRunHatchatTex,
+			Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Idle_LB", BlueStandHatchatTex,
+			Vector2(0.0f, 390.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackHatchat_B", BlueAttackHatchatTex
-			, Vector2(0.0f, 520.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadHatchat_B", BlueDeadHatchatTex
-			, Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseHatchat_B", BlueDefenseHatchatTex
-			, Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtHatchat_B", BlueHurtHatchatTex
-			, Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunHatchat_B", BlueRunHatchatTex
-			, Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandHatchat_B", BlueStandHatchatTex
-			, Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Attack_B", BlueAttackHatchatTex,
+			Vector2(0.0f, 520.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Dead_B", BlueDeadHatchatTex,
+			Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Defense_B", BlueDefenseHatchatTex,
+			Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Hurt_B", BlueHurtHatchatTex,
+			Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Run_B", BlueRunHatchatTex,
+			Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Idle_B", BlueStandHatchatTex,
+			Vector2(0.0f, 520.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackHatchat_RB", BlueAttackHatchatTex
-			, Vector2(0.0f, 650.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadHatchat_RB", BlueDeadHatchatTex
-			, Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseHatchat_RB", BlueDefenseHatchatTex
-			, Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtHatchat_RB", BlueHurtHatchatTex
-			, Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunHatchat_RB", BlueRunHatchatTex
-			, Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandHatchat_RB", BlueStandHatchatTex
-			, Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Attack_RB", BlueAttackHatchatTex,
+			Vector2(0.0f, 650.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Dead_RB", BlueDeadHatchatTex,
+			Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Defense_RB", BlueDefenseHatchatTex,
+			Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Hurt_RB", BlueHurtHatchatTex,
+			Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Run_RB", BlueRunHatchatTex,
+			Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Idle_RB", BlueStandHatchatTex,
+			Vector2(0.0f, 650.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackHatchat_R", BlueAttackHatchatTex
-			, Vector2(0.0f, 780.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadHatchat_R", BlueDeadHatchatTex
-			, Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseHatchat_R", BlueDefenseHatchatTex
-			, Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtHatchat_R", BlueHurtHatchatTex
-			, Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunHatchat_R", BlueRunHatchatTex
-			, Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandHatchat_R", BlueStandHatchatTex
-			, Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Attack_R", BlueAttackHatchatTex,
+			Vector2(0.0f, 780.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Dead_R", BlueDeadHatchatTex,
+			Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Defense_R", BlueDefenseHatchatTex,
+			Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Hurt_R", BlueHurtHatchatTex,
+			Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Run_R", BlueRunHatchatTex,
+			Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Idle_R", BlueStandHatchatTex,
+			Vector2(0.0f, 780.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
 
-		playerAnimator->CreateAnimation(L"BlueAttackHatchat_RF", BlueAttackHatchatTex
-			, Vector2(0.0f, 910.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDeadHatchat_RF", BlueDeadHatchatTex
-			, Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueDefenseHatchat_RF", BlueDefenseHatchatTex
-			, Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueHurtHatchat_RF", BlueHurtHatchatTex
-			, Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueRunHatchat_RF", BlueRunHatchatTex
-			, Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"BlueStandHatchat_RF", BlueStandHatchatTex
-			, Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Attack_RF", BlueAttackHatchatTex,
+			Vector2(0.0f, 910.0f), Vector2(348.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Dead_RF", BlueDeadHatchatTex,
+			Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Defense_RF", BlueDefenseHatchatTex,
+			Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Hurt_RF", BlueHurtHatchatTex,
+			Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Run_RF", BlueRunHatchatTex,
+			Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"BlueHatchat_Idle_RF", BlueStandHatchatTex,
+			Vector2(0.0f, 910.0f), Vector2(110.0f, 130.0f), Vector2::Zero, 4, 0.2f);
+
 
 		//RedType
 		//RedBasic
@@ -2505,116 +2505,111 @@ namespace pr
 		//애니메이션 만들기
 
 		//앞
-		playerAnimator->CreateAnimation(L"RedAttackBasic_F", RedAttackBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadBasic_F", RedDeadBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseBasic_F", RedDefenseBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtBasic_F", RedHurtBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunBasic_F", RedRunBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandBasic_F", RedStandBasicTex
-			, Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Attack_F", RedAttackBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Dead_F", RedDeadBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Defense_F", RedDefenseBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Hurt_F", RedHurtBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Run_F", RedRunBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Idle_F", RedStandBasicTex,
+			Vector2(0.0f, 0.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedBasic_Attack_LF", RedAttackBasicTex,
+			Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Dead_LF", RedDeadBasicTex,
+			Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Defense_LF", RedDefenseBasicTex,
+			Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Hurt_LF", RedHurtBasicTex,
+			Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Run_LF", RedRunBasicTex,
+			Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Idle_LF", RedStandBasicTex,
+			Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedBasic_Attack_L", RedAttackBasicTex,
+			Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Dead_L", RedDeadBasicTex,
+			Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Defense_L", RedDefenseBasicTex,
+			Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Hurt_L", RedHurtBasicTex,
+			Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Run_L", RedRunBasicTex,
+			Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Idle_L", RedStandBasicTex,
+			Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedBasic_Attack_LB", RedAttackBasicTex,
+			Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Dead_LB", RedDeadBasicTex,
+			Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Defense_LB", RedDefenseBasicTex,
+			Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Hurt_LB", RedHurtBasicTex,
+			Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Run_LB", RedRunBasicTex,
+			Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Idle_LB", RedStandBasicTex,
+			Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedBasic_Attack_B", RedAttackBasicTex,
+			Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Dead_B", RedDeadBasicTex,
+			Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Defense_B", RedDefenseBasicTex,
+			Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Hurt_B", RedHurtBasicTex,
+			Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Run_B", RedRunBasicTex,
+			Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Idle_B", RedStandBasicTex,
+			Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedBasic_Attack_RB", RedAttackBasicTex,
+			Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Dead_RB", RedDeadBasicTex,
+			Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Defense_RB", RedDefenseBasicTex,
+			Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Hurt_RB", RedHurtBasicTex,
+			Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Run_RB", RedRunBasicTex,
+			Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Idle_RB", RedStandBasicTex,
+			Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedBasic_Attack_R", RedAttackBasicTex,
+			Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Dead_R", RedDeadBasicTex,
+			Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Defense_R", RedDefenseBasicTex,
+			Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Hurt_R", RedHurtBasicTex,
+			Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Run_R", RedRunBasicTex,
+			Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Idle_R", RedStandBasicTex,
+			Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedBasic_Attack_RF", RedAttackBasicTex,
+			Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Dead_RF", RedDeadBasicTex,
+			Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Defense_RF", RedDefenseBasicTex,
+			Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Hurt_RF", RedHurtBasicTex,
+			Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Run_RF", RedRunBasicTex,
+			Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedBasic_Idle_RF", RedStandBasicTex,
+			Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
 
 
-		playerAnimator->CreateAnimation(L"RedAttackBasic_LF", RedAttackBasicTex
-			, Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadBasic_LF", RedDeadBasicTex
-			, Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseBasic_LF", RedDefenseBasicTex
-			, Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtBasic_LF", RedHurtBasicTex
-			, Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunBasic_LF", RedRunBasicTex
-			, Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandBasic_LF", RedStandBasicTex
-			, Vector2(0.0f, 84.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
-
-
-		playerAnimator->CreateAnimation(L"RedAttackBasic_L", RedAttackBasicTex
-			, Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadBasic_L", RedDeadBasicTex
-			, Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseBasic_L", RedDefenseBasicTex
-			, Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtBasic_L", RedHurtBasicTex
-			, Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunBasic_L", RedRunBasicTex
-			, Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandBasic_L", RedStandBasicTex
-			, Vector2(0.0f, 168.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
-
-
-		playerAnimator->CreateAnimation(L"RedAttackBasic_LB", RedAttackBasicTex
-			, Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadBasic_LB", RedDeadBasicTex
-			, Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseBasic_LB", RedDefenseBasicTex
-			, Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtBasic_LB", RedHurtBasicTex
-			, Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunBasic_LB", RedRunBasicTex
-			, Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandBasic_LB", RedStandBasicTex
-			, Vector2(0.0f, 252.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
-
-
-		playerAnimator->CreateAnimation(L"RedAttackBasic_B", RedAttackBasicTex
-			, Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadBasic_B", RedDeadBasicTex
-			, Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseBasic_B", RedDefenseBasicTex
-			, Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtBasic_B", RedHurtBasicTex
-			, Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunBasic_B", RedRunBasicTex
-			, Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandBasic_B", RedStandBasicTex
-			, Vector2(0.0f, 336.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
-
-
-		playerAnimator->CreateAnimation(L"RedAttackBasic_RB", RedAttackBasicTex
-			, Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadBasic_RB", RedDeadBasicTex
-			, Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseBasic_RB", RedDefenseBasicTex
-			, Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtBasic_RB", RedHurtBasicTex
-			, Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunBasic_RB", RedRunBasicTex
-			, Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandBasic_RB", RedStandBasicTex
-			, Vector2(0.0f, 420.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
-
-
-		playerAnimator->CreateAnimation(L"RedAttackBasic_R", RedAttackBasicTex
-			, Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadBasic_R", RedDeadBasicTex
-			, Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseBasic_R", RedDefenseBasicTex
-			, Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtBasic_R", RedHurtBasicTex
-			, Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunBasic_R", RedRunBasicTex
-			, Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandBasic_R", RedStandBasicTex
-			, Vector2(0.0f, 504.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
-
-
-		playerAnimator->CreateAnimation(L"RedAttackBasic_RF", RedAttackBasicTex
-			, Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadBasic_RF", RedDeadBasicTex
-			, Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseBasic_RF", RedDefenseBasicTex
-			, Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtBasic_RF", RedHurtBasicTex
-			, Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunBasic_RF", RedRunBasicTex
-			, Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandBasic_RF", RedStandBasicTex
-			, Vector2(0.0f, 588.0f), Vector2(87.0f, 84.0f), Vector2::Zero, 4, 0.2f);
 
 
 		//RedClub
@@ -2628,114 +2623,111 @@ namespace pr
 		graphics::Texture* RedStandClubTex = Resources::Find<graphics::Texture>(L"RedStandClub");
 
 		//애니메이션 만들기
-		playerAnimator->CreateAnimation(L"RedAttackClub_F", RedAttackClubTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadClub_F", RedDeadClubTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseClub_F", RedDefenseClubTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtClub_F", RedHurtClubTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunClub_F", RedRunClubTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandClub_F", RedStandClubTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Attack_F", RedAttackClubTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Dead_F", RedDeadClubTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Defense_F", RedDefenseClubTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Hurt_F", RedHurtClubTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Run_F", RedRunClubTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Idle_F", RedStandClubTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedClub_Attack_LF", RedAttackClubTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Dead_LF", RedDeadClubTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Defense_LF", RedDefenseClubTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Hurt_LF", RedHurtClubTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Run_LF", RedRunClubTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Idle_LF", RedStandClubTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedClub_Attack_L", RedAttackClubTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Dead_L", RedDeadClubTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Defense_L", RedDefenseClubTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Hurt_L", RedHurtClubTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Run_L", RedRunClubTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Idle_L", RedStandClubTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedClub_Attack_LB", RedAttackClubTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Dead_LB", RedDeadClubTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Defense_LB", RedDefenseClubTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Hurt_LB", RedHurtClubTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Run_LB", RedRunClubTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Idle_LB", RedStandClubTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedClub_Attack_B", RedAttackClubTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Dead_B", RedDeadClubTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Defense_B", RedDefenseClubTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Hurt_B", RedHurtClubTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Run_B", RedRunClubTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Idle_B", RedStandClubTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedClub_Attack_RB", RedAttackClubTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Dead_RB", RedDeadClubTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Defense_RB", RedDefenseClubTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Hurt_RB", RedHurtClubTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Run_RB", RedRunClubTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Idle_RB", RedStandClubTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedClub_Attack_R", RedAttackClubTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Dead_R", RedDeadClubTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Defense_R", RedDefenseClubTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Hurt_R", RedHurtClubTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Run_R", RedRunClubTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Idle_R", RedStandClubTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RedClub_Attack_RF", RedAttackClubTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Dead_RF", RedDeadClubTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Defense_RF", RedDefenseClubTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Hurt_RF", RedHurtClubTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Run_RF", RedRunClubTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedClub_Idle_RF", RedStandClubTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
 
-		playerAnimator->CreateAnimation(L"RedAttackClub_LF", RedAttackClubTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadClub_LF", RedDeadClubTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseClub_LF", RedDefenseClubTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtClub_LF", RedHurtClubTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunClub_LF", RedRunClubTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandClub_LF", RedStandClubTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
-
-
-		playerAnimator->CreateAnimation(L"RedAttackClub_L", RedAttackClubTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadClub_L", RedDeadClubTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseClub_L", RedDefenseClubTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtClub_L", RedHurtClubTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunClub_L", RedRunClubTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandClub_L", RedStandClubTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
-
-		playerAnimator->CreateAnimation(L"RedAttackClub_LB", RedAttackClubTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadClub_LB", RedDeadClubTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseClub_LB", RedDefenseClubTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtClub_LB", RedHurtClubTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunClub_LB", RedRunClubTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandClub_LB", RedStandClubTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
-
-		playerAnimator->CreateAnimation(L"RedAttackClub_B", RedAttackClubTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadClub_B", RedDeadClubTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseClub_B", RedDefenseClubTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtClub_B", RedHurtClubTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunClub_B", RedRunClubTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandClub_B", RedStandClubTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
-
-
-		playerAnimator->CreateAnimation(L"RedAttackClub_RB", RedAttackClubTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadClub_RB", RedDeadClubTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseClub_RB", RedDefenseClubTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtClub_RB", RedHurtClubTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunClub_RB", RedRunClubTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandClub_RB", RedStandClubTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
-
-
-		playerAnimator->CreateAnimation(L"RedAttackClub_R", RedAttackClubTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadClub_R", RedDeadClubTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseClub_R", RedDefenseClubTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtClub_R", RedHurtClubTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunClub_R", RedRunClubTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandClub_R", RedStandClubTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
-
-
-		playerAnimator->CreateAnimation(L"RedAttackClub_RF", RedAttackClubTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadClub_RF", RedDeadClubTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseClub_RF", RedDefenseClubTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtClub_RF", RedHurtClubTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunClub_RF", RedRunClubTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandClub_RF", RedStandClubTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
 		//RedHatchat
 		playerAnimator = new Animator();
@@ -2749,116 +2741,116 @@ namespace pr
 
 		//애니메이션 만들기
 		//앞
-		playerAnimator->CreateAnimation(L"RedAttackHatchat_F", RedAttackHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadHatchat_F", RedDeadHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseHatchat_F", RedDefenseHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtHatchat_F", RedHurtHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunHatchat_F", RedRunHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandHatchat_F", RedStandHatchatTex
-			, Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Attack_F", RedAttackHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Dead_F", RedDeadHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Defense_F", RedDefenseHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Hurt_F", RedHurtHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Run_F", RedRunHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Idle_F", RedStandHatchatTex,
+			Vector2(0.0f, 0.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		//좌앞
-		playerAnimator->CreateAnimation(L"RedAttackHatchat_LF", RedAttackHatchatTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadHatchat_LF", RedDeadHatchatTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseHatchat_LF", RedDefenseHatchatTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtHatchat_LF", RedHurtHatchatTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunHatchat_LF", RedRunHatchatTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandHatchat_LF", RedStandHatchatTex
-			, Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		// 좌앞
+		playerAnimator->CreateAnimation(L"RedHatchat_Attack_LF", RedAttackHatchatTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Dead_LF", RedDeadHatchatTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Defense_LF", RedDefenseHatchatTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Hurt_LF", RedHurtHatchatTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Run_LF", RedRunHatchatTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Idle_LF", RedStandHatchatTex,
+			Vector2(0.0f, 100.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		//좌
-		playerAnimator->CreateAnimation(L"RedAttackHatchat_L", RedAttackHatchatTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadHatchat_L", RedDeadHatchatTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseHatchat_L", RedDefenseHatchatTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtHatchat_L", RedHurtHatchatTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunHatchat_L", RedRunHatchatTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandHatchat_L", RedStandHatchatTex
-			, Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		// 좌
+		playerAnimator->CreateAnimation(L"RedHatchat_Attack_L", RedAttackHatchatTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Dead_L", RedDeadHatchatTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Defense_L", RedDefenseHatchatTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Hurt_L", RedHurtHatchatTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Run_L", RedRunHatchatTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Idle_L", RedStandHatchatTex,
+			Vector2(0.0f, 200.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		//좌뒤
-		playerAnimator->CreateAnimation(L"RedAttackHatchat_LB", RedAttackHatchatTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadHatchat_LB", RedDeadHatchatTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseHatchat_LB", RedDefenseHatchatTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtHatchat_LB", RedHurtHatchatTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunHatchat_LB", RedRunHatchatTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandHatchat_LB", RedStandHatchatTex
-			, Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		// 좌뒤
+		playerAnimator->CreateAnimation(L"RedHatchat_Attack_LB", RedAttackHatchatTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Dead_LB", RedDeadHatchatTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Defense_LB", RedDefenseHatchatTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Hurt_LB", RedHurtHatchatTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Run_LB", RedRunHatchatTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Idle_LB", RedStandHatchatTex,
+			Vector2(0.0f, 300.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		//뒤
-		playerAnimator->CreateAnimation(L"RedAttackHatchat_B", RedAttackHatchatTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadHatchat_B", RedDeadHatchatTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseHatchat_B", RedDefenseHatchatTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtHatchat_B", RedHurtHatchatTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunHatchat_B", RedRunHatchatTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandHatchat_B", RedStandHatchatTex
-			, Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		// 뒤
+		playerAnimator->CreateAnimation(L"RedHatchat_Attack_B", RedAttackHatchatTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Dead_B", RedDeadHatchatTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Defense_B", RedDefenseHatchatTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Hurt_B", RedHurtHatchatTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Run_B", RedRunHatchatTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Idle_B", RedStandHatchatTex,
+			Vector2(0.0f, 400.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		//우뒤
-		playerAnimator->CreateAnimation(L"RedAttackHatchat_RB", RedAttackHatchatTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadHatchat_RB", RedDeadHatchatTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseHatchat_RB", RedDefenseHatchatTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtHatchat_RB", RedHurtHatchatTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunHatchat_RB", RedRunHatchatTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandHatchat_RB", RedStandHatchatTex
-			, Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		// 우뒤
+		playerAnimator->CreateAnimation(L"RedHatchat_Attack_RB", RedAttackHatchatTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Dead_RB", RedDeadHatchatTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Defense_RB", RedDefenseHatchatTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Hurt_RB", RedHurtHatchatTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Run_RB", RedRunHatchatTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Idle_RB", RedStandHatchatTex,
+			Vector2(0.0f, 500.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		//우
-		playerAnimator->CreateAnimation(L"RedAttackHatchat_R", RedAttackHatchatTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadHatchat_R", RedDeadHatchatTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseHatchat_R", RedDefenseHatchatTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtHatchat_R", RedHurtHatchatTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunHatchat_R", RedRunHatchatTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandHatchat_R", RedStandHatchatTex
-			, Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		// 우
+		playerAnimator->CreateAnimation(L"RedHatchat_Attack_R", RedAttackHatchatTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Dead_R", RedDeadHatchatTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Defense_R", RedDefenseHatchatTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Hurt_R", RedHurtHatchatTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Run_R", RedRunHatchatTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Idle_R", RedStandHatchatTex,
+			Vector2(0.0f, 600.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
 
-		//우앞
-		playerAnimator->CreateAnimation(L"RedAttackHatchat_RF", RedAttackHatchatTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDeadHatchat_RF", RedDeadHatchatTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedDefenseHatchat_RF", RedDefenseHatchatTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedHurtHatchat_RF", RedHurtHatchatTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
-		playerAnimator->CreateAnimation(L"RedRunHatchat_RF", RedRunHatchatTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
-		playerAnimator->CreateAnimation(L"RedStandHatchat_RF", RedStandHatchatTex
-			, Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+		// 우앞
+		playerAnimator->CreateAnimation(L"RedHatchat_Attack_RF", RedAttackHatchatTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 12, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Dead_RF", RedDeadHatchatTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Defense_RF", RedDefenseHatchatTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Hurt_RF", RedHurtHatchatTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 2, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Run_RF", RedRunHatchatTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 6, 0.2f);
+		playerAnimator->CreateAnimation(L"RedHatchat_Idle_RF", RedStandHatchatTex,
+			Vector2(0.0f, 700.0f), Vector2(100.0f, 100.0f), Vector2::Zero, 4, 0.2f);
+
 	}
-
 }

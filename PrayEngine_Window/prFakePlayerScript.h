@@ -12,7 +12,7 @@ namespace pr
 		enum class eState
 		{
 			Idle,
-			Walk,
+			Run,
 			Cry,
 			Angry,
 			Happy,
@@ -57,6 +57,8 @@ namespace pr
 		void PlayWalkAnimationBydirection(eDirection dir);
 		void translate(Transform* tr);
 		void nextBehaviour();
+		std::wstring StateToWstring(eState state);
+		std::wstring DirToWstring(eDirection dir);
 
 	private:
 		eState mState;

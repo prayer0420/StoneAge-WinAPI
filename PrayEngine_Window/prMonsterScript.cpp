@@ -33,7 +33,7 @@ void pr::MonsterScript::Update()
 	case pr::MonsterScript::eState::Idle:
 		idle();
 		break;
-	case pr::MonsterScript::eState::Walk:
+	case pr::MonsterScript::eState::Run:
 		walk();
 		break;
 	case pr::MonsterScript::eState::Attack:
@@ -74,7 +74,7 @@ void pr::MonsterScript::walk()
 	mTime += Time::DeltaTime();
 	int direction = rand() % 8;
 	mDirection = (eDirection)direction;
-	PlayWalkAnimationBydirection(mDirection);
+	PlayAnimationByStateAndDirection(mDirection);
 
 	Transform* tr = GetOwner()->GetComponent<Transform>();
 	translate(tr);
@@ -116,7 +116,7 @@ void pr::MonsterScript::RandomBehaviour()
 	}
 	else if ((UINT)mState == 1)
 	{
-		mState = eState::Walk;
+		mState = eState::Run;
 	}
 
 	//else
@@ -125,7 +125,7 @@ void pr::MonsterScript::RandomBehaviour()
 	//}
 }
 
-void pr::MonsterScript::PlayWalkAnimationBydirection(eDirection dir)
+void pr::MonsterScript::PlayAnimationByStateAndDirection(eDirection dir)
 {
 	std::wstring activeAnimationName = mAnimator->GetActiveAnimationName();
 	std::wstring name = activeAnimationName.substr(activeAnimationName.find(L"_") - 1);

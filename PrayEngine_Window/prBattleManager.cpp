@@ -36,7 +36,7 @@ namespace pr
 			BattleStateCheck();
 		}
 
-		//배틀 종료되면 마을씬으로 전환
+		//배틀 종료되면 마을씬으로 전환 
 		SceneManager::LoadScene(L"vilageScene");
 	}
 

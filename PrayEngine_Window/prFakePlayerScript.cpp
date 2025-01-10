@@ -31,7 +31,7 @@ void pr::FakePlayerScript::Update()
 	case pr::FakePlayerScript::eState::Idle:
 		idle();
 		break;
-	case pr::FakePlayerScript::eState::Walk:
+	case pr::FakePlayerScript::eState::Run:
 		walk();
 		break;
 	case pr::FakePlayerScript::eState::Cry:
@@ -62,10 +62,13 @@ void pr::FakePlayerScript::Render(HDC hdc)
 void pr::FakePlayerScript::idle()
 {
 	mTime += Time::DeltaTime();
-	if (mTime > 5.0f)
+	
+
+	if (mTime > 2.0f)
 	{
-		mTime = 0.0f;
 		nextBehaviour();
+		PlayWalkAnimationBydirection(mDirection);
+		mTime = 0.0f;
 	}
 
 }
@@ -73,17 +76,14 @@ void pr::FakePlayerScript::idle()
 void pr::FakePlayerScript::walk()
 {
 	mTime += Time::DeltaTime();
-	int direction = rand() % 8;
-	mDirection = (eDirection)direction;
-	PlayWalkAnimationBydirection(mDirection);
 
 	Transform* tr = GetOwner()->GetComponent<Transform>();
 	translate(tr);
-
-	if (mTime >= 0.5f)
+	if (mTime >= 2.0f)
 	{
-		mState = eState::Idle;
-		return;
+		nextBehaviour();
+		PlayWalkAnimationBydirection(mDirection);
+		mTime = 0.0f;
 	}
 }
 
@@ -120,6 +120,9 @@ void pr::FakePlayerScript::seat()
 
 void pr::FakePlayerScript::nextBehaviour()
 {
+	int direction = rand() % 7;
+	mDirection = (eDirection)direction;
+
 	mState = (eState)(rand() % 2);
 
 	if ((UINT)mState == 0)
@@ -128,7 +131,72 @@ void pr::FakePlayerScript::nextBehaviour()
 	}
 	else if ((UINT)mState == 1)
 	{
-		mState = eState::Walk;
+		mState = eState::Run;
+	}
+}
+
+std::wstring pr::FakePlayerScript::StateToWstring(eState state)
+{
+	switch (state)
+	{
+	case pr::FakePlayerScript::eState::Idle:
+		return L"_Idle";
+		break;
+	case pr::FakePlayerScript::eState::Run:
+		return L"_Run";
+		break;
+	case pr::FakePlayerScript::eState::Cry:
+		return L"_Cry";
+		break;
+	case pr::FakePlayerScript::eState::Angry:
+		return L"_Angry";
+		break;
+	case pr::FakePlayerScript::eState::Happy:
+		return L"_Happy";
+		break;
+	case pr::FakePlayerScript::eState::Hello:
+		return L"_Hello";
+		break;
+	case pr::FakePlayerScript::eState::Seat:
+		return L"_Seat";
+		break;
+	default:
+		assert(false);
+		break;
+	}
+}
+
+std::wstring pr::FakePlayerScript::DirToWstring(eDirection dir)
+{
+	switch (dir)
+	{
+	case pr::FakePlayerScript::eDirection::F:
+		return L"_F";
+		break;
+	case pr::FakePlayerScript::eDirection::LF:
+		return L"_LF";
+		break;
+	case pr::FakePlayerScript::eDirection::L:
+		return L"_L";
+		break;
+	case pr::FakePlayerScript::eDirection::LB:
+		return L"_LB";
+		break;
+	case pr::FakePlayerScript::eDirection::B:
+		return L"_B";
+		break;
+	case pr::FakePlayerScript::eDirection::RB:
+		return L"_RB";
+		break;
+	case pr::FakePlayerScript::eDirection::R:
+		return L"_R";
+		break;
+	case pr::FakePlayerScript::eDirection::RF:
+		return L"_RF";
+		break;
+	default:
+		assert(false);
+		break;
 	}
 }
 
@@ -136,33 +204,42 @@ void pr::FakePlayerScript::PlayWalkAnimationBydirection(eDirection dir)
 {
 
 	std::wstring activeAnimationName = mAnimator->GetActiveAnimationName();
-	std::wstring name = activeAnimationName.substr(activeAnimationName.find(L"_"));
+	std::wstring PlayerName = activeAnimationName.substr(0,activeAnimationName.find(L"_"));
+
+	std::wstring addStateName = StateToWstring(mState);
+	std::wstring addDirName = DirToWstring(mDirection);
 
 	switch (dir)
 	{
 	case pr::FakePlayerScript::eDirection::F:
-		GetOwner()->GetComponent<Animator>()->PlayAnimation(name + L"F", true);
+		mAnimator->PlayAnimation(PlayerName + addStateName + addDirName, true);
 		break;
+
 	case pr::FakePlayerScript::eDirection::LF:
-		GetOwner()->GetComponent<Animator>()->PlayAnimation(name + L"LF", true);
+		mAnimator->PlayAnimation(PlayerName + addStateName + addDirName, true);
 		break;
+
 	case pr::FakePlayerScript::eDirection::L:
-		GetOwner()->GetComponent<Animator>()->PlayAnimation(name + L"L", true);
+		mAnimator->PlayAnimation(PlayerName + addStateName + addDirName, true);
 		break;
+
 	case pr::FakePlayerScript::eDirection::LB:
-		GetOwner()->GetComponent<Animator>()->PlayAnimation(name + L"LB", true);
+		mAnimator->PlayAnimation(PlayerName + addStateName + addDirName, true);
 		break;
+
 	case pr::FakePlayerScript::eDirection::B:
-		GetOwner()->GetComponent<Animator>()->PlayAnimation(name + L"B", true);
+		mAnimator->PlayAnimation(PlayerName + addStateName + addDirName, true);
 		break;
+
 	case pr::FakePlayerScript::eDirection::RB:
-		GetOwner()->GetComponent<Animator>()->PlayAnimation(name + L"RB", true);
+		mAnimator->PlayAnimation(PlayerName + addStateName + addDirName, true);
 		break;
 	case pr::FakePlayerScript::eDirection::R:
-		GetOwner()->GetComponent<Animator>()->PlayAnimation(name + L"R", true);
+		mAnimator->PlayAnimation(PlayerName + addStateName + addDirName, true);
 		break;
+
 	case pr::FakePlayerScript::eDirection::RF:
-		GetOwner()->GetComponent<Animator>()->PlayAnimation(name + L"RF", true);
+		mAnimator->PlayAnimation(PlayerName + addStateName + addDirName, true);
 		break;
 	default:
 		assert(false);
@@ -175,15 +252,14 @@ void pr::FakePlayerScript::translate(Transform* tr)
 	const float speed = 100.0f;
 
 	Vector2 pos = tr->GetPosition();
-	pos.y += speed * Time::DeltaTime();
 
 	switch (mDirection)
 	{
 	case pr::FakePlayerScript::eDirection::F:
-		pos.y -= speed * Time::DeltaTime();
+		pos.y += speed * Time::DeltaTime();
 		break;
 	case pr::FakePlayerScript::eDirection::LF:
-		pos.y -= speed * Time::DeltaTime();
+		pos.y += speed * Time::DeltaTime();
 		pos.x -= speed * Time::DeltaTime();
 		break;
 	case pr::FakePlayerScript::eDirection::L:
@@ -191,21 +267,21 @@ void pr::FakePlayerScript::translate(Transform* tr)
 		break;
 	case pr::FakePlayerScript::eDirection::LB:
 		pos.x -= speed * Time::DeltaTime();
-		pos.y += speed * Time::DeltaTime();
+		pos.y -= speed * Time::DeltaTime();
 		break;
 	case pr::FakePlayerScript::eDirection::B:
-		pos.y += speed * Time::DeltaTime();
+		pos.y -= speed * Time::DeltaTime();
 		break;
 	case pr::FakePlayerScript::eDirection::RB:
 		pos.x += speed * Time::DeltaTime();
-		pos.y += speed * Time::DeltaTime();
+		pos.y -= speed * Time::DeltaTime();
 		break;
 	case pr::FakePlayerScript::eDirection::R:
 		pos.x += speed * Time::DeltaTime();
 		break;
 	case pr::FakePlayerScript::eDirection::RF:
 		pos.x += speed * Time::DeltaTime();
-		pos.y -= speed * Time::DeltaTime();
+		pos.y += speed * Time::DeltaTime();
 		break;
 	default:
 		assert(false);

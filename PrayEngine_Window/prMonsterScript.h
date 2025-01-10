@@ -12,7 +12,7 @@ namespace pr
 		enum class eState
 		{
 			Idle,
-			Walk,
+			Run,
 			Attack,
 			Dead,
 			Hurt,
@@ -52,7 +52,7 @@ namespace pr
 		void escape();
 
 		void RandomBehaviour();
-		void PlayWalkAnimationBydirection(eDirection dir);
+		void PlayAnimationByStateAndDirection(eDirection dir);
 		void translate(Transform* tr);
 
 	private:

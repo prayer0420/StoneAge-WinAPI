@@ -21,6 +21,20 @@ namespace pr
 			Escape
 		};
 
+		enum class eDirection
+		{
+			F,
+			LF,
+			L,
+			LB,
+			B,
+			RB,
+			R,
+			RF,
+		};
+
+
+
 		PlayerScript();
 		~PlayerScript();
 
@@ -29,7 +43,7 @@ namespace pr
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-
+		void PlayWalkAnimationBydirection();
 	private:
 
 		void idle();
@@ -47,6 +61,7 @@ namespace pr
 	private:
 		bool battling;
 		eState mState;
+		eDirection mDirection;
 		class Animator* mAnimator;
 	};
 }

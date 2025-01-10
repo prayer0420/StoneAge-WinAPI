@@ -30,26 +30,20 @@ namespace pr
 
 	void villageScene::Initialize()
 	{
+		LoadAnimation* loadAnimation;
+
 		//플레이어
 		GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(800, 200));
-
 		player->AddComponent<PlayerScript>();
 
-		graphics::Texture* BlueAttackHatchatTex = Resources::Find<graphics::Texture>(L"BlueAttackHatchat");
-		graphics::Texture* BlueDeadHatchatTex = Resources::Find<graphics::Texture>(L"BlueDeadHatchat");
-		graphics::Texture* BlueDefenseHatchatTex = Resources::Find<graphics::Texture>(L"BlueDefenseHatchat");
-		graphics::Texture* BlueHurtHatchatTex = Resources::Find<graphics::Texture>(L"BlueHurtHatchat");
-		graphics::Texture* BlueRunHatchatTex = Resources::Find<graphics::Texture>(L"BlueRunHatchat");
-		graphics::Texture* BlueStandHatchatTex = Resources::Find<graphics::Texture>(L"BlueStandHatchat");
+		auto PlayerIter = loadAnimation->mPlayerAnimators.find(L"RedBasic");
+		if (PlayerIter == loadAnimation->mPlayerAnimators.end())
+			assert(false);
 
-		GameObject* playerAssembly = object::Instantiate<Player>(enums::eLayerType::Player, Vector2::Zero);
-		Animator* playerAnimatorAssembly = playerAssembly->AddComponent<Animator>();
+		Animator* redBasicPlayerAnimator = PlayerIter->second;
 
-
-		////플레이어 에니메이터에 플레이어 애니메이터 모음을 넣음
-		Animator* playerAnimator = player->AddComponent(playerAnimatorAssembly);
-
-		playerAnimator->PlayAnimation(L"BlueAttackHatchat", true);
+		Animator* playerAnimator = player->AddComponent(redBasicPlayerAnimator);
+		playerAnimator->PlayAnimation(L"RedAttack_Basic_F", true);
 
 
 		//가짜 플레이어 6명
@@ -59,12 +53,9 @@ namespace pr
 			float randY = rand() % 900;
 			GameObject* player = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(randX, randY));
 			player->AddComponent<FakePlayerScript>();
-			player->AddComponent<Animator>();
+			//player->AddComponent<Animator>();
 			mPlayers.push_back(player);
 		}
-
-		LoadAnimation* loadAnimation;
-		
 
 		//가짜 플레이어 1번
 		auto iter = loadAnimation->mPlayerAnimators.find(L"RedBasic");
@@ -73,7 +64,7 @@ namespace pr
 
 		Animator* redBasicAnimator = iter->second;
 		Animator* fakePlayer1 = mPlayers[0]->AddComponent(redBasicAnimator);
-		fakePlayer1->PlayAnimation(L"RedStandBasic_F");
+		fakePlayer1->PlayAnimation(L"RedBasic_Idle_F");
 
 		//가짜 플레이어 2번
 		iter = loadAnimation->mPlayerAnimators.find(L"RedClub");
@@ -82,7 +73,7 @@ namespace pr
 
 		Animator* redClubAnimator = iter->second;
 		Animator* fakePlayer2 = mPlayers[1]->AddComponent(redClubAnimator);
-		fakePlayer2->PlayAnimation(L"RedStandClub_F");
+		fakePlayer2->PlayAnimation(L"RedClub_Idle_F");
 
 		//가짜 플레이어 3번
 		iter = loadAnimation->mPlayerAnimators.find(L"RedHatchat");
@@ -91,7 +82,7 @@ namespace pr
 
 		Animator* redHatchatAnimator = iter->second;
 		Animator* fakePlayer3 = mPlayers[2]->AddComponent(redHatchatAnimator);
-		fakePlayer3->PlayAnimation(L"RedStandHatchat_F");
+		fakePlayer3->PlayAnimation(L"RedHatchat_Idle_F");
 
 		//가짜 플레이어 4번
 		iter = loadAnimation->mPlayerAnimators.find(L"BlueBasic");
@@ -100,7 +91,7 @@ namespace pr
 
 		Animator* blueBasicAnimator = iter->second;
 		Animator* fakePlayer4 = mPlayers[3]->AddComponent(blueBasicAnimator);
-		fakePlayer4->PlayAnimation(L"BlueStandBasic_F");
+		fakePlayer4->PlayAnimation(L"BlueBasic_Idle_F");
 
 		//가짜 플레이어 5번
 		iter = loadAnimation->mPlayerAnimators.find(L"BlueClub");
@@ -109,7 +100,7 @@ namespace pr
 
 		Animator* blueClubAnimator = iter->second;
 		Animator* fakePlayer5 = mPlayers[4]->AddComponent(blueClubAnimator);
-		fakePlayer5->PlayAnimation(L"BlueStandClub_F");
+		fakePlayer5->PlayAnimation(L"BlueClub_Idle_F");
 
 		//가짜 플레이어 6번
 		iter = loadAnimation->mPlayerAnimators.find(L"BlueHatchat");
@@ -118,7 +109,7 @@ namespace pr
 
 		Animator* blueHatchatAnimator = iter->second;
 		Animator* fakePlayer6 = mPlayers[5]->AddComponent(blueHatchatAnimator);
-		fakePlayer6->PlayAnimation(L"BlueStandHatchat_F");
+		fakePlayer6->PlayAnimation(L"BlueHatchat_Idle_F");
 
 
 		//카메라

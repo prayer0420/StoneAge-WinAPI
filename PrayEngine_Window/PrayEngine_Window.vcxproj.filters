@@ -71,6 +71,7 @@
     <ClInclude Include="prMonsterScript.h" />
     <ClInclude Include="prFakePlayerScript.h" />
     <ClInclude Include="prLoadAnimation.h" />
+    <ClInclude Include="prBattleManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="prBeginnerDungeonScene.cpp">
@@ -124,6 +125,7 @@
     <ClCompile Include="prMonsterScript.cpp" />
     <ClCompile Include="prFakePlayerScript.cpp" />
     <ClCompile Include="prLoadAnimation.cpp" />
+    <ClCompile Include="prBattleManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
